@@ -1,17 +1,17 @@
 import React from "react";
-import { Text } from "../../components/Text";
+import { TypeText } from "../../components/TypeText";
 import "./home.sass";
 
 export const Home: React.FC = () => {
   return (
-    <main className="justify-center align-center">
+    <main className="justify-center align-center noselect">
       <section>
         <h1 className="main-text text-primary">
-          <Text text="Daniel" />
+          <TypeText text="Daniel" delay={1000} />
         </h1>
 
         <h2 className="thin secondary-text text-secondary">
-          <Text text="PROGRAMMER AND PROFESSIONAL GOOGLE SEARCHER" />
+          <TypeText text="PROGRAMMER AND PROFESSIONAL GOOGLE SEARCHER" delay={2800} />
         </h2>
       </section>
     </main>
