@@ -8,7 +8,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       sass: {
-          additionalData: '@use "/src/assets/sass/variables" as *\n'
+        additionalData: '@use "/src/assets/sass/variables" as *\n'
       }
     }
   },

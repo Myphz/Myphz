@@ -1,7 +1,12 @@
 import React from "react";
+import { Text } from "../components/Text";
+import "./../assets/sass/home.sass";
 
 export const Home: React.FC = () => {
   return (
-    <div>Test Home Page</div>
+    <>
+      <Text text="Daniel" />
+      <h2>PROGRAMMER AND PROFESSIONAL GOOGLE SEARCHER</h2>
+    </>
   );
 }
