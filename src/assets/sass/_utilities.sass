@@ -1,0 +1,23 @@
+@use "./variables" as *
+
+*
+  margin: 0
+  padding: 0
+
+// Font style
+@for $i from 1 through length($font-sizes)
+  .h#{$i}
+    font-size: nth($font-sizes, $i)
+
+  h#{$i}
+    font-size: nth($font-sizes, $i)
+
+.text
+  color: $text-color
+
+body
+  background-color: $bg-base
+  font-family: $font-base
+  color: $text-color
+  font-size: nth($font-sizes, 4)
+  margin: 0 16.66vw
