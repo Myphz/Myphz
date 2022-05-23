@@ -6,6 +6,6 @@ interface Props {
 
 export const Text: React.FC<Props> = ({ text }) => {
   return (
-    <h1>{ text }</h1>
+    <span>{ text }</span>
   );
 }

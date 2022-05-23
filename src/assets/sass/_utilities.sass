@@ -8,9 +8,38 @@
 @for $i from 1 through length($font-sizes)
   .h#{$i}
     font-size: nth($font-sizes, $i)
+    font-weight: inherit
 
   h#{$i}
     font-size: nth($font-sizes, $i)
+    font-weight: inherit
 
-.text
-  color: $text-color
+.thin
+  font-weight: 100
+
+.extralight
+  font-weight: 200
+
+.light
+  font-weight: 300
+
+.text-primary
+  color: $primary
+
+.text-secondary
+  color: $secondary
+
+.text-accent
+  color: $accent
+
+// Alignment
+.justify-center
+  display: flex
+  justify-content: center
+
+.align-center
+  display: flex
+  align-items: center
+
+.flex-column
+  flex-direction: column
