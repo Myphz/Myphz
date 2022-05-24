@@ -3,10 +3,11 @@ import "./typetext.sass";
 
 interface Props {
   text: string,
-  delay: number
+  delay: number,
+  speed: number
 };
 
-export const TypeText: React.FC<Props> = ({ text, delay }) => {
+export const TypeText: React.FC<Props> = ({ text, delay, speed }) => {
   const span = useRef<HTMLSpanElement>(null);
   const [typingText, setTypingText] = useState("");
   let interval: number;
@@ -25,7 +26,7 @@ export const TypeText: React.FC<Props> = ({ text, delay }) => {
   // On mount hook
   useEffect(() => {
     setTimeout(() => {
-      interval = setInterval(addLetter, 120);
+      interval = setInterval(addLetter, speed);
       span.current?.classList?.add("blinking-animation");
     }, delay);
   }, []);
