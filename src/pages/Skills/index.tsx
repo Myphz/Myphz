@@ -1,14 +1,29 @@
-import React from "react";
+import React, { MouseEventHandler } from "react";
 import "./style.sass"
 
 export const Skills: React.FC = () => {
-  const languages = ["JavaScript", "Python", "Rust", "C", "TypeScript", "HTML", "SASS", "SQL"];
+  const logos = {
+    JavaScript: "https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black",
+    Python: "https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white",
+    Rust: "https://img.shields.io/badge/Rust-541100?style=for-the-badge&logo=rust&logoColor=white",
+    C: "https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white",
+    TypeScript: "https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white",
+    HTML: "https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white",
+    SASS: "https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white",
+    Vue: "https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vue.js&logoColor=4FC08D",
+    React: "https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB",
+    Express: "https://img.shields.io/badge/Express.js-404D59?style=for-the-badge",
+    Flask: "https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white",
+    NodeJS: "https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white",
+    MongoDB: "https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white",
+    Git: "https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"
+  }
 
   return (
     <main className="justify-center flex-column">
       <section className="skills-section">
         <section>
-          <h1 className="color-primary">Skills</h1>
+          <h1 className="color-primary font-title">Skills</h1>
           <p>
             I've been interested in computer science ever since I was a kid.
             Over the course of more than 4 years, I've worked and developed countless personal projects,
@@ -25,19 +40,32 @@ export const Skills: React.FC = () => {
           </p>
         </section>
         <section>
-          <h2 className="color-primary">Languages</h2>
-          <div style={{display: "flex"}} className="h4">
-            <ul className="skill-list">
-              {languages.slice(0,4).map(language => (
-                <li>{language}</li>
-              ))}
-            </ul>
-            <ul className="skill-list">
-              {languages.slice(4,8).map(language => (
-                <li>{language}</li>
-              ))}
-            </ul>
-          </div>
+          <h2 className="color-primary font-title">Languages & Technologies</h2>
+          <section className="skills">
+            <div>
+              <ul className="skill-list h4">
+                {Object.entries(logos).slice(0, 7).map(([language, img]) => (
+                  <li key={language}>
+                    <img src={img} alt={language} />
+                  </li>
+                ))}
+              </ul>
+
+              <ul className="skill-list h4">
+                {Object.entries(logos).slice(7).map(([language, img]) => (
+                  <li key={language}>
+                    <img src={img} alt={language} onMouseEnter={e => {
+                      const image = e.target as HTMLImageElement;
+                      image.style.animation = "tilt .5s";
+                    }} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <h5 style={{textAlign: "center"}}>And many more...</h5>
+
+          </section>
         </section>
       </section>
     </main>
