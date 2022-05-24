@@ -7,8 +7,8 @@ import { Layout } from "./components/Layout";
 const App: React.FC = () => {
   return (
     <>
-      <Layout />
       <BrowserRouter>
+        <Layout />
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>
