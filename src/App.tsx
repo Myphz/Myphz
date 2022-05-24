@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home } from "./pages/Home";
 import "./assets/sass/_utilities.sass";
 import { Layout } from "./components/Layout";
+import { Skills } from "./pages/Skills";
 
 const App: React.FC = () => {
   return (
@@ -11,6 +12,7 @@ const App: React.FC = () => {
         <Layout />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/skills" element={<Skills />} />
         </Routes>
       </BrowserRouter>
     </>
