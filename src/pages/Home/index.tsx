@@ -11,7 +11,13 @@ export const Home: React.FC = () => {
         </h1>
 
         <h2 className="thin secondary-text text-secondary">
-          <TypeText text="PROGRAMMER AND PROFESSIONAL GOOGLE SEARCHER" delay={2800} speed={60}  />
+          <TypeText
+            text="PROGRAMMER AND PROFESSIONAL GOOGLE SEARCHER"
+            delay={2800}
+            speed={60}
+            charDelete={27}
+            replace="WEB DEVELOPER"
+          />
         </h2>
       </section>
     </main>
