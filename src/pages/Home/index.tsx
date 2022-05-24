@@ -6,13 +6,13 @@ import "./home.sass";
 
 export const Home: React.FC = () => {
   return (
-    <main className="align-center noselect">
+    <main className="align-center">
       <section>
-        <h1 className="main-text color-primary">
+        <h1 className="main-text color-primary noselect">
           <TypeText text="Daniel" delay={1000} speed={120} blinkDelay={0} />
         </h1>
 
-        <h3 className="thin secondary-text color-secondary">
+        <h3 className="thin secondary-text color-secondary noselect">
           <TypeText
             text="PROGRAMMER AND PROFESSIONAL GOOGLE SEARCHER"
             delay={2800}
