@@ -2,11 +2,13 @@ import React from "react";
 import "./style.sass"
 
 export const Skills: React.FC = () => {
+  const languages = ["JavaScript", "Python", "Rust", "C", "TypeScript", "HTML", "SASS", "SQL"];
+
   return (
     <main className="justify-center flex-column">
-      <h1 className="color-primary">Skills</h1>
-      <section className="space-between skills-section">
+      <section className="skills-section">
         <section>
+          <h1 className="color-primary">Skills</h1>
           <p>
             I've been interested in computer science ever since I was a kid.
             Over the course of more than 4 years, I've worked and developed countless personal projects,
@@ -23,7 +25,19 @@ export const Skills: React.FC = () => {
           </p>
         </section>
         <section>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi iste eveniet architecto repellendus ad quia iure praesentium nihil voluptate eos doloremque, rerum corrupti exercitationem culpa accusantium. Nesciunt nemo maiores aut.
+          <h2 className="color-primary">Languages</h2>
+          <div style={{display: "flex"}} className="h4">
+            <ul className="skill-list">
+              {languages.slice(0,4).map(language => (
+                <li>{language}</li>
+              ))}
+            </ul>
+            <ul className="skill-list">
+              {languages.slice(4,8).map(language => (
+                <li>{language}</li>
+              ))}
+            </ul>
+          </div>
         </section>
       </section>
     </main>
