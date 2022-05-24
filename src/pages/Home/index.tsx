@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { Button } from "../../components/Button";
 import { TypeText } from "../../components/TypeText";
 import "./home.sass";
 
@@ -20,11 +22,15 @@ export const Home: React.FC = () => {
             replace="WEB DEVELOPER"
           />
         </h3>
-        <p className="h4 info">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Fusce sit amet massa sed tellus rutrum auctor. Vestibulum a bibendum erat.
-          Donec aliquet egestas nisl.
-        </p>
+        <section className="h4 info">
+          <p>
+            Self-taught programmer motivated by passion and personal projects.
+            Expert of searching bugs on Google and quickly scanning the best StackOverflow answers.
+          </p>
+          <Link to="/contact">
+            <Button>CONTACT ME</Button>
+          </Link>
+        </section>
       </section>
     </main>
   );
