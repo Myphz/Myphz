@@ -4,15 +4,34 @@
 
 .skills-main-text
   margin-bottom: 3em
+
   p
+    opacity: 0
+    transform: translateX(-5rem)
+    animation: slide-fade 1s ease .5s forwards
     margin-bottom: 1em
 
+.skills, .experiences
+  opacity: 0
+
 .skills
+  transform: translateX(-5rem)
+  animation: slide-fade 1s ease 2440ms forwards
+
   ul:first-of-type
     margin-right: 5em
 
   div:first-of-type
     display: flex
+
+.experiences
+  gap: 2em
+  transform: translateX(5rem)
+  animation: slide-fade 1s ease 2440ms forwards
+
+  & > *
+    flex: 1
+    width: 100%
 
 .skill-list
   list-style: none
@@ -29,10 +48,6 @@
   & > *
     max-width: 40%
 
-.experiences
-  gap: 2em
 
-  & > *
-    flex: 1
-    width: 100%
+
 

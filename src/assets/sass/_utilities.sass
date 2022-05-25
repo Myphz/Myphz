@@ -62,44 +62,7 @@
 .align-right
   text-align: right
 
-// Other
-.noselect
-  user-select: none
-  -webkit-tap-highlight-color: transparent
-  -webkit-touch-callout: none
-  &:hover
-    outline: none !important
-
-.container
-  background-color: $bg-secondary
-  width: max-content
-  max-width: 100%
-  position: relative
-  border: 1px solid transparent
-  padding: 1.5em
-  border-radius: .5em
-  transition: 0.2s all
-
-  &::before, &::after
-    position: absolute
-    content: ""
-    pointer-events: none
-    top: 0
-    left: 0
-    background: transparent
-    border: 2px solid transparent
-
-  &:hover
-    $anim-duration: 0.5s
-    transition-delay: $anim-duration
-    box-shadow: 0 0 1em $accent
-    &::before
-      animation: border-animation-before $anim-duration linear forwards
-
-    &::after
-      animation: border-animation-after $anim-duration linear forwards
-
-
+// Animation
 @keyframes border-animation-before
   0%
     height: 0
@@ -150,6 +113,48 @@
     border-right-color: transparent
     border-bottom-color: $accent
     border-left-color: $accent
+
+@keyframes slide-fade
+  to
+    opacity: 1
+    transform: translate(0, 0)
+
+// Other
+.noselect
+  user-select: none
+  -webkit-tap-highlight-color: transparent
+  -webkit-touch-callout: none
+  &:hover
+    outline: none !important
+
+.container
+  background-color: $bg-secondary
+  width: max-content
+  max-width: 100%
+  position: relative
+  border: 1px solid transparent
+  padding: 1.5em
+  border-radius: .5em
+  transition: 0.2s all
+
+  &::before, &::after
+    position: absolute
+    content: ""
+    pointer-events: none
+    top: 0
+    left: 0
+    background: transparent
+    border: 2px solid transparent
+
+  &:hover
+    $anim-duration: 0.5s
+    transition-delay: $anim-duration
+    box-shadow: 0 0 1em $accent
+    &::before
+      animation: border-animation-before $anim-duration linear forwards
+
+    &::after
+      animation: border-animation-after $anim-duration linear forwards
 
 // Resets
 a

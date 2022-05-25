@@ -1,4 +1,5 @@
 import React from "react";
+import { TypeText } from "../../components/TypeText";
 import "./style.sass"
 
 export const Skills: React.FC = () => {
@@ -23,7 +24,7 @@ export const Skills: React.FC = () => {
     <main className="justify-center flex-column">
       <section className="skills-sections">
         <section className="skills-main-text">
-          <h1 className="color-primary font-title">Skills</h1>
+          <h1 className="color-primary font-title"><TypeText text="Skills" delay={0} speed={60} blinkDelay={0} /></h1>
           <p>
             I've been interested in computer science ever since I was a kid.
             Over the course of more than 4 years, I've worked and developed countless personal projects,
@@ -42,7 +43,7 @@ export const Skills: React.FC = () => {
 
         <section className="space-between language-experiences-sections">
           <section className="flex-column">
-            <h2 className="color-primary font-title">Languages & Technologies</h2>
+            <h2 className="color-primary font-title"><TypeText text="Languages & Technologies" delay={1000} speed={60} blinkDelay={700} /></h2>
 
             <div className="container skills flex-1">
               <div>
@@ -69,7 +70,7 @@ export const Skills: React.FC = () => {
           </section>
 
           <section className="flex-column">
-            <h2 className="color-primary font-title">Work Experiences</h2>
+            <h2 className="color-primary font-title"><TypeText text="Work experiences" delay={1000} speed={60} blinkDelay={700} /></h2>
 
             <div className="experiences flex-column flex-1">
               <section className="container flex-column">
