@@ -3,6 +3,7 @@
 *, *:before, *:after
   margin: 0
   padding: 0
+  box-sizing: border-box
 
 // Font style
 @for $i from 1 through length($font-sizes)
@@ -52,7 +53,11 @@
   justify-content: space-between
 
 .flex-column
+  display: flex
   flex-direction: column
+
+.flex-1
+  flex: 1
 
 .align-right
   text-align: right
@@ -68,6 +73,7 @@
 .container
   background-color: $bg-secondary
   width: max-content
+  max-width: 100%
   position: relative
   border: 1px solid transparent
   padding: 1.5em
@@ -75,23 +81,23 @@
   transition: 0.2s all
 
   &::before, &::after
-    content: ""
     position: absolute
-    top: -2px
-    left: -2px
-    width: 0
-    height: 0
+    content: ""
+    pointer-events: none
+    top: 0
+    left: 0
     background: transparent
     border: 2px solid transparent
 
   &:hover
-    transition-delay: 0.5s
+    $anim-duration: 0.5s
+    transition-delay: $anim-duration
     box-shadow: 0 0 1em $accent
     &::before
-      animation: border-animation-before .5s linear forwards
+      animation: border-animation-before $anim-duration linear forwards
 
     &::after
-      animation: border-animation-after .5s linear forwards
+      animation: border-animation-after $anim-duration linear forwards
 
 
 @keyframes border-animation-before

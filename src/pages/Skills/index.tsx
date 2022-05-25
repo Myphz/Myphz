@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from "react";
+import React from "react";
 import "./style.sass"
 
 export const Skills: React.FC = () => {
@@ -21,8 +21,8 @@ export const Skills: React.FC = () => {
 
   return (
     <main className="justify-center flex-column">
-      <section className="skills-section">
-        <section>
+      <section className="skills-sections">
+        <section className="skills-main-text">
           <h1 className="color-primary font-title">Skills</h1>
           <p>
             I've been interested in computer science ever since I was a kid.
@@ -35,34 +35,61 @@ export const Skills: React.FC = () => {
           </p>
           <p>
             I like to test myself, I am constantly looking for intriguing challenges and
-            opportunities to improve and further improve my skills. That's why I've learnt almost everything by myself.
-            Thanks to this experience, I'm able to easily learn and adapt to new technologies quickly and autonomously.
+            opportunities to improve and further hone my skills. That's why I've learnt almost everything by myself.
+            Thanks to this experience, I'm easily able to learn and adapt to new technologies quickly and autonomously.
           </p>
         </section>
-        <section>
-          <h2 className="color-primary font-title">Languages & Technologies</h2>
-          <section className="skills container">
-            <div>
-              <ul className="skill-list h4">
-                {Object.entries(logos).slice(0, 7).map(([language, img]) => (
-                  <li key={language}>
-                    <img src={img} alt={language} />
-                  </li>
-                ))}
-              </ul>
 
-              <ul className="skill-list h4">
-                {Object.entries(logos).slice(7).map(([language, img]) => (
-                  <li key={language}>
-                    <img src={img} alt={language} />
-                  </li>
-                ))}
-              </ul>
+        <section className="space-between language-experiences-sections">
+          <section className="flex-column">
+            <h2 className="color-primary font-title">Languages & Technologies</h2>
+
+            <div className="container skills flex-1">
+              <div>
+                <ul className="skill-list h4">
+                  {Object.entries(logos).slice(0, 7).map(([language, img]) => (
+                    <li key={language}>
+                      <img src={img} alt={language} />
+                    </li>
+                  ))}
+                </ul>
+
+                <ul className="skill-list h4">
+                  {Object.entries(logos).slice(7).map(([language, img]) => (
+                    <li key={language}>
+                      <img src={img} alt={language} />
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <h5 style={{textAlign: "center"}}>And many more...</h5>
             </div>
 
-            <h5 style={{textAlign: "center"}}>And many more...</h5>
-
           </section>
+
+          <section className="flex-column">
+            <h2 className="color-primary font-title">Work Experiences</h2>
+
+            <div className="experiences flex-column flex-1">
+              <section className="container flex-column">
+                <h3 className="color-accent font-title">Fullstack Developer</h3>
+                <p className="flex-1 align-center">
+                  Web developer for PianoBit, developing back-end servers using Moleculer and front-end applications with Vue,
+                  integrated with a MongoDB database
+                </p>
+              </section>
+
+              <section className="container flex-column">
+                <h3 className="color-accent font-title">Freelancer</h3>
+                <p className="flex-1 align-center">
+                  I’ve worked for hundreds of clients as a freelancer in many
+                  different fields of programming, from GUI development to Machine Learning & AI
+                </p>
+              </section>
+            </div>
+          </section>
+
         </section>
       </section>
     </main>
