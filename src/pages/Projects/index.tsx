@@ -18,8 +18,12 @@ export const Projects: React.FC = () => {
   };
 
   useEffect(() => {
-    document.onmousemove = ({ pageX, pageY }) => setFontWeight(pageX, pageY);
-  })
+    document.onmousemove = ({ pageX, pageY }) => {
+      setFontWeight(pageX, pageY);
+    }
+    // Cleanup function
+    return () => { document.onmousemove = null };
+  }, []);
 
   return (
     <main className="justify-center flex-column">
