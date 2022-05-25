@@ -70,7 +70,7 @@ export const Skills: React.FC = () => {
           </section>
 
           <section className="flex-column">
-            <h2 className="color-primary font-title"><TypeText text="Work experiences" delay={1000} speed={60} blinkDelay={700} /></h2>
+            <h2 className="color-primary font-title"><TypeText text="Work experiences" delay={1000} speed={90} blinkDelay={700} /></h2>
 
             <div className="experiences flex-column flex-1">
               <section className="container flex-column">
