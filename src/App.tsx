@@ -4,6 +4,7 @@ import { Home } from "./pages/Home";
 import "./assets/sass/_utilities.sass";
 import { Layout } from "./components/Layout";
 import { Skills } from "./pages/Skills";
+import { Projects } from "./pages/Projects";
 
 const App: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/skills" element={<Skills />} />
+          <Route path="/projects" element={<Projects />} />
         </Routes>
       </BrowserRouter>
     </>
