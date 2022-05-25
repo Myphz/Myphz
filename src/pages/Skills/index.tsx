@@ -41,7 +41,7 @@ export const Skills: React.FC = () => {
         </section>
         <section>
           <h2 className="color-primary font-title">Languages & Technologies</h2>
-          <section className="skills">
+          <section className="skills container">
             <div>
               <ul className="skill-list h4">
                 {Object.entries(logos).slice(0, 7).map(([language, img]) => (
@@ -54,10 +54,7 @@ export const Skills: React.FC = () => {
               <ul className="skill-list h4">
                 {Object.entries(logos).slice(7).map(([language, img]) => (
                   <li key={language}>
-                    <img src={img} alt={language} onMouseEnter={e => {
-                      const image = e.target as HTMLImageElement;
-                      image.style.animation = "tilt .5s";
-                    }} />
+                    <img src={img} alt={language} />
                   </li>
                 ))}
               </ul>
