@@ -8,17 +8,32 @@
   margin-top: 2em
   width: 50%
 
+  div
+    position: relative
+    margin-bottom: 1em
+
   input, textarea
-    display: block
     width: 100%
     background-color: $bg-secondary
     border: none
     outline: none
-    margin-bottom: 1em
     padding: .5em
 
     &::placeholder
       color: darken($text-secondary, 30%)
+
+    &:focus + .focus-border
+      transition: 0.25s all
+      width: 100%
+
+  .focus-border
+    position: absolute
+    bottom: 0
+    left: 0
+    width: 0
+    height: 1px
+    background-color: $accent
+    transition: 0.25s all
 
   textarea
     min-height: 30vh

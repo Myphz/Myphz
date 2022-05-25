@@ -13,9 +13,20 @@ export const Contact: React.FC = () => {
         <h4>My inbox is always open for new opportunities.<br />
         Feel free to contact me for any inquiries you may have!</h4>
         <form className="input-form h4">
-          <input type="text" placeholder="Email" autoComplete="email" spellCheck="false" autoCapitalize="none" />
-          <input type="text" placeholder="Subject" spellCheck="false" autoCapitalize="none" />
-          <textarea placeholder="Message" />
+          <div>
+            <input type="text" placeholder="Email" autoComplete="email" spellCheck="false" autoCapitalize="none" />
+            <span className="focus-border"></span>
+          </div>
+          <div>
+            <input type="text" placeholder="Subject" spellCheck="false" autoCapitalize="none" />
+            <span className="focus-border"></span>
+          </div>
+
+          <div>
+            <textarea placeholder="Message" />
+            <span className="focus-border"></span>
+          </div>
+
           <Button submit>Send Message</Button>
         </form>
       </section>
