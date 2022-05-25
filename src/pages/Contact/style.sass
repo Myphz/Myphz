@@ -1,0 +1,28 @@
+.input-section
+  margin-top: 2em
+  opacity: 0
+  transform: translateY(5rem)
+  animation: slide-fade 1s ease .7s forwards
+
+.input-form
+  margin-top: 2em
+  width: 50%
+
+  input, textarea
+    display: block
+    width: 100%
+    background-color: $bg-secondary
+    border: none
+    outline: none
+    margin-bottom: 1em
+    padding: .5em
+
+    &::placeholder
+      color: darken($text-secondary, 30%)
+
+  textarea
+    min-height: 30vh
+    resize: vertical
+
+  button
+    float: right
