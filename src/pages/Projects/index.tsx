@@ -31,19 +31,35 @@ export const Projects: React.FC = () => {
         </h1>
         <h5 className="color-secondary">- Linus Torvalds</h5>
       </section>
-      <h4>For more details, visit my GitHub profile</h4>
-      <section className="containers">
+      <h4>For more details, visit <a className="a-link" href="https://github.com/Myphz" target="_blank">my GitHub profile</a></h4>
+      <section className="containers space-between">
         <div className="container flex-column">
-          <h3>wwwallet</h3>
-          <p className="flex-1 align-center">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, magni. Eaque consequuntur sequi, deleniti quod nisi fuga minus consequatur velit vitae cupiditate asperiores culpa impedit at dicta, voluptatem, aliquam aspernatur.
-          </p>
+          <a className="flex-column flex-1" href="https://wwwallet.app" target="_blank">
+            <span className="align-center">
+              <img src="/images/wwwallet.png"/>
+              <h3 className="wwwallet">wwwallet</h3>
+            </span>
+            <p className="flex-1 align-center">
+              Cryptocurrency managing web and mobile
+              application to calculate and
+              display many useful statistics,
+              updated real-time with several charts
+              and visualizations.
+            </p>
+          </a>
         </div>
         <div className="container flex-column">
-          <h3>wwwallet</h3>
-          <p className="flex-1 align-center">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, magni. Eaque consequuntur sequi, deleniti quod nisi fuga minus consequatur velit
-          </p>
+          <a className="flex-column flex-1" href="https://sortvisualizer.com" target="_blank">
+            <span className="align-center">
+              <img src="/images/sortvisualizer.png"/>
+              <h3 className="sortvisualizer">SORT VISUALIZER</h3>
+            </span>
+            <p className="flex-1 align-center">
+              Web application designed to better
+              understand sorting algorithms by
+              displaying and visualizing them. Built entirely with vanilla JavaScript, HTML and CSS
+            </p>
+          </a>
         </div>
       </section>
     </main>

@@ -13,10 +13,38 @@
     letter-spacing: .1em
 
 .containers
-  display: flex
   margin-top: 1em
-  gap: 5em
 
   .container
-    width: 50%
-    cursor: pointer
+    width: 40%
+
+    img
+      height: 3rem
+      margin-right: 1em
+
+    span
+      margin-bottom: .5em
+
+  .wwwallet
+    color: #DCECFF
+    font-family: "Rambla", sans-serif
+
+  .sortvisualizer
+    color: #D2803D
+    font-family: "Jura", sans-serif
+
+.a-link
+  color: $accent
+  display: inline-block
+
+  &::after
+    content: ""
+    width: 0
+    height: 1px
+    display: block
+    background: $accent
+    transition: 0.25s
+
+  &:hover
+    &::after
+      width: 100%
