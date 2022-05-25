@@ -43,7 +43,7 @@ export const Skills: React.FC = () => {
 
         <section className="space-between language-experiences-sections">
           <section className="flex-column">
-            <h2 className="color-primary font-title"><TypeText text="Languages & Technologies" delay={1200} speed={60} blinkDelay={900} /></h2>
+            <h2 className="color-primary font-title"><TypeText text="Technologies" delay={1200} speed={80} blinkDelay={900} /></h2>
 
             <div className="container skills flex-1">
               <div>
@@ -70,7 +70,7 @@ export const Skills: React.FC = () => {
           </section>
 
           <section className="flex-column">
-            <h2 className="color-primary font-title"><TypeText text="Work experiences" delay={1200} speed={90} blinkDelay={900} /></h2>
+            <h2 className="color-primary font-title"><TypeText text="Work experiences" delay={1200} speed={60} blinkDelay={900} /></h2>
 
             <div className="experiences flex-column flex-1">
               <section className="container flex-column">
