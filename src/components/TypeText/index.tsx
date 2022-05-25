@@ -7,10 +7,11 @@ interface Props {
   speed: number,
   blinkDelay: number,
   charDelete?: number,
-  replace?: string
+  replace?: string,
+  singleLetterSpan?: boolean
 };
 
-export const TypeText: React.FC<Props> = ({ text, delay, speed, blinkDelay, charDelete, replace }) => {
+export const TypeText: React.FC<Props> = ({ text, delay, speed, blinkDelay, charDelete, replace, singleLetterSpan }) => {
   const span = useRef<HTMLSpanElement>(null);
   const [typingText, setTypingText] = useState("");
   let interval: number;
@@ -29,7 +30,7 @@ export const TypeText: React.FC<Props> = ({ text, delay, speed, blinkDelay, char
   // Add the letter at index i of the parameter to typingText. Stop if done
   function addLetter(text: string): void {
     const letter = text[i];
-    setTypingText(typingText => typingText + letter);
+    setTypingText(typingText => typingText + (singleLetterSpan ? `<span>${letter}</span>` : letter));
     if (i === text.length-1) {
       clearInterval(interval);
       if (!charDelete) return removeBlinking();
@@ -41,7 +42,7 @@ export const TypeText: React.FC<Props> = ({ text, delay, speed, blinkDelay, char
 
   // Delete 1 letter from the right of typingText. Stop after deleting charDelete characters
   function deleteLetter(): void {
-    setTypingText(typingText => typingText.slice(0, --i));
+    setTypingText(typingText => singleLetterSpan ? typingText.slice(0, --i*14) : typingText.slice(0, --i));
     if (text.length - i === charDelete) {
       clearInterval(interval);
       if (!replace) return removeBlinking();
@@ -63,6 +64,12 @@ export const TypeText: React.FC<Props> = ({ text, delay, speed, blinkDelay, char
   }, []);
 
   return (
-    <span className="blinking-text" ref={span}>{ typingText }</span>
+    <>
+      {
+        singleLetterSpan
+        ? <span className="blinking-text" ref={span} dangerouslySetInnerHTML={{ __html: typingText}}></span>
+        : <span className="blinking-text" ref={span}>{ typingText }</span>
+      }
+    </>
   );
 }
