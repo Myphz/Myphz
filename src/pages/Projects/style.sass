@@ -4,19 +4,30 @@
     margin: .5em 0
     line-height: 1em
 
-  h5
+  h5, h6
     opacity: 0
     transform: translateX(-5rem)
+
+  h5
     animation: slide-fade 1s ease 4540ms forwards
 
   h6
     letter-spacing: .1em
+    animation: slide-fade 200ms ease forwards
 
 .containers
   margin-top: 1em
 
   .container
     width: 40%
+    opacity: 0
+    transform: translateY(5rem)
+
+    &:first-of-type
+      animation: slide-fade 1s ease 6s forwards
+
+    &:last-of-type
+      animation: slide-fade 1s ease 6.2s forwards
 
     img
       height: 3rem
@@ -33,6 +44,11 @@
     color: #D2803D
     font-family: "Jura", sans-serif
 
+.details
+  opacity: 0
+  transform: translateX(-5rem)
+  animation: slide-fade 1s ease 5.5s forwards
+
 .a-link
   color: $accent
   display: inline-block
@@ -48,3 +64,4 @@
   &:hover
     &::after
       width: 100%
+

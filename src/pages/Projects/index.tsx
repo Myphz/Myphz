@@ -26,12 +26,12 @@ export const Projects: React.FC = () => {
       <section className="talk-cheap noselect">
         <h6 className="color-secondary">HOVER IT</h6>
         <h1 className="color-primary font-title talk-cheap" ref={mainText}>
-          <TypeText text='“TALK IS CHEAP.' delay={200} speed={120} blinkDelay={50} singleLetterSpan /><br />
-          <TypeText text='SHOW ME THE CODE”' delay={2500} speed={120} blinkDelay={2200} singleLetterSpan />
+          <TypeText text='“TALK IS CHEAP.' delay={200} speed={100} blinkDelay={50} singleLetterSpan /><br />
+          <TypeText text='SHOW ME THE CODE”' delay={2500} speed={100} blinkDelay={2200} singleLetterSpan />
         </h1>
         <h5 className="color-secondary">- Linus Torvalds</h5>
       </section>
-      <h4>For more details, visit <a className="a-link" href="https://github.com/Myphz" target="_blank">my GitHub profile</a></h4>
+      <h4 className="details">For more details, visit <a className="a-link" href="https://github.com/Myphz" target="_blank">my GitHub profile</a></h4>
       <section className="containers space-between">
         <div className="container flex-column">
           <a className="flex-column flex-1" href="https://wwwallet.app" target="_blank">

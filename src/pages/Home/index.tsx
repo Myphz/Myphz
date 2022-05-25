@@ -9,14 +9,14 @@ export const Home: React.FC = () => {
     <main className="align-center">
       <section>
         <h1 className="main-text font-title color-primary noselect">
-          <TypeText text="Daniel" delay={1000} speed={120} blinkDelay={0} />
+          <TypeText text="Daniel" delay={1000} speed={100} blinkDelay={0} />
         </h1>
 
         <h3 className="thin secondary-text color-secondary noselect">
           <TypeText
             text="PROGRAMMER AND PROFESSIONAL GOOGLE SEARCHER"
             delay={2800}
-            speed={100}
+            speed={80}
             blinkDelay={2300}
             charDelete={27}
             replace="WEB DEVELOPER"
