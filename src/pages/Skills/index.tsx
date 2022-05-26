@@ -64,7 +64,7 @@ export const Skills: React.FC = () => {
                 </ul>
               </div>
 
-              <h5 style={{textAlign: "center", display: "block"}}>And many more...</h5>
+              <h5 style={{textAlign: "center", display: "block", width: "100%"}}>And many more...</h5>
             </div>
 
           </section>

@@ -10,8 +10,11 @@ export const Contact: React.FC = () => {
         <TypeText text="Contact" delay={200} speed={100} blinkDelay={50} />
       </h1>
       <section className="input-section">
-        <h4 className="block no-trail">My inbox is always open for new opportunities.<br />
-        Feel free to contact me for any inquiries you may have!</h4>
+        <h4 className="block no-trail">
+          My inbox is always open for new opportunities.<br />
+          Feel free to contact me for any inquiries you may have!<br />
+          Alternatively, you can send an email to <a href="mailto:danielscanu45@outlook.it" className="a-link">danielscanu45@outlook.it</a>
+        </h4>
         <form className="input-form h4">
           <div>
             <input type="text" placeholder="Email" autoComplete="email" spellCheck="false" autoCapitalize="none" />
