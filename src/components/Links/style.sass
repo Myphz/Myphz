@@ -1,11 +1,17 @@
 .links-aside
-  position: relative
-  left: 10vw
+  position: fixed
+  width: 100%
+  height: 5vh
+  background-color: $bg-base
+  z-index: 3
+
+  @media (max-width: $phone-max-width)
+    height: 10vh
 
 .navbar
-  position: absolute
+  position: fixed
   margin-top: 1em
-  top: 2.5%
+  top: 0
   right: 16.66vw
 
   ol
@@ -15,6 +21,9 @@
     li
       letter-spacing: .1em
       transition: all 0.25s ease-in
+      opacity: 0
+      transform: translateY(-5rem)
+      animation: slide-fade .5s ease calc(var(--order) * .1s) forwards
 
       &::marker
         color: $accent
@@ -26,7 +35,7 @@
     width: 36px
     height: 36px
     z-index: 2
-    left: 0
+    left: 10vw
     background-image: url("/icons/menu.svg")
 
     ol

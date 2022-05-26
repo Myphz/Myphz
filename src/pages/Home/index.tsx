@@ -7,7 +7,7 @@ export const Home: React.FC = () => {
   return (
     <main className="align-center">
       <section>
-        <h1 className="main-text font-title color-primary no-trail block">
+        <h1 className="main-text font-title color-primary no-trail block" id="about">
           <TypeText text="Daniel" delay={1000} speed={100} blinkDelay={0} />
         </h1>
 

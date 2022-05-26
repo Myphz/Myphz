@@ -21,7 +21,7 @@ export const Skills: React.FC = () => {
   }
 
   return (
-    <main className="justify-center flex-column skills-main">
+    <main className="justify-center flex-column skills-main" id="skills">
       <section className="skills-sections">
         <section className="skills-main-text">
           <h1 className="color-primary font-title no-trail"><TypeText text="Skills" delay={200} speed={60} blinkDelay={150} /></h1>
