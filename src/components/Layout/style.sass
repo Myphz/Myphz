@@ -6,8 +6,14 @@ body
   font-size: nth($font-sizes, 5)
   margin: 0 16.66vw
 
+  @media (max-width: $phone-max-width)
+    margin: 0 10vw
+    overflow-x: hidden
+
+
 html, body, #root, main
   height: 100%
+  max-width: 100%
 
 canvas
   position: fixed

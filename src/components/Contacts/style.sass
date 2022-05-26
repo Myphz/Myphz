@@ -15,7 +15,14 @@ aside
     background-color: $text-secondary
     color: $text-secondary
 
+    @media (max-width: $phone-max-width)
+      height: 6vh
+
   a, img
     margin: .25em 0
     height: 40px
     width: 40px
+
+    @media (max-width: $phone-max-width)
+      height: 20px
+      width: 20px

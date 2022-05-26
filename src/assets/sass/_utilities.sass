@@ -12,6 +12,10 @@
     font-size: nth($font-sizes, $i)
     font-weight: inherit
     width: max-content
+    max-width: 80vw
+
+    @media (max-width: $phone-max-width)
+      font-size: nth($font-sizes-mobile, $i)
 
 .font-title
   font-family: $font-title
@@ -141,6 +145,9 @@
   padding: 1.5em
   transition: 0.2s all
 
+  @media (max-width: $phone-max-width)
+    width: 100%
+
   &::before, &::after
     position: absolute
     content: ""
@@ -150,7 +157,7 @@
     background: transparent
     border: 2px solid transparent
 
-  &:hover
+  &:hover, &:active
     $anim-duration: 0.5s
     transition-delay: $anim-duration
     box-shadow: 0 0 1em $accent
