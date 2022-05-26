@@ -28,12 +28,12 @@ export const Projects: React.FC = () => {
   return (
     <main className="justify-center flex-column">
       <section className="talk-cheap noselect">
-        <h6 className="color-secondary">HOVER IT</h6>
-        <h1 className="color-primary font-title talk-cheap" ref={mainText}>
+        <h6 className="color-secondary block">HOVER IT</h6>
+        <h1 className="color-primary font-title talk-cheap block no-trail" ref={mainText}>
           <TypeText text='“TALK IS CHEAP.' delay={200} speed={100} blinkDelay={50} singleLetterSpan /><br />
           <TypeText text='SHOW ME THE CODE”' delay={2500} speed={100} blinkDelay={2200} singleLetterSpan />
         </h1>
-        <h5 className="color-secondary">- Linus Torvalds</h5>
+        <h5 className="color-secondary block">- Linus Torvalds</h5>
       </section>
       <h4 className="details">For more details, visit <a className="a-link" href="https://github.com/Myphz" target="_blank">my GitHub profile</a></h4>
       <section className="containers space-between">

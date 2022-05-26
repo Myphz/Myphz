@@ -7,13 +7,11 @@
 
 // Font style
 @for $i from 1 through length($font-sizes)
-  .h#{$i}
+  h#{$i}, .h#{$i}
+    display: inline-block
     font-size: nth($font-sizes, $i)
     font-weight: inherit
-
-  h#{$i}
-    font-size: nth($font-sizes, $i)
-    font-weight: inherit
+    width: max-content
 
 .font-title
   font-family: $font-title
@@ -127,6 +125,12 @@
   -webkit-touch-callout: none
   &:hover
     outline: none !important
+
+.no-trail
+  background-color: $bg-base
+
+.block
+  display: block
 
 .container
   background-color: $bg-secondary

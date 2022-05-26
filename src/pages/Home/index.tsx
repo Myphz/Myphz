@@ -8,11 +8,11 @@ export const Home: React.FC = () => {
   return (
     <main className="align-center">
       <section>
-        <h1 className="main-text font-title color-primary noselect">
+        <h1 className="main-text font-title color-primary noselect no-trail block">
           <TypeText text="Daniel" delay={1000} speed={100} blinkDelay={0} />
         </h1>
 
-        <h3 className="thin secondary-text color-secondary noselect">
+        <h3 className="thin secondary-text color-secondary noselect no-trail block">
           <TypeText
             text="PROGRAMMER AND PROFESSIONAL GOOGLE SEARCHER"
             delay={2800}
@@ -23,7 +23,7 @@ export const Home: React.FC = () => {
           />
         </h3>
         <section className="h4 info">
-          <p>
+          <p className="no-trail">
             Self-taught programmer motivated by passion and personal projects.
             Expert of searching bugs on Google and quickly scanning the best StackOverflow answers.
           </p>

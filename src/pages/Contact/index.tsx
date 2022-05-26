@@ -6,11 +6,11 @@ import "./style.sass"
 export const Contact: React.FC = () => {
   return (
     <main className="justify-center flex-column">
-      <h1 className="color-primary font-title">
+      <h1 className="color-primary font-title block no-trail">
         <TypeText text="Contact" delay={200} speed={100} blinkDelay={50} />
       </h1>
       <section className="input-section">
-        <h4>My inbox is always open for new opportunities.<br />
+        <h4 className="block no-trail">My inbox is always open for new opportunities.<br />
         Feel free to contact me for any inquiries you may have!</h4>
         <form className="input-form h4">
           <div>
