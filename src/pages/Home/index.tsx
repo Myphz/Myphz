@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Button } from "../../components/Button";
 import { TypeText } from "../../components/TypeText";
 import "./style.sass";
@@ -27,9 +26,9 @@ export const Home: React.FC = () => {
             Self-taught programmer motivated by passion and personal projects.
             Expert of searching bugs on Google and quickly scanning the best StackOverflow answers.
           </p>
-          <Link to="/contact">
+          <a>
             <Button>CONTACT ME</Button>
-          </Link>
+          </a>
         </section>
       </section>
     </main>

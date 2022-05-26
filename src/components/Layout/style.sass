@@ -10,8 +10,7 @@ body
     padding: 0 10vw
     font-size: nth($font-sizes-mobile, 5)
 
-
-html, body, #root, main
+html, body, #root, .renderIfVisible, main
   height: 100%
   max-width: 100%
   overflow-x: hidden
@@ -20,6 +19,9 @@ html, body, #root, main
 
   &::-webkit-scrollbar
     display: none
+
+.renderIfVisible
+  margin-top: 1em
 
 canvas
   position: fixed
