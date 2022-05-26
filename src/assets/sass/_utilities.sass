@@ -136,6 +136,25 @@
 .block
   display: block
 
+.a-link
+  color: $accent
+  display: inline
+  position: relative
+
+  &::after
+    content: ""
+    position: absolute
+    left: 0
+    width: 0
+    height: 1px
+    display: block
+    background: $accent
+    transition: 0.25s
+
+  &:hover, &:active
+    &::after
+      width: 100%
+
 .container
   background-color: $bg-secondary
   width: max-content

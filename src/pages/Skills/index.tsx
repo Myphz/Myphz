@@ -28,7 +28,7 @@ export const Skills: React.FC = () => {
           <p className="no-trail">
             I've been interested in computer science ever since I was a kid.
             Over the course of more than 4 years, I've worked and developed countless personal projects,
-            from simple Discord bots to complex web applications with custom authentication systems and tons of functionalities.
+            from simple Discord bots to  <a href="https://github.com/Myphz/wwwallet-fe" target="_blank" className="a-link">complex web applications with custom authentication systems and several functionalities.</a>
           </p>
           <p className="no-trail">
             The most important skill I've learnt as a software engineer is being able to easily break down complicated problems
