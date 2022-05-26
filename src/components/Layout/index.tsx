@@ -1,7 +1,7 @@
 import React from "react";
 import { Links } from "../Links";
 import initializeOGL from "../../utilities/ogl";
-import "./layout.sass";
+import "./style.sass";
 
 export const Layout: React.FC = () => {
   initializeOGL();

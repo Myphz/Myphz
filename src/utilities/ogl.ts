@@ -86,10 +86,11 @@ export default function() {
   // Add handlers to get mouse position
   const mouse = new Vec3();
   if ("ontouchstart" in window) {
-    window.addEventListener("touchstart", updateMouse, false);
-    window.addEventListener("touchmove", updateMouse, false);
+    window.addEventListener("touchstart", updateMouse);
+    window.addEventListener("touchmove", updateMouse);
   } else {
-    window.addEventListener("mousemove", updateMouse, false);
+    window.addEventListener("mousedown", e => { updateMouse(e); window.addEventListener("mousemove", updateMouse) });
+    window.addEventListener("mouseup", () => window.removeEventListener("mousemove", updateMouse));
   }
 
   function updateMouse(e: any) {
@@ -113,7 +114,7 @@ export default function() {
   const tmp = new Vec3();
 
   requestAnimationFrame(update);
-  function update(t: DOMHighResTimeStamp) {
+  function update() {
     requestAnimationFrame(update);
 
     // Update polyline input points

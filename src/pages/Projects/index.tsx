@@ -27,7 +27,7 @@ export const Projects: React.FC = () => {
 
   return (
     <main className="justify-center flex-column">
-      <section className="talk-cheap noselect">
+      <section className="talk-cheap">
         <h6 className="color-secondary block">HOVER IT</h6>
         <h1 className="color-primary font-title talk-cheap block no-trail" ref={mainText}>
           <TypeText text='“TALK IS CHEAP.' delay={200} speed={100} blinkDelay={50} singleLetterSpan /><br />
