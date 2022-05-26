@@ -1,5 +1,5 @@
 .navbar
-  position: fixed
+  position: absolute
   top: 2.5%
   right: 16.66vw
 
@@ -16,3 +16,41 @@
 
       &:hover, &:active
         color: $accent
+
+  @media (max-width: $phone-max-width)
+    width: 36px
+    height: 36px
+    z-index: 2
+    left: 10vw
+    background-image: url("/icons/menu.svg")
+
+    ol
+      display: flex !important
+      position: fixed
+      height: 100%
+      width: 0
+      padding: 0
+      top: 0
+      left: 0
+      background-color: $bg-secondary
+      display: none
+      flex-direction: column
+      gap: 2em
+      font-size: nth($font-sizes-mobile, 3)
+      list-style-position: inside
+      transition: width 0.25s
+
+      & > li
+        display: none
+        transform: translateX(-10rem)
+        opacity: 0
+
+    &:focus
+      ol
+        width: 35vh
+        padding: 8vh 5vw
+
+        & > li
+          display: list-item
+          animation: slide-fade .5s ease calc(var(--order) * .1s) forwards
+

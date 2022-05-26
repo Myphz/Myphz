@@ -2,8 +2,8 @@
 import { Polyline, Renderer, Transform, Vec3, Color } from "ogl";
 
 const SPRING = 0.1;
-const FRICTION = 0.4; // The higher it is, the easier it is to follow the cursor
-const THICKNESS = 10;
+const FRICTION = 0.5; // The higher it is, the easier it is to follow the cursor
+const THICKNESS = 20;
 const LINE_COLOR = "#F2FF5B";
 
 export default function() {

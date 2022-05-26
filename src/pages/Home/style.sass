@@ -5,16 +5,18 @@
   @media (max-width: $phone-max-width)
     font-size: 4rem
 
-
 .secondary-text
   letter-spacing: .2em
 
 .info
   margin-top: 1em
-  max-width: 40rem
+  max-width: 40rem !important
   transform: translateY(5rem)
   opacity: 0
   animation: slide-fade 1s ease 6.5s forwards
 
   p
     margin-bottom: 1em
+
+  @media (max-width: $phone-max-width)
+    width: unset !important
