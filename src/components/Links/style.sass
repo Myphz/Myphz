@@ -1,5 +1,9 @@
+.links-aside
+  position: relative
+
 .navbar
   position: absolute
+  margin-top: 1em
   top: 2.5%
   right: 16.66vw
 
@@ -21,7 +25,7 @@
     width: 36px
     height: 36px
     z-index: 2
-    left: 10vw
+    left: 0
     background-image: url("/icons/menu.svg")
 
     ol
@@ -41,13 +45,26 @@
       transition: width 0.25s
 
       & > li
+        z-index: 3
         display: none
-        transform: translateX(-10rem)
+        transform: translateX(-5rem)
         opacity: 0
 
-    &:focus
+    .closed
+      width: 0
+      padding: 0
+
+      & > li
+        z-index: 3
+        display: none
+        transform: translateX(-5rem)
+        opacity: 0
+
+
+
+    &:focus-within
       ol
-        width: 35vh
+        width: 60vw
         padding: 8vh 5vw
 
         & > li

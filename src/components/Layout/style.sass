@@ -4,17 +4,22 @@ body
   font-weight: 300
   color: $text-primary
   font-size: nth($font-sizes, 5)
-  margin: 0 16.66vw
+  padding: 0 16.66vw
 
   @media (max-width: $phone-max-width)
-    margin: 0 10vw
-    overflow-x: hidden
+    padding: 0 10vw
     font-size: nth($font-sizes-mobile, 5)
 
 
 html, body, #root, main
   height: 100%
   max-width: 100%
+  overflow-x: hidden
+  scrollbar-width: none
+  -ms-overflow-style: none
+
+  &::-webkit-scrollbar
+    display: none
 
 canvas
   position: fixed

@@ -3,7 +3,7 @@ import "./style.sass";
 
 export const Contacts: React.FC = () => {
   return (
-    <aside>
+    <aside className="contacts-aside">
       <a href="https://github.com/Myphz" target="_blank">
         <img src="/icons/github.svg" />
       </a>
