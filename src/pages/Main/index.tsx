@@ -10,7 +10,7 @@ export const Main: React.FC = () => {
   return (
     <>
       {pages.map((Page, i) => (
-        <RenderIfVisible defaultHeight={window.innerHeight} stayRendered={true} key={i}>
+        <RenderIfVisible defaultHeight={2000} stayRendered={true} key={i}>
           <Page />
         </RenderIfVisible>
       ))}
