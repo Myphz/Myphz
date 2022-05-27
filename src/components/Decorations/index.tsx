@@ -4,7 +4,7 @@ import "./style.sass";
 export const Decorations: React.FC = () => {
   return (
     <>
-      <aside className="contacts-aside">
+      <aside className="contacts-aside decoration">
         <a href="https://github.com/Myphz" target="_blank">
           <img src="/icons/github.svg" />
         </a>
@@ -13,6 +13,9 @@ export const Decorations: React.FC = () => {
         </a>
         <hr />
       </aside>
+      <div className="scroll-text decoration">
+        <span>SCROLL <img src="/icons/arrow.svg" /></span>
+      </div>
     </>
   );
 }
