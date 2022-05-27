@@ -20,15 +20,10 @@
 .font-title
   font-family: $font-title
   font-weight: 200
+  transition: all .5s
 
-.thin
-  font-weight: 100
-
-.extralight
-  font-weight: 200
-
-.light
-  font-weight: 300
+  &:hover, &:active
+    text-shadow: 0 0 30px $primary, 0 0 40px $primary, 0 0 50px $primary
 
 .color-primary
   color: $primary

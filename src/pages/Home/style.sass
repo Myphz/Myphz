@@ -1,12 +1,40 @@
 .main-text
+  position: relative
   font-size: 6rem
-  // letter-spacing: .1em
+  font-family: "Comfortaa"
 
   @media (max-width: $phone-max-width)
     font-size: 4rem
 
+  &::before
+    content: ""
+    position: absolute
+    width: 100%
+    right: 0
+    height: 6rem
+    background-color: $bg-base
+    animation: text-show 1.25s ease-in-out 1s forwards
+    position: none
+
+    @media (max-width: $phone-max-width)
+      font-size: 4rem
+
+  span
+    transition: all .5s
+
+.text-glow
+  transition: all .5s
+  text-shadow: 0 0 30px $primary, 0 0 40px $primary, 0 0 50px $primary
+
+@keyframes text-show
+  to
+    width: 0
+
 .secondary-text
-  letter-spacing: .2em
+  letter-spacing: .15em
+
+  &:hover, &:active
+    text-shadow: unset
 
 .info
   margin-top: 1em

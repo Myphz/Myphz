@@ -4,14 +4,22 @@ import { TypeText } from "../../components/TypeText";
 import "./style.sass";
 
 export const Home: React.FC = () => {
+  let animationEnd = false;
+  setTimeout(() => animationEnd = true, 2250);
+
+  function toggleGlow({ target }: { target: EventTarget}) {
+    if (!animationEnd) return;
+    (target as HTMLSpanElement).classList.toggle("text-glow");
+  }
+
   return (
     <main className="align-center">
       <section>
-        <h1 className="main-text font-title color-primary no-trail block" id="about">
-          <TypeText text="Daniel" delay={1000} speed={100} blinkDelay={0} />
+        <h1 className="main-text color-primary no-trail block">
+          <span onMouseEnter={toggleGlow} onMouseLeave={toggleGlow}>Daniel</span>
         </h1>
 
-        <h3 className="thin secondary-text color-secondary no-trail block">
+        <h3 className="font-title secondary-text color-secondary no-trail block">
           <TypeText
             text="PROGRAMMER AND PROFESSIONAL GOOGLE SEARCHER"
             delay={2800}
