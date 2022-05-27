@@ -6,6 +6,7 @@ import { Home } from "./pages/Home";
 import { Projects } from "./pages/Projects";
 import { Skills } from "./pages/Skills";
 import RenderIfVisible from "react-render-if-visible";
+import { Footer } from "./components/Footer";
 
 const pages = [Home, Skills, Projects, Contact];
 
@@ -18,6 +19,7 @@ const App: React.FC = () => {
           <Page />
         </RenderIfVisible>
       ))}
+      <Footer />
     </>
   );
 }

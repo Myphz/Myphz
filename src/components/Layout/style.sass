@@ -19,10 +19,19 @@ html, body, #root
   &::-webkit-scrollbar
     display: none
 
+#root
+  position: relative
+
 .renderIfVisible, .renderIfVisible > section
   min-height: 100vh
   height: fit-content
   margin-top: 1em
+
+@media (max-width: $phone-max-width)
+  .renderIfVisible:last-of-type, .renderIfVisible:last-of-type > section
+    min-height: unset
+    height: fit-content
+    margin-top: 1em
 
 .renderIfVisible > section
   padding: 0 16.66vw

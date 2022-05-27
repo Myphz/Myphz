@@ -1,10 +1,10 @@
 import React from "react";
 import "./style.sass";
 
-export const Decorations: React.FC = () => {
+export const Footer: React.FC = () => {
   return (
-    <>
-      <aside className="contacts-aside decoration">
+    <footer>
+      <aside className="contacts-aside">
         <a href="https://github.com/Myphz" target="_blank">
           <img src="/icons/github.svg" />
         </a>
@@ -13,9 +13,9 @@ export const Decorations: React.FC = () => {
         </a>
         <hr />
       </aside>
-      <div className="scroll-text decoration">
+      <div className="scroll-text">
         <span>SCROLL <img src="/icons/arrow.svg" /></span>
       </div>
-    </>
+    </footer>
   );
 }
