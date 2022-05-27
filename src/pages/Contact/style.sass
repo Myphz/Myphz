@@ -1,6 +1,6 @@
 .contact-main
   @media (max-width: $phone-max-width)
-    padding-top: 3em
+    padding: 0 3em
 
 .input-section
   margin-top: 2em
@@ -45,6 +45,10 @@
   textarea
     min-height: 30vh
     resize: vertical
+
+    @media (max-width: $phone-max-width)
+      min-height: 20vh
+
 
   button
     float: right
