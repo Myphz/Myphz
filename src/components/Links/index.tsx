@@ -46,7 +46,8 @@ export const Links: React.FC = () => {
 
   return (
     <aside className="links-aside">
-      <nav tabIndex={1} className="navbar">
+      <nav tabIndex={1} className="navbar space-between">
+        <span className="drag text-secondary h6">DRAG ANYWHERE</span>
         <ol start={0} className="h6 text-secondary" onClick={() => (document.activeElement as HTMLElement).blur()} ref={ol}>
           <li style={{"--order": 1} as React.CSSProperties}>
             <a onClick={() => redirect(0)}>ABOUT</a>
