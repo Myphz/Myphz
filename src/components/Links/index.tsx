@@ -6,22 +6,29 @@ export const Links: React.FC = () => {
   let navbar: Element;
   let root: Element;
 
+  let currentPageBottom = 0;
+  let prevPageBottom = 0;
+
   const ol = useRef<HTMLOListElement>(null);
 
   let pageIdx = 0;
   let scrollTimeout = false;
 
-  function redirect(newIdx: number) {
+  // Jump to specified page
+  function redirect(newIdx: number, repeat=true) {
     if (newIdx < 0 || newIdx >= pages.length || scrollTimeout) return;
-    // Prevent scrolling for 100ms
-    scrollTimeout = true;
-    setTimeout(() => scrollTimeout = false, 100);
+    if (repeat) {
+      // Prevent scrolling for 700ms and repeat redirect after 700ms (to fix height errors if prev pages weren't rendered)
+      scrollTimeout = true;
+      setTimeout(() => { scrollTimeout = false; redirect(newIdx, false); }, 700);
+    }
 
     root.scrollTo(0, root.scrollTop + pages[newIdx].getBoundingClientRect().top - navbar.clientHeight);
     pageIdx = newIdx;
     setColor()
   }
 
+  // Set color of current page tab
   function setColor() {
     if (!ol.current) return;
     Array.from(ol.current.children).forEach((li, i) => {
@@ -36,12 +43,31 @@ export const Links: React.FC = () => {
     root = document.getElementById("root")!;
 
     setColor();
+    // Redirect to page on wheel move desktop
     root.addEventListener("wheel", (e: Event) => {
       e.preventDefault();
       const { deltaY } = e as WheelEvent;
       if (deltaY < 0) redirect(pageIdx-1);
       else redirect(pageIdx+1);
     });
+
+    // Set current tab color for mobile
+    root.addEventListener("touchmove", () => {
+      if (!currentPageBottom) currentPageBottom = pages[pageIdx].getBoundingClientRect().bottom + root.scrollTop;
+      const heightBottom = root.scrollTop + window.innerHeight;
+
+      if (heightBottom > currentPageBottom + window.innerHeight / 2) {
+        pageIdx++;
+        prevPageBottom = currentPageBottom;
+        currentPageBottom = pages[pageIdx].getBoundingClientRect().bottom + root.scrollTop;
+        setColor();
+      } else if (heightBottom < prevPageBottom + window.innerHeight /2) {
+        pageIdx--;
+        currentPageBottom = prevPageBottom;
+        prevPageBottom = pageIdx - 1 >= 0 ? pages[pageIdx-1].getBoundingClientRect().bottom + root.scrollTop : 0;
+        setColor();
+      }
+    })
   }, []);
 
   return (

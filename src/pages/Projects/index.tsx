@@ -18,15 +18,14 @@ export const Projects: React.FC = () => {
   };
 
   useEffect(() => {
-    document.onmousemove = ({ pageX, pageY }) => {
-      setFontWeight(pageX, pageY);
-    }
+    document.onmousemove = ({ pageX, pageY }) => setFontWeight(pageX, pageY);
+    document.ontouchmove = ({ changedTouches }) => setFontWeight(changedTouches[0].clientX, changedTouches[0].clientY);
     // Cleanup function
     return () => { document.onmousemove = null };
   }, []);
 
   return (
-    <main className="justify-center flex-column" id="projects">
+    <main className="justify-center flex-column">
       <section className="talk-cheap">
         <h6 className="color-secondary block">HOVER IT</h6>
         <h1 className="color-primary font-title talk-cheap block no-trail" ref={mainText}>
