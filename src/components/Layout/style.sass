@@ -19,12 +19,12 @@ html, body, #root
   &::-webkit-scrollbar
     display: none
 
-.renderIfVisible, main
+.renderIfVisible, .renderIfVisible > section
   min-height: 100vh
   height: fit-content
   margin-top: 1em
 
-main
+.renderIfVisible > section
   padding: 0 16.66vw
   @media (max-width: $phone-max-width)
     padding: 0 10vw

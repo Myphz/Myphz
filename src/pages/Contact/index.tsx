@@ -5,7 +5,7 @@ import "./style.sass"
 
 export const Contact: React.FC = () => {
   return (
-    <main className="justify-center flex-column contact-main" id="contact">
+    <section className="justify-center flex-column contact-main">
       <h1 className="color-primary font-title block no-trail">
         <TypeText text="Contact" delay={200} speed={100} blinkDelay={50} />
       </h1>
@@ -33,6 +33,6 @@ export const Contact: React.FC = () => {
           <Button submit>Send Message</Button>
         </form>
       </section>
-    </main>
+    </section>
   );
 }

@@ -13,7 +13,7 @@ export const Home: React.FC = () => {
   }
 
   return (
-    <main className="align-center">
+    <section className="align-center">
       <section>
         <h1 className="main-text color-primary no-trail block">
           <span onMouseEnter={toggleGlow} onMouseLeave={toggleGlow}>Daniel</span>
@@ -39,6 +39,6 @@ export const Home: React.FC = () => {
           </a>
         </section>
       </section>
-    </main>
+    </section>
   );
 }

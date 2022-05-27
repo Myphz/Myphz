@@ -25,7 +25,7 @@ export const Projects: React.FC = () => {
   }, []);
 
   return (
-    <main className="justify-center flex-column">
+    <section className="justify-center flex-column">
       <section className="talk-cheap">
         <h6 className="color-secondary block">HOVER IT</h6>
         <h1 className="color-primary font-title talk-cheap block no-trail" ref={mainText}>
@@ -65,6 +65,6 @@ export const Projects: React.FC = () => {
           </a>
         </div>
       </section>
-    </main>
+    </section>
   );
 }
