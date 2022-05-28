@@ -10,3 +10,4 @@ rocket = { version = "0.5.0-rc.2", features = ["json"] }
 validator = { version = "0.12", features = ["derive"] }
 serde = { version = "1.0", features = ["derive"] }
 lettre = "0.10.0-rc.6"
+dotenv = "0.15.0"
