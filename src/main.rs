@@ -1,5 +1,6 @@
 #[macro_use] extern crate rocket;
 
+use dotenvy::dotenv;
 use rocket::serde::{json::Json, Deserialize, Serialize};
 use rocket::http::Status;
 use rocket::response::status;
@@ -45,5 +46,6 @@ fn index(data: Json<Params>) -> status::Custom<Json<Response>> {
 
 #[launch]
 fn rocket() -> _ {
+    dotenv().ok();
     rocket::build().mount("/", routes![index])
 }
