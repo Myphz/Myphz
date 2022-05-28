@@ -33,16 +33,12 @@ fn index(data: Json<Params>) -> status::Custom<Json<Response>> {
     return if success {
         status::Custom(
             Status::Ok,
-            Json(
-                Response { success: true, message: String::from("Email sent! I'll reply back soon ;)")}
-            )
+            Json(Response { success: true, message: String::from("Email sent! I'll reply back soon ;)")})
         )
     } else {
         status::Custom(
             Status::InternalServerError,
-            Json(
-                Response { success: false, message: String::from("Error sending the email. Please send the email manually.")}
-            )
+            Json(Response { success: false, message: String::from("Error sending the email. Please send the email manually.")})
         )
     }
 }
