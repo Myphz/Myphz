@@ -1,19 +1,33 @@
 #[macro_use] extern crate rocket;
-use rocket::serde::{Deserialize, json::Json};
+use rocket::serde::{json::Json, Deserialize, Serialize};
+use rocket::http::Status;
+use rocket::response::status;
+use validator::Validate;
 
-#[derive(Deserialize)]
-#[serde(crate = "rocket::serde")]
-struct Test {
+#[derive(Deserialize, Validate)]
+struct Params {
+    #[validate(email)]
     email: String,
     subject: String,
     message: String
 }
 
-#[post("/", data = "<data>")]
-fn index(data: Json<Test>) -> &'static str {
-    let Test { email, subject, message } = data.into_inner();
-    println!("{} {} {}", email, subject, message);
-    "Hello, world!"
+#[derive(Serialize)]
+struct Response {
+    success: bool,
+    message: String
+}
+
+#[post("/", format = "json", data = "<data>")]
+fn index(data: Json<Params>) -> status::Custom<Json<Response>> {
+    let fields = data.into_inner();
+    let is_valid = fields.validate();
+    if is_valid.is_err() {
+        return status::Custom(Status::BadRequest, Json(Response { success: false, message: String::from("Invalid")}));
+    }
+    let Params { email, subject, message } = fields;
+    println!("{:?}, {} {} {}", is_valid, email, subject, message);
+    return status::Custom(Status::Ok, Json(Response { success: true, message: String::from("Invalid")}));
 }
 
 #[launch]
