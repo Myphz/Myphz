@@ -53,7 +53,7 @@ fn index(data: Json<Params>) -> status::Custom<Json<Response>> {
 fn default_catcher(status: Status, _req: &Request) -> status::Custom<Json<Response>> {
     status::Custom(
         status,
-        Json(Response { success: false, message: String::from("Unexpected error. Please retry.")})
+        Json(Response { success: false, message: String::from("Unexpected error. Please send the email manually.")})
     )
 }
 
