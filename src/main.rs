@@ -3,7 +3,8 @@
 use dotenvy::dotenv;
 use rocket::Request;
 use rocket::serde::{json::Json, Deserialize, Serialize};
-use rocket::http::Status;
+use rocket::http::{Status, Header};
+use rocket::fairing::AdHoc;
 use rocket::response::status;
 use validator::Validate;
 
@@ -23,7 +24,7 @@ struct Response {
     message: String
 }
 
-#[post("/", format = "json", data = "<data>")]
+#[post("/", data = "<data>")]
 fn index(data: Json<Params>) -> status::Custom<Json<Response>> {
     let fields = data.into_inner();
     let is_valid = fields.validate();
@@ -59,5 +60,13 @@ fn default_catcher(status: Status, _req: &Request) -> status::Custom<Json<Respon
 #[launch]
 fn rocket() -> _ {
     dotenv().ok();
-    rocket::build().mount("/", routes![index]).register("/", catchers![default_catcher])
+    rocket::build()
+    .attach(AdHoc::on_response("CORS", |_req, res| {
+        Box::pin(async move {
+            res.set_header(Header::new("Access-Control-Allow-Origin", "http://localhost:3000"));
+            res.set_header(Header::new("Access-Control-Allow-Methods", "POST, GET, PATCH, OPTIONS"));
+            res.set_header(Header::new("Access-Control-Allow-Headers", "*"));
+        })
+    }))
+    .mount("/", routes![index]).register("/", catchers![default_catcher])
 }
