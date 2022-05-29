@@ -17,4 +17,8 @@ jobs:
         cache: 'npm'
 
     - run: npm ci
+    - run: |
+        git fetch --prune --unshallow
+        git config --global user.email "danielscanu45@outlook.it"
+        git config --global user.name "Myphz"
     - run: bash deploy.sh
