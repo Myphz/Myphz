@@ -1,6 +1,7 @@
 #[macro_use] extern crate rocket;
 
 use dotenvy::dotenv;
+use rocket::Request;
 use rocket::serde::{json::Json, Deserialize, Serialize};
 use rocket::http::Status;
 use rocket::response::status;
@@ -47,8 +48,16 @@ fn index(data: Json<Params>) -> status::Custom<Json<Response>> {
     }
 }
 
+#[catch(default)]
+fn default_catcher(status: Status, _req: &Request) -> status::Custom<Json<Response>> {
+    status::Custom(
+        status,
+        Json(Response { success: false, message: String::from("Unexpected error. Please retry.")})
+    )
+}
+
 #[launch]
 fn rocket() -> _ {
     dotenv().ok();
-    rocket::build().mount("/", routes![index])
+    rocket::build().mount("/", routes![index]).register("/", catchers![default_catcher])
 }
