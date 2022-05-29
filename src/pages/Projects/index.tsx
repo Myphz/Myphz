@@ -1,5 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { TypeText } from "../../components/TypeText";
+import { fetchImage } from "../../utilities/fetch";
 import "./style.sass";
 
 export const Projects: React.FC = () => {
@@ -39,7 +40,7 @@ export const Projects: React.FC = () => {
         <div className="container flex-column">
           <a className="flex-column flex-1" href="https://wwwallet.app" target="_blank">
             <span className="align-center">
-              <img src="/images/wwwallet.png"/>
+              <img src={fetchImage("wwwallet")}/>
               <h3 className="wwwallet">wwwallet</h3>
             </span>
             <p className="flex-1 align-center">
@@ -54,7 +55,7 @@ export const Projects: React.FC = () => {
         <div className="container flex-column">
           <a className="flex-column flex-1" href="https://sortvisualizer.com" target="_blank">
             <span className="align-center">
-              <img src="/images/sortvisualizer.png"/>
+              <img src={fetchImage("sortvisualizer")}/>
               <h3 className="sortvisualizer">SORT VISUALIZER</h3>
             </span>
             <p className="flex-1 align-center">

@@ -1,4 +1,5 @@
 import React from "react";
+import { fetchIcon } from "../../utilities/fetch";
 import "./style.sass";
 
 interface Props {
@@ -14,7 +15,7 @@ export const Popup: React.FC<Props> = ({ success, message }) => {
         typeof success === "undefined" ? <></> : success === null ?
         <div className="h4 align-center popup loading">{ message }</div> :
         <div className={"h4 align-center popup " + (success ? "popup-success" : "popup-error")}>
-          <img src={`/icons/${success ? "check" : "warning"}.svg`}/><span>{message}</span>
+          <img src={fetchIcon(success ? "check" : "warning")}/><span>{message}</span>
         </div>
       }
     </>

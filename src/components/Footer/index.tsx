@@ -1,4 +1,5 @@
 import React from "react";
+import { fetchIcon } from "../../utilities/fetch";
 import "./style.sass";
 
 export const Footer: React.FC = () => {
@@ -6,15 +7,15 @@ export const Footer: React.FC = () => {
     <footer>
       <aside className="contacts-aside">
         <a href="https://github.com/Myphz" target="_blank">
-          <img src="/icons/github.svg" />
+          <img src={fetchIcon("github")} alt="github" />
         </a>
         <a href="mailto:danielscanu45@outlook.it" target="_blank">
-          <img src="/icons/email.svg" />
+          <img src={fetchIcon("email")} alt="email" />
         </a>
         <hr />
       </aside>
       <div className="scroll-text">
-        <span>SCROLL <img src="/icons/arrow.svg" /></span>
+        <span>SCROLL <img src={fetchIcon("arrow")} alt="arrow" /></span>
       </div>
     </footer>
   );
