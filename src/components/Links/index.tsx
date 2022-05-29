@@ -88,7 +88,7 @@ export const Links: React.FC = () => {
             <a onClick={() => redirect(3)}>CONTACT</a>
           </li>
           <li style={{"--order": 5} as React.CSSProperties}>
-            <a href="/resume.pdf" target="_blank">RESUME</a>
+            <a href={`${import.meta.env.MODE === "development" ? "/" : "/Myphz/"}resume.pdf`} target="_blank">RESUME</a>
           </li>
         </ol>
       </nav>
