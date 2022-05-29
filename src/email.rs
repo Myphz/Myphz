@@ -14,9 +14,9 @@ fn log_and_exit<T: Error>(err: T) -> bool {
 
 pub fn send_email(Params { email, subject, body}: Params) -> bool {
     let message = Message::builder()
-        .from(email.parse().unwrap())
+        .from(get_env_var("CRED_EMAIL").parse().unwrap())
         .to(get_env_var("TO").parse().unwrap())
-        .subject(format!("Devfolio contact: {}", subject))
+        .subject(format!("Devfolio - {} (from {})", subject, email))
         .body(body);
 
     let message = match message {
@@ -31,10 +31,8 @@ pub fn send_email(Params { email, subject, body}: Params) -> bool {
         Err(err) => return log_and_exit(err)
     };
 
-    match mailer.send(&message) {
-        Ok(_) => println!("Email sent successfully!"),
-        Err(err) => return log_and_exit(err)
+    return match mailer.send(&message) {
+        Ok(_) => true,
+        Err(err) => log_and_exit(err)
     }
-
-    return true;
 }
