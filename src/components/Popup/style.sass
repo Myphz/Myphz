@@ -1,0 +1,42 @@
+.popup
+  position: fixed
+  bottom: 5%
+  right: 16.66vw
+  padding: 1em 1.5em
+  border-radius: .5em
+  max-width: 25vw
+  opacity: 0
+  z-index: 1
+  animation: appear 5s ease forwards
+  pointer-events: none
+
+  @media (max-width: $phone-max-width)
+    max-width: 80vw
+    bottom: 1%
+    right: 10vw
+    width: 100%
+
+  img
+    height: 1.8em
+    width: 1.8em
+    margin-right: .5em
+
+.popup-error
+  background-color: $red
+
+.popup-success
+  background-color: $green
+
+.loading
+  border: 1px solid $accent
+  background-color: $bg-secondary
+
+@keyframes appear
+  10%
+    opacity: 1
+
+  90%
+    opacity: 1
+
+  100%
+    opacity: 0
