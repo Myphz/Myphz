@@ -63,7 +63,7 @@ fn rocket() -> _ {
     rocket::build()
     .attach(AdHoc::on_response("CORS", |_req, res| {
         Box::pin(async move {
-            res.set_header(Header::new("Access-Control-Allow-Origin", "https://myphz.github.io/Myphz"));
+            res.set_header(Header::new("Access-Control-Allow-Origin", "https://myphz.github.io"));
             res.set_header(Header::new("Access-Control-Allow-Methods", "POST, GET, PATCH, OPTIONS"));
             res.set_header(Header::new("Access-Control-Allow-Headers", "*"));
         })
