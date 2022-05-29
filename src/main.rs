@@ -13,7 +13,7 @@ pub struct Params {
     #[validate(email)]
     email: String,
     subject: String,
-    message: String
+    body: String
 }
 
 #[derive(Serialize)]
@@ -27,7 +27,10 @@ fn index(data: Json<Params>) -> status::Custom<Json<Response>> {
     let fields = data.into_inner();
     let is_valid = fields.validate();
     if is_valid.is_err() {
-        return status::Custom(Status::BadRequest, Json(Response { success: false, message: String::from("Invalid email. Please retry.")}));
+        return status::Custom(
+            Status::BadRequest,
+            Json(Response { success: false, message: String::from("Invalid email. Please retry.")})
+        );
     };
 
     let success = email::send_email(fields);
