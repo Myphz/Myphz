@@ -18,11 +18,22 @@ export const Projects: React.FC = () => {
     });
   };
 
+  function onMouseMove({ pageX, pageY }: { pageX: number, pageY: number }) {
+    setFontWeight(pageX, pageY);
+  };
+
+  function onTouchMove({ changedTouches }: { changedTouches: TouchList }) {
+    setFontWeight(changedTouches[0].clientX, changedTouches[0].clientY);
+  };
+
   useEffect(() => {
-    document.onmousemove = ({ pageX, pageY }) => setFontWeight(pageX, pageY);
-    document.ontouchmove = ({ changedTouches }) => setFontWeight(changedTouches[0].clientX, changedTouches[0].clientY);
+    document.addEventListener("mousemove", onMouseMove, {passive: true});
+    document.addEventListener("touchmove", onTouchMove, {passive: true});
     // Cleanup function
-    return () => { document.onmousemove = null };
+    return () => {
+      document.removeEventListener("mousemove", onMouseMove);
+      document.removeEventListener("touchmove", onTouchMove);
+    };
   }, []);
 
   return (

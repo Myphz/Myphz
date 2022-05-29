@@ -67,7 +67,7 @@ export const Links: React.FC = () => {
         prevPageBottom = pageIdx - 1 >= 0 ? pages[pageIdx-1].getBoundingClientRect().bottom + root.scrollTop : 0;
         setColor();
       }
-    })
+    }, {passive: true})
   }, []);
 
   return (
