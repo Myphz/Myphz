@@ -7,10 +7,16 @@ export const Home: React.FC = () => {
   let animationEnd = false;
   setTimeout(() => animationEnd = true, 2250);
 
-  function toggleGlow({ target }: { target: EventTarget}) {
+  function toggleGlow({ target }: { target: EventTarget }) {
     if (!animationEnd) return;
     (target as HTMLSpanElement).classList.toggle("text-glow");
-  }
+  };
+
+  // Scroll to the contact page
+  function scrollBottom() {
+    const root = document.getElementById("root")!;
+    root.scrollTo(0, root.scrollHeight);
+  };
 
   return (
     <section className="align-center">
@@ -34,7 +40,7 @@ export const Home: React.FC = () => {
             Self-taught programmer motivated by passion and personal projects.
             Expert of searching bugs on Google and quickly scanning the best StackOverflow answers.
           </p>
-          <a>
+          <a onClick={scrollBottom}>
             <Button>CONTACT ME</Button>
           </a>
         </section>

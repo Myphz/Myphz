@@ -35,7 +35,25 @@ export const Links: React.FC = () => {
       if (i === pageIdx) li.classList.add("active");
       else li.classList.remove("active");
     });
-  }
+  };
+
+  // Detect when a new page has been reached by scrolling
+  function detectScrollPage() {
+    if (!currentPageBottom) currentPageBottom = pages[pageIdx].getBoundingClientRect().bottom + root.scrollTop;
+    const heightBottom = root.scrollTop + window.innerHeight;
+
+    if (heightBottom > currentPageBottom + window.innerHeight / 2) {
+      pageIdx++;
+      prevPageBottom = currentPageBottom;
+      currentPageBottom = pages[pageIdx].getBoundingClientRect().bottom + root.scrollTop;
+      setColor();
+    } else if (heightBottom < prevPageBottom + window.innerHeight /2) {
+      pageIdx--;
+      currentPageBottom = prevPageBottom;
+      prevPageBottom = pageIdx - 1 >= 0 ? pages[pageIdx-1].getBoundingClientRect().bottom + root.scrollTop : 0;
+      setColor();
+    }
+  };
 
   useEffect(() => {
     pages = document.getElementsByClassName("renderIfVisible")!;
@@ -51,23 +69,8 @@ export const Links: React.FC = () => {
       else redirect(pageIdx+1);
     });
 
-    // Set current tab color for mobile
-    root.addEventListener("touchmove", () => {
-      if (!currentPageBottom) currentPageBottom = pages[pageIdx].getBoundingClientRect().bottom + root.scrollTop;
-      const heightBottom = root.scrollTop + window.innerHeight;
-
-      if (heightBottom > currentPageBottom + window.innerHeight / 2) {
-        pageIdx++;
-        prevPageBottom = currentPageBottom;
-        currentPageBottom = pages[pageIdx].getBoundingClientRect().bottom + root.scrollTop;
-        setColor();
-      } else if (heightBottom < prevPageBottom + window.innerHeight /2) {
-        pageIdx--;
-        currentPageBottom = prevPageBottom;
-        prevPageBottom = pageIdx - 1 >= 0 ? pages[pageIdx-1].getBoundingClientRect().bottom + root.scrollTop : 0;
-        setColor();
-      }
-    }, {passive: true})
+    root.addEventListener("touchmove",  detectScrollPage, {passive: true});
+    root.addEventListener("scroll",  detectScrollPage, {passive: true});
   }, []);
 
   return (
