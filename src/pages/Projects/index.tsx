@@ -48,6 +48,20 @@ export const Projects: React.FC = () => {
       </section>
       <h4 className="details">For more details, visit <a className="a-link" href="https://github.com/Myphz" target="_blank">my GitHub profile</a></h4>
       <section className="containers space-between">
+
+        <div className="container flex-column">
+          <a className="flex-column flex-1" href="https://ddaniel.dev" target="_blank">
+            <span className="align-center">
+              <img src={fetchImage("ddaniel")}/>
+              <h3 className="ddaniel">Daniel</h3>
+            </span>
+            <p className="flex-1 align-center">
+              My business website to reach to clients and showcase my services. 
+              Powered by Astro and Express
+            </p>
+          </a>
+        </div>
+
         <div className="container flex-column">
           <a className="flex-column flex-1" href="https://wwwallet.app" target="_blank">
             <span className="align-center">
@@ -63,6 +77,7 @@ export const Projects: React.FC = () => {
             </p>
           </a>
         </div>
+
         <div className="container flex-column">
           <a className="flex-column flex-1" href="https://sortvisualizer.com" target="_blank">
             <span className="align-center">
@@ -76,6 +91,7 @@ export const Projects: React.FC = () => {
             </p>
           </a>
         </div>
+        
       </section>
     </section>
   );

@@ -73,17 +73,25 @@ export const Skills: React.FC = () => {
             <h2 className="color-primary font-title no-trail"><TypeText text="Work experiences" delay={1200} speed={60} blinkDelay={900} /></h2>
 
             <div className="experiences flex-column flex-1">
+            <section className="container flex-column">
+                <h4 className="color-accent font-title">Way AS</h4>
+                <p className="h5 flex-1 align-center">
+                  Fullstack developer for Way AS (simulator-based driving school). Handle users’ data with real-time GraphQL queries & mutations,
+                  architect & build booking + payment infrastructure with custom interfaces.
+                </p>
+              </section>
+
               <section className="container flex-column">
-                <h3 className="color-accent font-title">Fullstack Developer</h3>
-                <p className="flex-1 align-center">
+                <h4 className="color-accent font-title">PianoBit</h4>
+                <p className="h5 flex-1 align-center">
                   Web developer for PianoBit, developing back-end servers using Moleculer and front-end applications with Vue,
                   integrated with a MongoDB database
                 </p>
               </section>
 
               <section className="container flex-column">
-                <h3 className="color-accent font-title">Freelancer</h3>
-                <p className="flex-1 align-center">
+                <h4 className="color-accent font-title">Freelancer</h4>
+                <p className="h5 flex-1 align-center">
                   I’ve worked for hundreds of clients as a freelancer in many
                   different fields of programming, from GUI development to Machine Learning & AI
                 </p>

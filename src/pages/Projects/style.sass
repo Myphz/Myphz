@@ -26,17 +26,21 @@
 
 .containers
   margin-top: 1em
+  gap: 2em
 
   .container
-    width: 40%
     opacity: 0
+    width: 33%
     transform: translateY(5rem)
 
-    &:first-of-type
+    &:nth-of-type(1)
       animation: slide-fade 1s ease 6s forwards
 
-    &:last-of-type
+    &:nth-of-type(2)
       animation: slide-fade 1s ease 6.2s forwards
+
+    &:nth-of-type(3)
+      animation: slide-fade 1s ease 6.4s forwards
 
     img
       height: 3rem
@@ -62,6 +66,9 @@
   .sortvisualizer
     color: #D2803D
     font-family: "Jura", sans-serif
+
+  .ddaniel
+    font-family: "Lora", serif
 
 .details
   opacity: 0
