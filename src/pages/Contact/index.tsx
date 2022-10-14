@@ -178,7 +178,7 @@ export const Contact: React.FC = () => {
 
     document.body.appendChild(script1);
     document.body.appendChild(script2);
-  });
+  }, []);
 
   async function sendEmail(e: FormEvent) {
     e.preventDefault();
