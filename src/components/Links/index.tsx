@@ -15,15 +15,8 @@ export const Links: React.FC = () => {
   let scrollTimeout = false;
 
   // Jump to specified page
-  function redirect(newIdx: number, repeat=true) {
+  function redirect(newIdx: number) {
     if (newIdx < 0 || newIdx >= pages.length || scrollTimeout) return;
-    if (repeat) {
-      // Prevent scrolling for 700ms and repeat redirect after 700ms (to fix height errors if prev pages weren't rendered)
-      scrollTimeout = true;
-      setTimeout(() => { scrollTimeout = false; redirect(newIdx, false); }, 700);
-    }
-
-    root.scrollTo(0, root.scrollTop + pages[newIdx].getBoundingClientRect().top - navbar.clientHeight);
     pageIdx = newIdx;
     setColor()
   }
@@ -62,15 +55,14 @@ export const Links: React.FC = () => {
 
     setColor();
     // Redirect to page on wheel move desktop
-    root.addEventListener("wheel", (e: Event) => {
-      e.preventDefault();
-      const { deltaY } = e as WheelEvent;
-      if (deltaY < 0) redirect(pageIdx-1);
-      else redirect(pageIdx+1);
-    });
+    // root.addEventListener("wheel", (e: Event) => {
+    //   const { deltaY } = e as WheelEvent;
+    //   if (deltaY < 0) redirect(pageIdx-1);
+    //   else redirect(pageIdx+1);
+    // });
 
-    root.addEventListener("touchmove",  detectScrollPage, {passive: true});
-    root.addEventListener("scroll",  detectScrollPage, {passive: true});
+    // root.addEventListener("touchmove",  detectScrollPage, {passive: true});
+    // root.addEventListener("scroll",  detectScrollPage, {passive: true});
   }, []);
 
   return (
