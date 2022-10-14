@@ -1,3 +1,7 @@
+.contact-section-container
+  align-items: stretch
+  gap: 10em
+  
 .contact-main
   @media (max-width: $phone-max-width)
     justify-content: unset
@@ -10,10 +14,7 @@
 
 .input-form
   margin-top: 2em
-  width: 50%
-
-  @media (max-width: $phone-max-width)
-    width: 100%
+  width: 100%
 
   div
     position: relative
@@ -52,3 +53,10 @@
 
   button
     float: right
+
+#gmaps
+  width: 50%
+  display: flex
+
+  @media (max-width: $phone-max-width)
+    display: none
