@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import "./style.sass";
 
 export const Links: React.FC = () => {
-  let pages: HTMLCollectionOf<Element>;
+  let pages: NodeListOf<Element>;
   let navbar: Element;
   let root: Element;
 
@@ -18,8 +18,9 @@ export const Links: React.FC = () => {
   function redirect(newIdx: number) {
     if (newIdx < 0 || newIdx >= pages.length || scrollTimeout) return;
     pageIdx = newIdx;
+    pages[pageIdx].scrollIntoView();
     setColor()
-  }
+  };
 
   // Set color of current page tab
   function setColor() {
@@ -49,20 +50,14 @@ export const Links: React.FC = () => {
   };
 
   useEffect(() => {
-    pages = document.getElementsByClassName("renderIfVisible")!;
+    pages = document.querySelectorAll("#root > section")!;
     navbar = document.getElementsByClassName("links-aside")![0];
     root = document.getElementById("root")!;
 
     setColor();
-    // Redirect to page on wheel move desktop
-    // root.addEventListener("wheel", (e: Event) => {
-    //   const { deltaY } = e as WheelEvent;
-    //   if (deltaY < 0) redirect(pageIdx-1);
-    //   else redirect(pageIdx+1);
-    // });
-
-    // root.addEventListener("touchmove",  detectScrollPage, {passive: true});
-    // root.addEventListener("scroll",  detectScrollPage, {passive: true});
+    // Change colors links on scroll
+    root.addEventListener("touchmove",  detectScrollPage, {passive: true});
+    root.addEventListener("scroll",  detectScrollPage, {passive: true});
   }, []);
 
   return (
