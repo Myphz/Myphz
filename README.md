@@ -20,7 +20,10 @@ Over the years, I've learnt by myself many technologies and stuff I found intere
 <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white"><br>
 </p>
 
-<h3>Contacts</h3>
+<h2>Stats</h2>
+<img src="https://github-readme-stats.vercel.app/api?username=Myphz&count_private=true&show_icons=true&theme=merko"><br>
+
+<h2>Contacts</h3>
 <p>
 Feel free to contact me for any inquiries you may have!
 </p>
