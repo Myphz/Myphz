@@ -1,11 +1,10 @@
-<h2>Daniel</h2>
+<h2>Hello!</h2>
 <p>
-<strong>Hello!</strong><br>
 I'm Daniel, a programmer and web developer interested in many fields, driven by passion and countless personal projects.<br>
 You can see more about me and my projects in my <a href="https://myphz.github.io/Myphz/">personal website</a> or <a href="https://ddaniel.dev">business website</a>, or keep reading for a short introduction!
 </p>
 
-<h2>My skills</h2>
+<h2>Skills</h2>
 <p>
 Over the years, I've learnt by myself many technologies and stuff I found interesting. Here is a brief (but not complete!) list of the languages and technologies I know:
 </p>
@@ -29,6 +28,6 @@ Feel free to contact me for any inquiries you may have!
 </p>
 <p>
 <a href="https://t.me/myphz"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white"></a>
-<a href="mailto:danielscanu@zohomail.eu"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a>
+<a href="mailto:contact@ddaniel.dev"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a>
 <a href="https://www.linkedin.com/in/danielscanu/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
 </p>
