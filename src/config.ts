@@ -1,1 +1,1 @@
-export const SERVER_URL = "https://devfolio-be.herokuapp.com";
+export const SERVER_URL = "https://devfolio-be.fly.dev";
