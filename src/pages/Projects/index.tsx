@@ -39,17 +39,17 @@ export const Projects: React.FC = () => {
   return (
     <section className="justify-center flex-column">
       <section className="talk-cheap">
-        <h6 className="color-secondary block">HOVER IT</h6>
+        <h6 className="color-secondary block anim">HOVER IT</h6>
         <h1 className="color-primary font-title talk-cheap block no-trail" ref={mainText}>
           <TypeText text='“TALK IS CHEAP.' delay={200} speed={100} blinkDelay={50} singleLetterSpan /><br />
           <TypeText text='SHOW ME THE CODE”' delay={2500} speed={100} blinkDelay={2200} singleLetterSpan />
         </h1>
-        <h5 className="color-secondary block">- Linus Torvalds</h5>
+        <h5 className="color-secondary block anim">- Linus Torvalds</h5>
       </section>
-      <h4 className="details">For more details, visit <a className="a-link" href="https://github.com/Myphz" target="_blank">my GitHub profile</a></h4>
+      <h4 className="details anim">For more details, visit <a className="a-link" href="https://github.com/Myphz" target="_blank">my GitHub profile</a></h4>
       <section className="containers space-between">
 
-        <div className="container flex-column">
+        <div className="container anim flex-column">
           <a className="flex-column flex-1" href="https://ddaniel.dev" target="_blank">
             <span className="align-center">
               <img src={fetchImage("ddaniel")}/>
@@ -62,7 +62,7 @@ export const Projects: React.FC = () => {
           </a>
         </div>
 
-        <div className="container flex-column">
+        <div className="container anim flex-column">
           <a className="flex-column flex-1" href="https://wwwallet.app" target="_blank">
             <span className="align-center">
               <img src={fetchImage("wwwallet")}/>
@@ -78,7 +78,7 @@ export const Projects: React.FC = () => {
           </a>
         </div>
 
-        <div className="container flex-column">
+        <div className="container anim flex-column">
           <a className="flex-column flex-1" href="https://sortvisualizer.com" target="_blank">
             <span className="align-center">
               <img src={fetchImage("sortvisualizer")}/>
@@ -93,6 +93,11 @@ export const Projects: React.FC = () => {
         </div>
         
       </section>
+
+      <h5 className="anim color-primary arch align-center">
+        <img src={fetchImage("arch")}/>
+        <span>I use Arch btw</span>
+      </h5>
     </section>
   );
 }

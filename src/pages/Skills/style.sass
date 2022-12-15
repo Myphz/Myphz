@@ -14,7 +14,7 @@
   p
     opacity: 0
     transform: translateX(-5rem)
-    animation: slide-fade 1s ease .7s forwards
+    --animation: slide-fade 1s ease .7s forwards
     margin-bottom: .5em
 
 .skills, .experiences
@@ -22,20 +22,20 @@
 
 .skills
   transform: translateX(-5rem)
-  animation: slide-fade 1s ease 2.2s forwards
-
-  ul:first-of-type
-    margin-right: 5em
-    @media (max-width: $phone-max-width)
-      margin-right: 2em
+  --animation: slide-fade 1s ease 2.2s forwards
 
   div:first-of-type
     display: flex
+    justify-content: space-between
+
+    gap: 5em
+    @media (max-width: $phone-max-width)
+      gap: 2em
 
 .experiences
   gap: 2em
   transform: translateX(5rem)
-  animation: slide-fade 1s ease 2.2s forwards
+  --animation: slide-fade 1s ease 2.2s forwards
 
   & > *
     flex: 1

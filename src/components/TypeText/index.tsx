@@ -57,18 +57,24 @@ export const TypeText: React.FC<Props> = ({ text, delay, speed, blinkDelay, char
 
   // On mount hook
   useEffect(() => {
-    setTimeout(addBlinking, blinkDelay);
-    setTimeout(() => {
-      interval = setInterval(() => addLetter(text), speed);
-    }, delay);
+    (async () => {
+      while (!span.current!.classList.contains("anim-started")) {
+        await new Promise((res) => setTimeout(res, 500));
+      }
+  
+      setTimeout(addBlinking, blinkDelay);
+      setTimeout(() => {
+        interval = setInterval(() => addLetter(text), speed);
+      }, delay);
+    })();
   }, []);
 
   return (
     <>
       {
         singleLetterSpan
-        ? <span className="blinking-text" ref={span} dangerouslySetInnerHTML={{ __html: typingText}}></span>
-        : <span className="blinking-text" ref={span}>{ typingText }</span>
+        ? <span className="blinking-text anim" ref={span} dangerouslySetInnerHTML={{ __html: typingText}}></span>
+        : <span className="blinking-text anim" ref={span}>{ typingText }</span>
       }
     </>
   );

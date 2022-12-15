@@ -35,7 +35,7 @@ export const Home: React.FC = () => {
             replace="WEB DEVELOPER"
           />
         </h3>
-        <section className="h4 info">
+        <section className="h4 info anim">
           <p className="no-trail">
             Self-taught programmer motivated by passion and personal projects.
             Expert of searching bugs on Google and quickly scanning the best StackOverflow answers.

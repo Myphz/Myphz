@@ -15,7 +15,6 @@ html, body, #root
   overflow-x: hidden
   scrollbar-width: none
   -ms-overflow-style: none
-  scroll-behavior: smooth
   scroll-snap-type: y mandatory
 
   @media (max-width: $phone-max-width)
@@ -47,3 +46,6 @@ canvas
   left: 0
   pointer-events: none
   z-index: -100
+
+.anim-started
+  animation: var(--animation)

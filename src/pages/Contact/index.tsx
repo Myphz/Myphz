@@ -208,7 +208,7 @@ export const Contact: React.FC = () => {
         </h1>
         <section className="align-center contact-section-container">
           <section className="justify-center flex-column contact-main">
-            <section className="input-section">
+            <section className="input-section anim">
               <h4 className="block no-trail">
                 My inbox is always open for new opportunities.<br />
                 Feel free to contact me for any inquiries you may have!<br />

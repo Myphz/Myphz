@@ -41,7 +41,7 @@ export const Links: React.FC = () => {
       prevPageBottom = currentPageBottom;
       currentPageBottom = pages[pageIdx].getBoundingClientRect().bottom + root.scrollTop;
       setColor();
-    } else if (heightBottom < prevPageBottom + window.innerHeight /2) {
+    } else if (heightBottom < prevPageBottom + window.innerHeight / 2) {
       pageIdx--;
       currentPageBottom = prevPageBottom;
       prevPageBottom = pageIdx - 1 >= 0 ? pages[pageIdx-1].getBoundingClientRect().bottom + root.scrollTop : 0;

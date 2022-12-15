@@ -25,16 +25,16 @@ export const Skills: React.FC = () => {
       <section className="skills-sections">
         <section className="skills-main-text">
           <h1 className="color-primary font-title no-trail"><TypeText text="Skills" delay={200} speed={60} blinkDelay={150} /></h1>
-          <p className="no-trail">
+          <p className="anim no-trail">
             I've been interested in computer science ever since I was a kid.
             Over the course of more than 4 years, I've worked and developed countless personal projects,
             from simple Discord bots to  <a href="https://github.com/Myphz/wwwallet-fe" target="_blank" className="a-link">complex web applications with custom authentication systems and several functionalities.</a>
           </p>
-          <p className="no-trail">
+          <p className="anim no-trail">
             The most important skill I've learnt as a software engineer is being able to easily break down complicated problems
             into simple tasks, and methodically work on them one by one. I believe that's fundamental to complete big projects and write maintainable code.
           </p>
-          <p className="no-trail">
+          <p className="anim no-trail">
             I like to test myself, I am constantly looking for intriguing challenges and
             opportunities to improve and further hone my skills. That's why I've learnt almost everything by myself.
             Thanks to this experience, I'm easily able to learn and adapt to new technologies quickly and autonomously.
@@ -45,7 +45,7 @@ export const Skills: React.FC = () => {
           <section className="flex-column">
             <h2 className="color-primary font-title no-trail"><TypeText text="Technologies" delay={1200} speed={80} blinkDelay={900} /></h2>
 
-            <div className="container skills flex-1">
+            <div className="container skills anim flex-1">
               <div>
                 <ul className="skill-list h4">
                   {Object.entries(logos).slice(0, 7).map(([language, img]) => (
@@ -70,9 +70,9 @@ export const Skills: React.FC = () => {
           </section>
 
           <section className="flex-column">
-            <h2 className="color-primary font-title no-trail"><TypeText text="Work experiences" delay={1200} speed={60} blinkDelay={900} /></h2>
+            <h2 className="color-primary font-title no-trail"><TypeText text="Professional experience" delay={1200} speed={60} blinkDelay={900} /></h2>
 
-            <div className="experiences flex-column flex-1">
+            <div className="experiences anim flex-column flex-1">
             <section className="container flex-column">
                 <h4 className="color-accent font-title">Way AS</h4>
                 <p className="h5 flex-1 align-center">
