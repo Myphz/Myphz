@@ -5,6 +5,10 @@
   padding: 0
   box-sizing: border-box
 
+@media (max-width: $phone-max-width)
+  body
+    --ismobile: 1
+
 // Font style
 @for $i from 1 through length($font-sizes)
   h#{$i}, .h#{$i}

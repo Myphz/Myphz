@@ -10,6 +10,8 @@ import { Footer } from "./components/Footer";
 const pages = [Home, Skills, Projects, Contact];
 
 const App: React.FC = () => {
+  const isMobile = !!getComputedStyle(document.body).getPropertyValue('--ismobile');
+
   useEffect(() => {
     function inViewport(entries: IntersectionObserverEntry[]) {
       entries.forEach(entry => {
@@ -17,7 +19,7 @@ const App: React.FC = () => {
       });
     };
 
-    const obs = new IntersectionObserver(inViewport, { threshold: .7 });
+    const obs = new IntersectionObserver(inViewport, { threshold: isMobile ? .25 : .7 });
     const elements = document.querySelectorAll(".anim");
     elements.forEach(element => obs.observe(element));
   }, []);
