@@ -17,7 +17,7 @@ html, body, #root
   -ms-overflow-style: none
   scroll-snap-type: y mandatory
 
-  @media (max-width: $phone-max-width)
+  @media (max-height: $desktop-min-height)
     scroll-snap-type: initial
 
   &::-webkit-scrollbar
@@ -32,13 +32,14 @@ html, body, #root
   margin-top: 1em
   scroll-snap-align: center
   padding: 0 16.66vw
-  @media (max-width: $phone-max-width)
+  @media (max-height: $desktop-min-height)
     padding: 0 10vw
 
-@media (max-width: $phone-max-width)
+@media (max-height: $desktop-min-height)
   #root > section:last-of-type
     min-height: unset
     height: fit-content
+    padding-bottom: 2rem
   
 canvas
   position: fixed

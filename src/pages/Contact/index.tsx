@@ -233,7 +233,7 @@ export const Contact: React.FC = () => {
               </form>
             </section>
           </section>
-          <div id="gmaps"></div>
+          <div id="gmaps" className="anim"></div>
         </section>
       </section>
       <Popup {...popupStatus} key={popupKey} />
