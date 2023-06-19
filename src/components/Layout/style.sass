@@ -17,11 +17,12 @@ html, body, #root
   -ms-overflow-style: none
   scroll-snap-type: y mandatory
 
-  @media (max-height: $desktop-min-height)
-    scroll-snap-type: initial
-
   &::-webkit-scrollbar
     display: none
+
+@media (max-height: $desktop-min-height)
+  html, body, #root
+    scroll-snap-type: initial
 
 #root
   position: relative
