@@ -6,7 +6,7 @@ You can see more about me and my projects in my <a href="https://myphz.github.io
 
 <h2>Skills</h2>
 <p>
-Over the years, I've learnt by myself many technologies and stuff I found interesting. Here is a brief (but not complete!) list of the languages and technologies I know:
+Over the years, I've learnt by myself many technologies and frameworks I found interesting. Here is a brief (but not complete!) list of the languages and technologies I know:
 </p>
 <p>
 <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"><br>
