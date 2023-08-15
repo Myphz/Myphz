@@ -31,3 +31,5 @@ Feel free to contact me for any inquiries you may have!
 <a href="mailto:contact@ddaniel.dev"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a>
 <a href="https://www.linkedin.com/in/danielscanu/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
 </p>
+
+![](https://hit.yhype.me/github/profile?user_id=71951166)
