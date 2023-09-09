@@ -1,7 +1,7 @@
 <h2>Hello!</h2>
 <p>
 I'm Daniel, a programmer and web developer interested in many fields, driven by passion and countless personal projects.<br>
-You can see more about me and my projects in my <a href="https://myphz.github.io/Myphz/">personal website</a> or <a href="https://ddaniel.dev">business website</a>, or keep reading for a short introduction!
+You can see more about me and my projects in my <a href="https://myphz.github.io/Myphz/">personal website</a>, or keep reading for a short introduction!
 </p>
 
 <h2>Skills</h2>
@@ -17,6 +17,10 @@ Over the years, I've learnt by myself many technologies and frameworks I found i
 <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"><br>
 <img src="https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vue.js&logoColor=4FC08D"><br>
 <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white"><br>
+<img src="https://img.shields.io/badge/svelte-%23f1413d.svg?style=for-the-badge&logo=svelte&logoColor=white"><br>
+<img src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white"><br>
+<img src="https://img.shields.io/badge/strapi-%232E7EEA.svg?style=for-the-badge&logo=strapi&logoColor=white"><br>
+<img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white"><br>
 </p>
 
 <h2>Stats</h2>
