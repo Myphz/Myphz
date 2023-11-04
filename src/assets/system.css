@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@600;700&family=Fira+Sans:wght@400;500&display=swap");
+@import "./iosevka.css";
+
+:root {
+  /* Color Palette */
+  --primary: #f2ff5b;
+  --secondary: #89ff69;
+  --text: #c9c9c9;
+  --text-secondary: #6f6f6f;
+  --background: #0c0c0c;
+}
+
+/* Font Styles */
+.h1 {
+  font-family: "Comfortaa", sans-serif;
+  font-size: 6.5rem;
+  font-weight: 700;
+}
+
+.sub-h1 {
+  font-family: "Comfortaa", sans-serif;
+  font-size: 3.25rem;
+  font-weight: 600;
+}
+
+.h2 {
+  font-family: "Fira Sans", sans-serif;
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+.h3 {
+  font-family: "Fira Sans", sans-serif;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.h4 {
+  font-family: "Fira Sans", sans-serif;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.h5 {
+  font-family: "Fira Sans", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.h6 {
+  font-family: "Fira Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.text-animation {
+  font-family: "Iosevka", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
