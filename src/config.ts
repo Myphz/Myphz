@@ -1,1 +1,0 @@
-export const SERVER_URL = "https://devfolio-be.fly.dev";
