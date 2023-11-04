@@ -1,6 +1,11 @@
 @import "./reset.css";
 @import "./system.css";
 
-body {
-  height: 50vh;
+html,
+body,
+#app {
+  height: 100%;
+  overflow-x: hidden;
+  background: var(--background);
+  color: var(--text);
 }
