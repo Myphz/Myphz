@@ -58,3 +58,40 @@
   font-size: 1.5rem;
   font-weight: 400;
 }
+
+/* Mobile font styles */
+@media screen and (max-width: 480px) {
+  .h1 {
+    font-size: 3.25rem;
+    font-weight: 600;
+  }
+
+  .sub-h1 {
+    font-size: 1.25rem;
+    font-weight: 400;
+  }
+
+  .h2 {
+    font-size: 1.5rem;
+  }
+
+  .h3 {
+    font-size: 1.25rem;
+  }
+
+  .h4 {
+    font-size: 1.25rem;
+  }
+
+  .h5 {
+    font-size: 1rem;
+  }
+
+  .h6 {
+    font-size: 0.75rem;
+  }
+
+  .text-animation {
+    font-size: 1rem;
+  }
+}
