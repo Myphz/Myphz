@@ -109,5 +109,32 @@ module.exports = {
       ]
     }
   },
-  plugins: []
+  plugins: [
+    /** @type {import('tailwindcss/types/config').PluginCreator} */
+    ({ addUtilities }) => {
+      addUtilities({
+        ".text-responsive-h1": {
+          "@apply text-h1m lg:text-h1": {}
+        },
+        ".text-responsive-sub-h1": {
+          "@apply text-sub-h1m lg:text-sub-h1": {}
+        },
+        ".text-responsive-h2": {
+          "@apply text-h2m lg:text-h2": {}
+        },
+        ".text-responsive-h3": {
+          "@apply text-h3m lg:text-h3": {}
+        },
+        ".text-responsive-h4": {
+          "@apply text-h4m lg:text-h4": {}
+        },
+        ".text-responsive-h5": {
+          "@apply text-h5m lg:text-h5": {}
+        },
+        ".text-responsive-h6": {
+          "@apply text-h6m lg:text-h6": {}
+        }
+      });
+    }
+  ]
 };

@@ -1,7 +1,7 @@
 <template>
   <PageWrapper>
-    <div class="h-full flex items-center">
-      <div class="text-h1 font-headers text-primary">Daniel</div>
+    <div class="h-full flex items-center prova">
+      <div class="text-responsive-h1 font-headers text-primary">Daniel</div>
     </div>
   </PageWrapper>
 </template>
