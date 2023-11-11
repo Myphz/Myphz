@@ -1,11 +1,12 @@
 <template>
   <PageWrapper>
     <div class="h-full flex items-center prova">
-      <div class="text-responsive-h1 font-headers text-primary">Daniel</div>
+      <MainText />
     </div>
   </PageWrapper>
 </template>
 
 <script setup lang="ts">
 import PageWrapper from "@/components/PageWrapper.vue";
+import MainText from "@/components/MainText.vue";
 </script>
