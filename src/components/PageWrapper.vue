@@ -1,14 +1,5 @@
 <template>
-  <section class="full-page-height wrapper">
+  <section class="mx-40 py-12 h-[100dvh]">
     <slot />
   </section>
 </template>
-
-<script setup lang="ts"></script>
-
-<style scoped>
-.wrapper {
-  margin: 0 10rem;
-  padding: 3rem 0;
-}
-</style>
