@@ -8,7 +8,7 @@
         <li
           v-for="(tab, i) in tabs"
           :key="tab.name"
-          class="pr-6 border-r last:border-0 border-text"
+          class="pr-6 border-r last:border-0 border-text hover:text-secondary transition-all"
         >
           <a :href="tab.href" class="flex gap-2">
             <span class="text-secondary">{{ i }}.</span>
