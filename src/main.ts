@@ -1,7 +1,7 @@
 import "./assets/main.css"
 
-import { createApp } from "vue"
+import { ViteSSG } from "vite-ssg/single-page"
 import App from "./App.vue"
 
-const app = createApp(App)
-app.mount("#app")
+// @ts-nocheck
+export const createApp = ViteSSG(App)
