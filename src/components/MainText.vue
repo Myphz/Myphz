@@ -1,13 +1,13 @@
 <template>
   <div
-    class="text-responsive-h1 font-headers text-primary relative text-animation before:bg-background"
+    class="text-responsive-h1 font-headers leading-none text-primary relative w-fit text-animation after:bg-background"
   >
     Daniel
   </div>
 </template>
 
 <style scoped>
-.text-animation::before {
+.text-animation::after {
   content: "";
   position: absolute;
   left: 0;

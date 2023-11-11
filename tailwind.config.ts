@@ -1,5 +1,6 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+import type { Config } from "tailwindcss";
+
+export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx,vue}"],
   theme: {
     colors: {
@@ -137,4 +138,4 @@ module.exports = {
       });
     }
   ]
-};
+} satisfies Config;
