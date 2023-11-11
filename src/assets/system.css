@@ -1,43 +1,45 @@
-@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@600;700&family=Fira+Sans:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@600;700&family=Fira+Code&family=Fira+Sans:wght@400;500&display=swap");
 @import "./iosevka.css";
 
 :root {
   /* Color Palette */
   --primary: #f2ff5b;
   --secondary: #89ff69;
-  --text: #c9c9c9;
-  --text-secondary: #6f6f6f;
+  --text: #e1e1e1;
+  --text-secondary: #c9c9c9;
   --background: #0c0c0c;
 }
 
 /* Font Styles */
 .h1 {
   font-family: "Comfortaa", sans-serif;
-  font-size: 6.5rem;
+  font-size: 5.0625rem;
   font-weight: 700;
+  letter-spacing: -2%;
 }
 
 .sub-h1 {
-  font-family: "Comfortaa", sans-serif;
-  font-size: 3.25rem;
-  font-weight: 600;
+  font-family: "Fira Code", monospace;
+  font-size: 3.375rem;
+  font-weight: 450;
+  letter-spacing: -2%;
 }
 
 .h2 {
   font-family: "Fira Sans", sans-serif;
-  font-size: 3rem;
+  font-size: 3.375rem;
   font-weight: 500;
 }
 
 .h3 {
   font-family: "Fira Sans", sans-serif;
-  font-size: 2rem;
+  font-size: 2.25rem;
   font-weight: 500;
 }
 
 .h4 {
   font-family: "Fira Sans", sans-serif;
-  font-size: 2rem;
+  font-size: 2.25rem;
   font-weight: 400;
 }
 
@@ -72,11 +74,11 @@
   }
 
   .h2 {
-    font-size: 1.5rem;
+    font-size: 1.625rem;
   }
 
   .h3 {
-    font-size: 1.25rem;
+    font-size: 1.3125rem;
   }
 
   .h4 {
