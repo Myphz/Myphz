@@ -1,4 +1,3 @@
-// @ts-ignore
 import { Polyline, Renderer, Transform, Vec3, Color } from "ogl";
 
 const SPRING = 0.1;
@@ -19,29 +18,29 @@ export function initializeOGLAnimation() {
     uniform float uThickness;
 
     vec4 getPosition() {
-        vec2 aspect = vec2(uResolution.x / uResolution.y, 1);
-        vec2 nextScreen = next.xy * aspect;
-        vec2 prevScreen = prev.xy * aspect;
+      vec2 aspect = vec2(uResolution.x / uResolution.y, 1);
+      vec2 nextScreen = next.xy * aspect;
+      vec2 prevScreen = prev.xy * aspect;
 
-        vec2 tangent = normalize(nextScreen - prevScreen);
-        vec2 normal = vec2(-tangent.y, tangent.x);
-        normal /= aspect;
-        normal *= 1.0 - pow(abs(uv.y - 0.5) * 2.0, 2.0);
+      vec2 tangent = normalize(nextScreen - prevScreen);
+      vec2 normal = vec2(-tangent.y, tangent.x);
+      normal /= aspect;
+      normal *= 1.0 - pow(abs(uv.y - 0.5) * 2.0, 2.0);
 
-        float pixelWidth = 1.0 / (uResolution.y / uDPR);
-        normal *= pixelWidth * uThickness;
+      float pixelWidth = 1.0 / (uResolution.y / uDPR);
+      normal *= pixelWidth * uThickness;
 
-        // When the points are on top of each other, shrink the line to avoid artifacts.
-        float dist = length(nextScreen - prevScreen);
-        normal *= smoothstep(0.0, 0.02, dist);
+      // When the points are on top of each other, shrink the line to avoid artifacts.
+      float dist = length(nextScreen - prevScreen);
+      normal *= smoothstep(0.0, 0.02, dist);
 
-        vec4 current = vec4(position, 1);
-        current.xy -= normal * side;
-        return current;
+      vec4 current = vec4(position, 1);
+      current.xy -= normal * side;
+      return current;
     }
 
     void main() {
-        gl_Position = getPosition();
+      gl_Position = getPosition();
     }
   `;
 
