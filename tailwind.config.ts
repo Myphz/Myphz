@@ -30,7 +30,7 @@ export default {
       "sub-h1": [
         "3.375rem",
         {
-          fontWeight: 450,
+          fontWeight: 300,
           letterSpacing: "-0.02em"
         }
       ],
@@ -75,7 +75,7 @@ export default {
       "sub-h1m": [
         "1.25rem",
         {
-          fontWeight: 400,
+          fontWeight: 300,
           letterSpacing: "-0.02em"
         }
       ],

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-[1em] flex items-center justify-start w-fit font-subheader pr-[1px] text-responsive-sub-h1 text-secondary"
+    class="flex h-[1em] w-fit items-center justify-start pr-[1px] font-subheader text-secondary text-responsive-sub-h1"
   >
     {{ content }}
   </div>
@@ -66,6 +66,15 @@ onMounted(async () => {
 
 <style scoped>
 div {
-  box-shadow: 2px 0 0 currentColor;
+  animation: blink 200ms 500ms infinite alternate;
+}
+
+@keyframes blink {
+  from {
+    box-shadow: 2px 0 0 currentColor;
+  }
+  to {
+    box-shadow: 2px 0 0 transparent;
+  }
 }
 </style>
