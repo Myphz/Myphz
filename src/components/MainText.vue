@@ -1,10 +1,15 @@
 <template>
   <div
-    class="text-responsive-h1 font-headers leading-none text-primary relative w-fit text-animation after:bg-background"
+    class="relative w-fit font-headers leading-none text-primary text-responsive-h1 after:bg-background"
+    :class="{ 'text-animation': animated }"
   >
     Daniel
   </div>
 </template>
+
+<script setup lang="ts">
+const { animated } = withDefaults(defineProps<{ animated?: boolean }>(), { animated: true });
+</script>
 
 <style scoped>
 .text-animation {
