@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import type { PluginCreator } from "tailwindcss/types/config";
 
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx,vue}"],
@@ -111,8 +112,7 @@ export default {
     }
   },
   plugins: [
-    /** @type {import('tailwindcss/types/config').PluginCreator} */
-    ({ addUtilities }) => {
+    ({ addUtilities }: Parameters<PluginCreator>[0]) => {
       addUtilities({
         ".text-responsive-h1": {
           "@apply text-h1m lg:text-h1": {}
