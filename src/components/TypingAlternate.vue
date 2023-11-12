@@ -15,7 +15,7 @@ const CLEAR_SPEED = 25;
 // How long to wait before starting deleting token
 const TOKENS_SWITCH_TIME = 750;
 // How long to wait before starting to write tokens
-const INITIAL_DELAY = 500;
+const INITIAL_DELAY = 1500;
 
 const { tokens } = defineProps<{
   tokens: string[];
