@@ -1,26 +1,36 @@
 <template>
-  <div class="absolute top-1/2 -translate-y-1/2 right-[5vw] w-[30vw] h-[50vh]">
-    <div class="absolute w-[70%] h-[70%] left-0 top-0 blob-primary rounded-full"></div>
+  <div
+    class="relative h-full w-full lg:absolute lg:right-[5vw] lg:top-1/2 lg:h-[50vh] lg:w-[30vw] lg:-translate-y-1/2 [&>*]:blur-[50px] lg:[&>*]:blur-[70px]"
+  >
+    <!-- Primary blob -->
+    <div class="blob-primary absolute left-0 top-0 hidden h-[70%] w-[70%] rounded-full lg:block" />
     <div
-      class="bg-secondary absolute w-[70%] h-[70%] right-0 bottom-0 blob-secondary rounded-full"
-    ></div>
+      class="blob-primary-mobile absolute left-1/2 top-1/2 h-[50%] w-[50%] -translate-x-1/2 -translate-y-1/2 rounded-full lg:hidden"
+    />
+    <!-- Secondary blob -->
+    <div
+      class="blob-secondary absolute bottom-0 right-[10%] h-[50%] w-[50%] rounded-full lg:right-0 lg:h-[70%] lg:w-[70%]"
+    />
     <!-- Shadow -->
-    <div class="absolute w-[60%] h-[50%] left-[-10%] bottom-[15%] blob-shadow"></div>
+    <div
+      class="blob-shadow absolute bottom-[10%] left-0 h-[50%] w-[50%] blur-[80px] lg:bottom-[15%] lg:left-[-10%] lg:h-[50%] lg:w-[60%] lg:!blur-[80px]"
+    ></div>
   </div>
 </template>
-
-<script setup lang="ts"></script>
 
 <style scoped>
 .blob-primary {
   background: radial-gradient(circle, rgba(243, 255, 0, 1) 0%, rgba(12, 12, 12, 1) 100%);
-  filter: blur(70px);
   animation: rotate 2s ease-in-out infinite alternate;
+}
+
+.blob-primary-mobile {
+  background: radial-gradient(circle, rgba(243, 255, 0, 1) 0%, rgba(12, 12, 12, 1) 100%);
+  animation: rotate-mobile 2s ease-in-out infinite alternate;
 }
 
 .blob-secondary {
   background: radial-gradient(circle, #89ff69 0%, rgba(12, 12, 12, 1) 100%);
-  filter: blur(70px);
   animation: rotate-secondary 2s ease-in-out infinite alternate;
 }
 
@@ -31,7 +41,6 @@
     rgba(12, 12, 12, 1) 78%,
     rgba(12, 12, 12, 1) 100%
   );
-  filter: blur(80px);
 }
 
 @keyframes rotate {
@@ -42,6 +51,16 @@
     rotate: -180deg;
     left: 30%;
     top: 30%;
+  }
+}
+
+@keyframes rotate-mobile {
+  50% {
+    left: 40%;
+  }
+  100% {
+    left: 70%;
+    top: 70%;
   }
 }
 
