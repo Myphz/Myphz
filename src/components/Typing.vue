@@ -29,8 +29,8 @@ div::after {
   width: 100%;
   user-select: none;
 
-  /* 91wpm / 457cpm (7.61 cps) typing speed */
-  --animation-duration: calc(var(--text-length) / 7.61 * 1s);
+  /* 10 character per second typing speed */
+  --animation-duration: calc(var(--text-length) / 10 * 1s);
   animation:
     typing var(--animation-duration) steps(var(--text-length)) calc(var(--delay) * 1s) forwards,
     blink 500ms calc(var(--delay) * 1s - 1s) infinite,

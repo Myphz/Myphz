@@ -5,7 +5,7 @@
       <Typing
         class="max-w-[50vw] font-subheader text-responsive-sub-h1 leading-none text-secondary"
         text="PROFESSIONAL GOOGLE SEARCHER"
-        :delay="2"
+        :delay="1.5"
       />
       <!-- <Typing
         class="max-w-[50vw] font-subheader text-responsive-sub-h1 leading-none text-secondary"

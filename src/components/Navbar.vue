@@ -1,8 +1,8 @@
 <template>
   <header
-    class="flex justify-between items-center px-4 py-4 lg:px-40 lg:py-12 fixed w-full left-0 top-0"
+    class="flex justify-between items-center px-4 py-4 lg:px-40 lg:py-12 fixed w-full left-0 top-0 z-10 text-responsive-h6"
   >
-    <div class="text-responsive-h6">DRAG ANYWHERE</div>
+    <div>DRAG ANYWHERE</div>
     <nav>
       <ul class="flex gap-6 uppercase">
         <li

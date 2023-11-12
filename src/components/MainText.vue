@@ -8,7 +8,7 @@
 
 <style scoped>
 .text-animation {
-  text-shadow: -0.1em 0.03em 0.3em currentColor;
+  animation: glow 300ms 1.75s forwards;
 }
 .text-animation::after {
   content: "";
@@ -24,6 +24,12 @@
 @keyframes reveal {
   to {
     left: 100%;
+  }
+}
+
+@keyframes glow {
+  to {
+    text-shadow: -0.1em 0.03em 0.2em currentColor;
   }
 }
 </style>
