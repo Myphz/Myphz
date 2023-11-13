@@ -4,7 +4,8 @@
       <span>About</span>
       <span class="font-subheader text-secondary">{{ "{" }}</span>
     </header>
-    <div class="flex flex-col gap-8 lg:w-[90%] lg:flex-row lg:gap-32 [&>*]:flex-1">
+
+    <div class="flex flex-col gap-8 pl-4 lg:w-[90%] lg:flex-row lg:gap-60 lg:pl-8 [&>*]:flex-1">
       <div class="flex flex-col gap-8">
         <div>
           <p>Software engineer with over 6 years of experience.</p>
@@ -26,12 +27,12 @@
         independently.
       </p>
     </div>
-    <div class="mb-8 flex gap-2 text-secondary lg:hidden">
+    <div class="ml-4 flex gap-2 text-secondary lg:hidden">
       <img src="/icons/arch.png" />
       <span>I use Arch btw</span>
     </div>
 
-    <span class="font-subheader text-secondary text-responsive-h2">{{ "}" }}</span>
+    <span class="mt-8 font-subheader text-secondary text-responsive-h2">{{ "}" }}</span>
   </PageWrapper>
 </template>
 
