@@ -13,6 +13,10 @@ export const TABS: Tab[] = [
     href: "#skills"
   },
   {
+    name: "Work",
+    href: "#work"
+  },
+  {
     name: "Projects",
     href: "#projects"
   },

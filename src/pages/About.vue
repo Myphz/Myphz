@@ -1,9 +1,6 @@
 <template>
   <PageWrapper class="flex flex-col justify-center" id="about">
-    <header class="mb-8 flex gap-4 text-primary text-responsive-h2 lg:gap-8">
-      <span>About</span>
-      <span class="font-subheader text-secondary">{{ "{" }}</span>
-    </header>
+    <Header>About</Header>
 
     <div class="flex flex-col gap-8 pl-4 lg:w-[90%] lg:flex-row lg:gap-60 lg:pl-8 [&>*]:flex-1">
       <div class="flex flex-col gap-8">
@@ -37,5 +34,6 @@
 </template>
 
 <script setup lang="ts">
+import Header from "@/components/Header.vue";
 import PageWrapper from "@/components/PageWrapper.vue";
 </script>

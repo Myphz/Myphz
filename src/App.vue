@@ -5,6 +5,7 @@
   <Landing />
   <About />
   <Skills />
+  <Work />
 </template>
 
 <script setup lang="ts">
@@ -16,6 +17,7 @@ import PageIndicator from "./components/PageIndicator.vue";
 import Landing from "./pages/Landing.vue";
 import About from "./pages/About.vue";
 import Skills from "./pages/Skills.vue";
+import Work from "./pages/Work.vue";
 
 import { initializeOGLAnimation } from "./utils/ogl";
 
