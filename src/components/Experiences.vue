@@ -1,5 +1,5 @@
 <template>
-  <section class="relative flex max-h-[50vh] flex-col gap-12 overflow-y-scroll">
+  <section class="relative flex max-h-[50vh] flex-col gap-4 overflow-y-scroll lg:gap-12">
     <template v-for="experience in EXPERIENCES" :key="experience.title">
       <Experience :title="experience.title" :footer="experience.footer">
         {{ experience.text }}
