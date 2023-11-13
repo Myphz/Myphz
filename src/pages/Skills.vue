@@ -1,5 +1,5 @@
 <template>
-  <PageWrapper class="flex flex-col justify-center" id="about">
+  <PageWrapper class="flex flex-col justify-center" id="skills">
     <header class="mb-8 flex gap-4 text-primary text-responsive-h2 lg:gap-8">
       <span>Skills</span>
       <span class="font-subheader text-secondary">{{ "{" }}</span>
