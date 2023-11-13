@@ -92,18 +92,20 @@ export function initializeOGLAnimation() {
     window.addEventListener("mouseup", () => window.removeEventListener("mousemove", updateMouse));
   }
 
-  function updateMouse(e: any) {
-    if (e.changedTouches?.length) {
-      e.x = e.changedTouches[0].pageX;
-      e.y = e.changedTouches[0].pageY;
-    }
-    if (e.x === undefined) {
-      e.x = e.pageX;
-      e.y = e.pageY;
+  function updateMouse(e: TouchEvent | MouseEvent) {
+    console.log(e);
+    let x: number;
+    let y: number;
+    if ("changedTouches" in e) {
+      x = e.changedTouches[0].clientX;
+      y = e.changedTouches[0].clientY;
+    } else {
+      x = e.clientX;
+      y = e.clientY;
     }
 
     // Get mouse value in -1 to 1 range, with y flipped
-    mouse.set((e.x / gl.renderer.width) * 2 - 1, (e.y / gl.renderer.height) * -2 + 1, 0);
+    mouse.set((x / gl.renderer.width) * 2 - 1, (y / gl.renderer.height) * -2 + 1, 0);
   }
 
   const tmp = new Vec3();
