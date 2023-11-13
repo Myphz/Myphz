@@ -47,7 +47,7 @@ onMounted(() => {
 
   window.addEventListener("scroll", () => {
     const top = document.documentElement.scrollTop;
-    console.log(top);
+    // console.log(top);
   });
 });
 </script>
