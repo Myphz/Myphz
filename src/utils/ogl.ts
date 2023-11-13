@@ -93,7 +93,6 @@ export function initializeOGLAnimation() {
   }
 
   function updateMouse(e: TouchEvent | MouseEvent) {
-    console.log(e);
     let x: number;
     let y: number;
     if ("changedTouches" in e) {

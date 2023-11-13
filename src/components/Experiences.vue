@@ -1,5 +1,8 @@
 <template>
-  <section class="relative flex max-h-[50vh] flex-col gap-4 overflow-y-scroll lg:gap-12">
+  <section
+    class="relative flex max-h-[50vh] flex-col gap-4 overflow-y-scroll lg:gap-12"
+    ref="section"
+  >
     <template v-for="experience in EXPERIENCES" :key="experience.title">
       <Experience :title="experience.title" :footer="experience.footer">
         {{ experience.text }}
@@ -16,6 +19,7 @@
 
 <script setup lang="ts">
 import Experience from "@/components/Experience.vue";
+import { onMounted, ref } from "vue";
 
 const EXPERIENCES = [
   {
@@ -34,4 +38,16 @@ const EXPERIENCES = [
     footer: "yes"
   }
 ];
+
+const section = ref<HTMLDivElement | null>(null);
+
+onMounted(() => {
+  const sectRef = section.value;
+  if (!sectRef) return;
+
+  window.addEventListener("scroll", () => {
+    const top = document.documentElement.scrollTop;
+    console.log(top);
+  });
+});
 </script>
