@@ -1,7 +1,7 @@
 <template>
   <section
-    class="relative flex max-h-[50vh] flex-col gap-4 overflow-y-scroll lg:gap-12"
-    ref="section"
+    class="relative flex max-h-[30vh] flex-col gap-4 overflow-y-scroll lg:max-h-[50vh] lg:gap-12"
+    ref="sectRef"
   >
     <template v-for="experience in EXPERIENCES" :key="experience.title">
       <Experience :title="experience.title" :footer="experience.footer">
@@ -19,7 +19,7 @@
 
 <script setup lang="ts">
 import Experience from "@/components/Experience.vue";
-import { onMounted, ref } from "vue";
+import { ref } from "vue";
 
 const EXPERIENCES = [
   {
@@ -38,16 +38,22 @@ const EXPERIENCES = [
     footer: "yes"
   }
 ];
+const SCROLL_OFFSET = 10;
 
-const section = ref<HTMLDivElement | null>(null);
+const sectRef = ref<HTMLDivElement | null>(null);
 
-onMounted(() => {
-  const sectRef = section.value;
-  if (!sectRef) return;
+function scrollExperiences(scrollDown: boolean) {
+  const offset = scrollDown ? SCROLL_OFFSET : -SCROLL_OFFSET;
+  sectRef.value?.scrollBy({ top: offset });
 
-  window.addEventListener("scroll", () => {
-    const top = document.documentElement.scrollTop;
-    // console.log(top);
-  });
-});
+  const { scrollTop, scrollHeight, clientHeight } = sectRef.value!;
+  console.log({ scrollTop, scrollHeight, clientHeight });
+
+  return {
+    scrolledUp: scrollTop === 0,
+    scrolledDown: scrollTop + clientHeight >= scrollHeight
+  };
+}
+
+defineExpose({ sectRef, scrollExperiences });
 </script>

@@ -6,6 +6,7 @@
   <About />
   <Skills />
   <Work />
+  <About />
 </template>
 
 <script setup lang="ts">

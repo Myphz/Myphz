@@ -9,3 +9,14 @@ canvas {
   pointer-events: none;
   z-index: 100;
 }
+
+html,
+body,
+#app {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+.page {
+  scroll-snap-align: start;
+}
