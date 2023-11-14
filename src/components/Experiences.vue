@@ -38,12 +38,11 @@ const EXPERIENCES = [
     footer: "yes"
   }
 ];
-const SCROLL_OFFSET = 10;
 
 const sectRef = ref<HTMLDivElement | null>(null);
 
-function scrollExperiences(scrollDown: boolean) {
-  const offset = scrollDown ? SCROLL_OFFSET : -SCROLL_OFFSET;
+function scrollExperiences(scrollDown: boolean, amount: number) {
+  const offset = scrollDown ? amount : -amount;
   sectRef.value?.scrollBy({ top: offset });
 
   const { scrollTop, scrollHeight, clientHeight } = sectRef.value!;
@@ -56,3 +55,14 @@ function scrollExperiences(scrollDown: boolean) {
 
 defineExpose({ sectRef, scrollExperiences });
 </script>
+
+<style scoped>
+section {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+section::-webkit-scrollbar {
+  display: none;
+}
+</style>

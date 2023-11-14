@@ -22,9 +22,13 @@ import Header from "@/components/Header.vue";
 import PageWrapper from "@/components/PageWrapper.vue";
 import Experiences from "@/components/Experiences.vue";
 import { onMounted, ref } from "vue";
+import { isVisible } from "@/utils/dom";
 
 const experiencesRef = ref(null);
 const pageRef = ref(null);
+
+const SCROLL_AMOUNT_MOBILE = 5;
+const SCROLL_AMOUNT_DESKTOP = 20;
 
 onMounted(() => {
   const page = (pageRef.value as any).pageRef as HTMLDivElement;
@@ -38,7 +42,7 @@ onMounted(() => {
   let mobileY = 0;
 
   const onWheel = (e: WheelEvent) => {
-    hijackScroll(e.deltaY > 0, e);
+    hijackScroll(e.deltaY > 0, e, SCROLL_AMOUNT_DESKTOP);
   };
 
   const onTouchStart = (e: TouchEvent) => {
@@ -49,18 +53,18 @@ onMounted(() => {
   const onTouchMove = (e: TouchEvent) => {
     const touch = e.touches[0];
     const hasScrolledTop = touch.clientY - mobileY > 0;
-    hijackScroll(!hasScrolledTop, e);
+    hijackScroll(!hasScrolledTop, e, SCROLL_AMOUNT_MOBILE);
   };
 
-  const hijackScroll = (scrollDown: boolean, e: Event) => {
+  const hijackScroll = (scrollDown: boolean, e: Event, amount: number) => {
     const top = document.documentElement.scrollTop;
-    if (top >= pageTop) {
+    if (top >= pageTop && isVisible(page)) {
       if (scrollDown && scrolledDown) return;
       if (!scrollDown && scrolledUp) return;
 
-      window.scrollTo({ top: pageTop });
       e.preventDefault();
-      ({ scrolledDown, scrolledUp } = scrollFn(scrollDown));
+      window.scrollTo({ top: pageTop });
+      ({ scrolledDown, scrolledUp } = scrollFn(scrollDown, amount));
     }
   };
 
