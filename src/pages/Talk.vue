@@ -1,12 +1,12 @@
 <template>
   <PageWrapper class="flex flex-col items-center justify-center">
     <header
-      class="relative flex w-fit flex-col items-center font-extralight leading-none text-primary text-responsive-h1 before:text-secondary after:text-secondary"
+      class="relative flex w-fit flex-col items-center text-[8vw] font-extralight leading-none text-primary before:text-secondary after:text-secondary lg:text-[5vw]"
     >
       <VariableFontTypingText text="“TALK IS CHEAP." />
       <VariableFontTypingText text="SHOW ME THE CODE”" :delay="2000" />
     </header>
-    <div class="mr-[40vw] mt-4 text-center">- Linus Torvalds</div>
+    <div class="ml-[40vw] mt-4 text-center">- Linus Torvalds</div>
   </PageWrapper>
 </template>
 
