@@ -47,7 +47,6 @@ function scrollExperiences(scrollDown: boolean) {
   sectRef.value?.scrollBy({ top: offset });
 
   const { scrollTop, scrollHeight, clientHeight } = sectRef.value!;
-  console.log({ scrollTop, scrollHeight, clientHeight });
 
   return {
     scrolledUp: scrollTop === 0,

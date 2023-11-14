@@ -6,7 +6,7 @@
   <About />
   <Skills />
   <Work />
-  <About />
+  <Talk />
 </template>
 
 <script setup lang="ts">
@@ -19,6 +19,7 @@ import Landing from "./pages/Landing.vue";
 import About from "./pages/About.vue";
 import Skills from "./pages/Skills.vue";
 import Work from "./pages/Work.vue";
+import Talk from "./pages/Talk.vue";
 
 import { initializeOGLAnimation } from "./utils/ogl";
 

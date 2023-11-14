@@ -31,7 +31,6 @@ onMounted(() => {
   const scrollFn = (experiencesRef.value! as any).scrollExperiences;
 
   let { top: pageTop } = page.getBoundingClientRect();
-  // pageTop -= parseFloat(window.getComputedStyle(page, null).getPropertyValue("padding-top"));
 
   let scrolledDown = false;
   let scrolledUp = true;

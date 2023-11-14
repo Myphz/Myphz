@@ -16,7 +16,7 @@ export default {
       headers: "'Comfortaa', sans-serif;",
       main: '"Fira Sans", sans-serif;',
       terminal: "'Iosevka', monospace;",
-      subheader: "'Fira Code', monospace;"
+      subheader: "'Source Code Pro', monospace;"
     },
 
     fontSize: {
