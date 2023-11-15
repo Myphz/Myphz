@@ -4,7 +4,7 @@
     ref="sectRef"
   >
     <template v-for="experience in EXPERIENCES" :key="experience.title">
-      <Experience :title="experience.title" :footer="experience.footer">
+      <Experience :title="experience.title" :note="experience.note">
         {{ experience.text }}
       </Experience>
       <div class="relative">
@@ -14,30 +14,45 @@
         />
       </div>
     </template>
+
+    <Button variant="primary" class="flex items-center justify-center gap-4" @click="openResume">
+      <span>See full resume</span>
+      <img src="/icons/arrow.svg" class="aspect-square w-[1em]" />
+    </Button>
   </section>
 </template>
 
 <script setup lang="ts">
 import Experience from "@/components/Experience.vue";
+import Button from "@/components/Button.vue";
+
 import { ref } from "vue";
 
 const EXPERIENCES = [
   {
-    title: "Freelancer",
-    text: "I've worked for hundreds of clients as a freelancer in many different fields of programming, from GUI development to Machine Learning & AI",
-    footer: "yes"
+    title: "ContinuumLab",
+    text: "As a senior front-end developer at a venture firm, I designed a web interface for a social-media-like platform. I set up back-end communication with Strapi CMS using GraphQL, displayed real-time data with SSE and WebSockets, and integrated authentication providers like Keycloak.",
+    note: "USA | Nov 2022 - Current"
+  },
+  {
+    title: "Way AS",
+    text: "Worked for a simulator-based driving school, implementing real-time GraphQL for user data, architecting booking and payment infrastructure, and creating a cross-platform mobile app for automated bookings and payments. Contributed to business growth by integrating with payment providers, Google Firebase, and Google Cloud platforms.",
+    note: "Norway | Aug 2022 - Jun 2023"
+  },
+
+  {
+    title: "pianobit s.r.l",
+    text: "Led the development of a NodeJS full-stack web application for a SaaS company, implementing a secure microservices architecture and contributing to real-time trading features. Achieved 100% customer satisfaction through the delivery of robust back-end solutions and a seamless Vue.js front-end interface for file sharing.",
+    note: "Italy | Jun 2020 - Jul 2022"
   },
   {
     title: "Freelancer",
     text: "I've worked for hundreds of clients as a freelancer in many different fields of programming, from GUI development to Machine Learning & AI",
-    footer: "yes"
-  },
-  {
-    title: "Freelancer",
-    text: "I've worked for hundreds of clients as a freelancer in many different fields of programming, from GUI development to Machine Learning & AI",
-    footer: "yes"
+    note: "Worldwide | Jan 2018 - Feb 2022"
   }
 ];
+
+const openResume = () => window.open("google.com");
 
 const sectRef = ref<HTMLDivElement | null>(null);
 

@@ -17,11 +17,14 @@
 
       <p class="mb-8 lg:mb-0">
         Fueled by a love for computer science since my youth, I've spent over 6 years improving my
-        skills through various projects. I'm excel at breaking down complex problems into smaller
-        tasks, which is crucial for creating strong and maintainable code in large projects. I
-        thrive on challenges and am always looking for ways to improve my abilities. I've mostly
-        learned on my own, allowing me to quickly understand and adapt to new technologies
-        independently.
+        skills through various projects.
+        <br />
+        I thoroughly enjoying computers & computer science ever since I was a kid. I remember
+        messing with computers when I was just 9 years old!
+        <br />
+        Ever since then, I've been learning anything that interested me on my own. I had the
+        opportunity to learn several technologies and languages that stuck with me and made me
+        better understand how everything works.
       </p>
     </div>
     <div class="ml-4 flex gap-2 text-secondary lg:hidden">

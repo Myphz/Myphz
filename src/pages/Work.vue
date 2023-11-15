@@ -4,10 +4,10 @@
 
     <div class="flex flex-col gap-8 pl-4 lg:w-[90%] lg:flex-row lg:gap-60 lg:pl-8 lg:[&>*]:flex-1">
       <p>
-        I excel in dissecting complex problems into manageable tasks, essential for crafting robust,
-        maintainable code in large-scale projects. I'm driven by challenges, always seeking
-        opportunities to enhance my skills. My self-directed learning approach empowers me to
-        quickly grasp and adapt to new technologies with autonomy.
+        I had the opportunity to work for many companies with many different technologies, from
+        small startups to bigger companies.
+        <br />
+        Each experience taught me something and I continously improved in my learning journey.
       </p>
 
       <Experiences ref="experiencesRef" />
@@ -28,7 +28,7 @@ const experiencesRef = ref(null);
 const pageRef = ref(null);
 
 const SCROLL_AMOUNT_MOBILE = 7.5;
-const SCROLL_AMOUNT_DESKTOP = 20;
+const SCROLL_AMOUNT_DESKTOP = 40;
 
 onMounted(() => {
   const page = (pageRef.value as any).pageRef as HTMLDivElement;

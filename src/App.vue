@@ -5,7 +5,7 @@
   <Landing />
   <About />
   <Skills />
-  <!-- <Work /> -->
+  <Work />
   <Talk />
   <Projects />
   <About />
