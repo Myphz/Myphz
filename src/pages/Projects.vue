@@ -1,5 +1,5 @@
 <template>
-  <PageWrapper class="flex flex-col">
+  <PageWrapper class="flex flex-col" id="projects">
     <Header>Projects</Header>
 
     <Projects class="flex-1" />

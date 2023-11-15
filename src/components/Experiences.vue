@@ -17,7 +17,7 @@
 
     <Button variant="primary" class="flex items-center justify-center gap-4" @click="openResume">
       <span>See full resume</span>
-      <img src="/icons/arrow.svg" class="aspect-square w-[1em]" />
+      <ArrowIcon class="aspect-square w-[1em]" />
     </Button>
   </section>
 </template>
@@ -25,6 +25,7 @@
 <script setup lang="ts">
 import Experience from "@/components/Experience.vue";
 import Button from "@/components/Button.vue";
+import ArrowIcon from "@/assets/arrow.svg";
 
 import { ref } from "vue";
 

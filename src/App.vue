@@ -8,7 +8,7 @@
   <Work />
   <Talk />
   <Projects />
-  <About />
+  <Contact />
 </template>
 
 <script setup lang="ts">
@@ -23,6 +23,7 @@ import Skills from "./pages/Skills.vue";
 import Work from "./pages/Work.vue";
 import Talk from "./pages/Talk.vue";
 import Projects from "./pages/Projects.vue";
+import Contact from "./pages/Contact.vue";
 
 import { initializeOGLAnimation } from "./utils/ogl";
 

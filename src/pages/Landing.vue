@@ -12,7 +12,7 @@
         <Button variant="primary">Contact Me</Button>
         <Button variant="secondary" class="flex items-center gap-2 lg:gap-4">
           <span>Learn More</span>
-          <img src="/icons/arrow.svg" />
+          <ArrowIcon />
         </Button>
       </div>
     </section>
@@ -27,6 +27,7 @@ import MainText from "@/components/MainText.vue";
 import Blobs from "@/components/Blobs.vue";
 import TypingAlternate from "@/components/TypingAlternate.vue";
 import Button from "@/components/Button.vue";
+import ArrowIcon from "@/assets/arrow.svg";
 
 const HEADLINES = [
   "SOFTWARE ENGINEER",

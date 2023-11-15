@@ -20,3 +20,9 @@ body,
 .page {
   scroll-snap-align: start;
 }
+
+input,
+textarea {
+  font: inherit;
+  background: inherit;
+}

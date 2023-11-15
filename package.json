@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "ogl": "^1.0.3",
+    "vite-svg-loader": "^4.0.0",
     "vue": "^3.3.4"
   },
   "devDependencies": {
