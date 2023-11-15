@@ -16,8 +16,8 @@
       </div>
 
       <p class="mb-8 lg:mb-0">
-        Fueled by a love for computer science since my youth, I've spent over 6 years improving my
-        skills through various projects.
+        Passionate about computer science since childhood, I've spent over 6 years refining my
+        skills through diverse projects.
         <br />
         I thoroughly enjoying computers & computer science ever since I was a kid. I remember
         messing with computers when I was just 9 years old!
