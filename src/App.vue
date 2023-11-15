@@ -5,8 +5,10 @@
   <Landing />
   <About />
   <Skills />
-  <Work />
+  <!-- <Work /> -->
   <Talk />
+  <Projects />
+  <About />
 </template>
 
 <script setup lang="ts">
@@ -20,6 +22,7 @@ import About from "./pages/About.vue";
 import Skills from "./pages/Skills.vue";
 import Work from "./pages/Work.vue";
 import Talk from "./pages/Talk.vue";
+import Projects from "./pages/Projects.vue";
 
 import { initializeOGLAnimation } from "./utils/ogl";
 

@@ -1,6 +1,6 @@
 <template>
   <section
-    class="page relative mx-4 h-[100dvh] overflow-hidden py-4 lg:mx-40 lg:py-12"
+    class="page relative mx-4 h-[100dvh] overflow-hidden py-4 lg:mx-40 lg:py-28"
     ref="pageRef"
   >
     <slot />
