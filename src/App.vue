@@ -26,6 +26,7 @@ import Projects from "./pages/Projects.vue";
 import Contact from "./pages/Contact.vue";
 
 import { initializeOGLAnimation } from "./utils/ogl";
+import { onMounted } from "vue";
 
-initializeOGLAnimation();
+onMounted(() => initializeOGLAnimation());
 </script>
