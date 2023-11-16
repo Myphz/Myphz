@@ -27,7 +27,7 @@ import { isVisible } from "@/utils/dom";
 const experiencesRef = ref(null);
 const pageRef = ref(null);
 
-const SCROLL_AMOUNT_MOBILE = 7.5;
+const SCROLL_AMOUNT_MOBILE = 10;
 const SCROLL_AMOUNT_DESKTOP = 40;
 
 onMounted(() => {

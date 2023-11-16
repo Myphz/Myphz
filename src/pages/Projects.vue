@@ -2,7 +2,7 @@
   <PageWrapper class="flex flex-col" id="projects">
     <Header>Projects</Header>
 
-    <Projects class="flex-1" />
+    <!-- <Projects class="flex-1" /> -->
 
     <span class="mt-8 font-subheader text-secondary text-responsive-h2">{{ "}" }}</span>
   </PageWrapper>
