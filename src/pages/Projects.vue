@@ -1,8 +1,8 @@
 <template>
-  <PageWrapper class="flex flex-col" id="projects">
+  <PageWrapper class="flex flex-col justify-center py-16 lg:py-28" id="projects">
     <Header>Projects</Header>
 
-    <!-- <Projects class="flex-1" /> -->
+    <Projects class="flex-1" />
 
     <span class="mt-8 font-subheader text-secondary text-responsive-h2">{{ "}" }}</span>
   </PageWrapper>

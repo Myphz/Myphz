@@ -2,7 +2,7 @@
   <Navbar />
   <PageIndicator />
 
-  <Landing />
+  <!-- <Landing /> -->
   <About />
   <Skills />
   <Work />
