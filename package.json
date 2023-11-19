@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "run-p type-check \"build-only {@}\" --",
+    "build": "vite-ssg build",
     "preview": "vite preview",
     "build-only": "vite-ssg build",
     "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false",
