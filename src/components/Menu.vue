@@ -5,9 +5,9 @@
         <div class="relative w-fit">
           <ul class="flex flex-col gap-4 uppercase text-responsive-h2">
             <li v-for="(tab, i) in PAGES.filter((page) => page.name)" :key="tab.name">
-              <a :href="tab.href" class="flex gap-2">
+              <a :href="tab.href" class="flex gap-2" @click="$emit('close')">
                 <span class="text-secondary">{{ i }}.</span>
-                <span>{{ tab.name }}</span>
+                <span :class="{ 'text-secondary': activePage === tab.id }">{{ tab.name }}</span>
               </a>
             </li>
           </ul>
@@ -26,6 +26,7 @@
 <script setup lang="ts">
 import { PAGES } from "@/utils/pages";
 import Footer from "./Footer.vue";
+import { activePage } from "@/utils/store";
 
 const { open } = defineProps<{ open: boolean }>();
 </script>

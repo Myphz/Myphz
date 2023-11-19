@@ -1,8 +1,8 @@
 <template>
   <button
+    @click="() => $emit('toggle')"
     class="button-hamburger relative h-9 w-9 rounded-full p-2 text-secondary lg:h-16 lg:w-16 lg:p-4 [&>*]:w-8 lg:[&>*]:w-16"
     aria-controls="primary-navigation"
-    aria-expanded="false"
     ref="button"
   >
     <svg stroke="currentColor" fill="none" class="hamburger" viewBox="-10 -10 120 120">
@@ -18,23 +18,27 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { onMounted, ref, watch } from "vue";
 
+const props = defineProps<{ open: boolean }>();
 const button = ref<HTMLButtonElement | null>(null);
 
-onMounted(() => {
-  button.value?.addEventListener("click", () => {
-    const currentState = button.value?.getAttribute("data-state");
+watch(
+  () => props.open,
+  (value) => setState(value)
+);
 
-    if (!currentState || currentState === "closed") {
-      button.value?.setAttribute("data-state", "opened");
-      button.value?.setAttribute("aria-expanded", "true");
-    } else {
-      button.value?.setAttribute("data-state", "closed");
-      button.value?.setAttribute("aria-expanded", "false");
-    }
-  });
-});
+const setState = (newState: boolean) => {
+  if (newState) {
+    button.value?.setAttribute("data-state", "opened");
+    button.value?.setAttribute("aria-expanded", "true");
+    return;
+  }
+  button.value?.setAttribute("data-state", "closed");
+  button.value?.setAttribute("aria-expanded", "false");
+};
+
+onMounted(() => setState(props.open));
 </script>
 
 <style>
