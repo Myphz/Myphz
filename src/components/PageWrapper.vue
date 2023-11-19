@@ -20,17 +20,23 @@ const pageRef = ref<HTMLDivElement | null>(null);
 onMounted(() => {
   async function onScroll() {
     // Wait for scroll to complete
-    await new Promise((res) => setTimeout(res, 800));
+    await new Promise((res) => setTimeout(res, 700));
 
-    console.log("run");
     if (isVisible(pageRef.value!)) {
       activePage.value = pageId;
     }
   }
 
+  function onHashChange(e: HashChangeEvent) {
+    const hash = e.newURL.split("#")[1];
+    if (!hash) return;
+    activePage.value = hash;
+  }
+
   window.addEventListener("wheel", onScroll, { passive: true });
   window.addEventListener("touchstart", onScroll, { passive: true });
   window.addEventListener("touchmove", onScroll, { passive: true });
+  window.addEventListener("hashchange", onHashChange, { passive: true });
 });
 
 defineExpose({ pageRef });

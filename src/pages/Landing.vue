@@ -1,5 +1,5 @@
 <template>
-  <PageWrapper class="flex flex-col pt-[10vh] lg:block lg:pt-0" v-bind="props">
+  <PageWrapper class="flex flex-col pt-[10vh] lg:block lg:pt-0" v-bind="props" id="landing">
     <section class="flex h-full flex-col justify-center gap-3 lg:gap-6">
       <MainText />
       <TypingAlternate class="leading-none lg:max-w-[50vw]" :tokens="HEADLINES" />

@@ -21,6 +21,13 @@ import { PAGES } from "./utils/pages";
 
 import Navbar from "./components/Navbar.vue";
 import PageIndicator from "./components/PageIndicator.vue";
+import { activePage } from "./utils/store";
 
-onMounted(() => initializeOGLAnimation());
+onMounted(() => {
+  initializeOGLAnimation();
+
+  const hash = location.hash;
+  if (!hash) return;
+  activePage.value = hash.slice(1);
+});
 </script>

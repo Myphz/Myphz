@@ -17,6 +17,7 @@ type Page = { id: string } & Partial<{
 export const PAGES: readonly Page[] = [
   {
     id: "landing",
+    href: "#landing",
     component: Landing
   },
   {
