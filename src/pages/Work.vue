@@ -1,5 +1,5 @@
 <template>
-  <PageWrapper class="flex flex-col justify-center" id="work" ref="pageRef">
+  <PageWrapper class="flex flex-col justify-center" id="work" ref="pageRef" v-bind="props">
     <Header>Work</Header>
 
     <div class="flex flex-col gap-8 pl-4 lg:w-[90%] lg:flex-row lg:gap-60 lg:pl-8 lg:[&>*]:flex-1">
@@ -23,6 +23,9 @@ import PageWrapper from "@/components/PageWrapper.vue";
 import Experiences from "@/components/Experiences.vue";
 import { onMounted, ref } from "vue";
 import { useScrollHijacking } from "@/utils/scroll";
+import type { PageProps } from "@/utils/pages";
+
+const props = defineProps<PageProps>();
 
 const experiencesRef = ref(null);
 const pageRef = ref(null);

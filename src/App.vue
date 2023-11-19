@@ -2,31 +2,25 @@
   <Navbar />
   <PageIndicator />
 
-  <!-- <Landing /> -->
-  <About />
-  <Skills />
-  <Work />
-  <Talk />
-  <Projects />
-  <Contact />
+  <component
+    :is="component"
+    :key="i"
+    :pageId="id"
+    v-for="({ component, id }, i) in PAGES.filter((p) => p.component)"
+  />
 </template>
 
 <script setup lang="ts">
 import "./assets/fonts.css";
 import "./assets/main.css";
 
-import Navbar from "./components/Navbar.vue";
-import PageIndicator from "./components/PageIndicator.vue";
-import Landing from "./pages/Landing.vue";
-import About from "./pages/About.vue";
-import Skills from "./pages/Skills.vue";
-import Work from "./pages/Work.vue";
-import Talk from "./pages/Talk.vue";
-import Projects from "./pages/Projects.vue";
-import Contact from "./pages/Contact.vue";
-
 import { initializeOGLAnimation } from "./utils/ogl";
 import { onMounted } from "vue";
+
+import { PAGES } from "./utils/pages";
+
+import Navbar from "./components/Navbar.vue";
+import PageIndicator from "./components/PageIndicator.vue";
 
 onMounted(() => initializeOGLAnimation());
 </script>

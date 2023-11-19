@@ -8,9 +8,30 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { isVisible } from "@/utils/dom";
+import type { PageProps } from "@/utils/pages";
+import { activePage } from "@/utils/store";
+import { onMounted, ref } from "vue";
 
-const pageRef = ref(null);
+const { pageId } = defineProps<PageProps>();
+
+const pageRef = ref<HTMLDivElement | null>(null);
+
+onMounted(() => {
+  async function onScroll() {
+    // Wait for scroll to complete
+    await new Promise((res) => setTimeout(res, 800));
+
+    console.log("run");
+    if (isVisible(pageRef.value!)) {
+      activePage.value = pageId;
+    }
+  }
+
+  window.addEventListener("wheel", onScroll, { passive: true });
+  window.addEventListener("touchstart", onScroll, { passive: true });
+  window.addEventListener("touchmove", onScroll, { passive: true });
+});
 
 defineExpose({ pageRef });
 </script>

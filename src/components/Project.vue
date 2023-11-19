@@ -13,3 +13,9 @@
 <script setup lang="ts">
 const { img, redirect } = defineProps<{ img: string; redirect: string }>();
 </script>
+
+<style scoped>
+article {
+  scroll-snap-align: start;
+}
+</style>

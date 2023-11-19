@@ -1,5 +1,5 @@
 <template>
-  <PageWrapper class="flex flex-col items-center justify-center">
+  <PageWrapper class="flex flex-col items-center justify-center" v-bind="props">
     <header
       class="relative flex w-fit flex-col items-center text-[8vw] font-extralight leading-none text-primary before:text-secondary after:text-secondary lg:text-[5vw]"
     >
@@ -13,6 +13,9 @@
 <script setup lang="ts">
 import PageWrapper from "@/components/PageWrapper.vue";
 import VariableFontTypingText from "@/components/VariableFontTypingText.vue";
+import type { PageProps } from "@/utils/pages";
+
+const props = defineProps<PageProps>();
 </script>
 
 <style scoped>

@@ -6,7 +6,7 @@
     <nav>
       <ul class="flex gap-6 uppercase">
         <li
-          v-for="(tab, i) in TABS"
+          v-for="(tab, i) in PAGES.filter((p) => p.name)"
           :key="tab.name"
           class="border-r border-text pr-6 transition-all last:border-0 hover:text-secondary"
         >
@@ -33,8 +33,7 @@
 import { ref } from "vue";
 import Hamburger from "./Hamburger.vue";
 import Menu from "./Menu.vue";
-
-import { TABS } from "@/utils/tabs";
+import { PAGES } from "@/utils/pages";
 
 const navOpen = ref(false);
 </script>

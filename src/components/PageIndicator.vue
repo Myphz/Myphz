@@ -1,7 +1,16 @@
 <template>
-  <div class="hidden lg:flex flex-col fixed gap-4 top-1/2 -translate-y-1/2 right-40 z-10">
-    <div v-for="i in 5" :key="i" class="h-4 aspect-square bg-text rounded-full"></div>
+  <div class="fixed right-40 top-1/2 z-10 hidden -translate-y-1/2 flex-col gap-4 lg:flex">
+    <a
+      v-for="(page, i) in PAGES.filter((p) => p.name)"
+      :key="i"
+      :href="page.href"
+      class="aspect-square h-4 rounded-full"
+      :class="activePage === page.id ? 'bg-primary' : 'bg-text'"
+    ></a>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { PAGES } from "@/utils/pages";
+import { activePage } from "@/utils/store";
+</script>

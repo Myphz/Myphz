@@ -1,5 +1,5 @@
 <template>
-  <PageWrapper class="flex flex-col justify-center" id="skills">
+  <PageWrapper class="flex flex-col justify-center" id="skills" v-bind="props">
     <Header>Skills</Header>
 
     <!-- <header class="mb-8 flex gap-4 text-primary text-responsive-h2 lg:gap-8">
@@ -47,6 +47,9 @@
 import Header from "@/components/Header.vue";
 // import SortText from "@/components/SortText.vue";
 import PageWrapper from "@/components/PageWrapper.vue";
+import type { PageProps } from "@/utils/pages";
+
+const props = defineProps<PageProps>();
 
 const LANGUAGES = [
   {

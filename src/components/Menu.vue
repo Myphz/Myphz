@@ -4,7 +4,7 @@
       <div class="content flex h-full w-full flex-col justify-center">
         <div class="relative w-fit">
           <ul class="flex flex-col gap-4 uppercase text-responsive-h2">
-            <li v-for="(tab, i) in TABS" :key="tab.name">
+            <li v-for="(tab, i) in PAGES.filter((page) => page.name)" :key="tab.name">
               <a :href="tab.href" class="flex gap-2">
                 <span class="text-secondary">{{ i }}.</span>
                 <span>{{ tab.name }}</span>
@@ -24,7 +24,7 @@
 </template>
 
 <script setup lang="ts">
-import { TABS } from "@/utils/tabs";
+import { PAGES } from "@/utils/pages";
 import Footer from "./Footer.vue";
 
 const { open } = defineProps<{ open: boolean }>();
