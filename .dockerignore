@@ -3,3 +3,5 @@
 node_modules
 dist
 .vite-ssg-temp
+static/*
+!static/.gitkeep

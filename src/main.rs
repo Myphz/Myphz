@@ -7,7 +7,7 @@ use rocket::http::{Status, Header};
 use rocket::fairing::AdHoc;
 use rocket::response::status;
 use validator::Validate;
-
+use rocket::fs::FileServer;
 mod email;
 
 #[derive(Deserialize, Validate)]
@@ -24,7 +24,7 @@ struct Response {
     message: String
 }
 
-#[post("/", data = "<data>")]
+#[post("/email", data = "<data>")]
 fn index(data: Json<Params>) -> status::Custom<Json<Response>> {
     let fields = data.into_inner();
     let is_valid = fields.validate();
@@ -53,7 +53,7 @@ fn index(data: Json<Params>) -> status::Custom<Json<Response>> {
 fn default_catcher(status: Status, _req: &Request) -> status::Custom<Json<Response>> {
     status::Custom(
         status,
-        Json(Response { success: false, message: String::from("Unexpected error. Please send the email manually.")})
+        Json(Response { success: false, message: String::from("Unexpected error.")})
     )
 }
 
@@ -68,5 +68,7 @@ fn rocket() -> _ {
             res.set_header(Header::new("Access-Control-Allow-Headers", "*"));
         })
     }))
-    .mount("/", routes![index]).register("/", catchers![default_catcher])
+    .mount("/", routes![index])
+    .mount("/", FileServer::from("./static"))
+    .register("/", catchers![default_catcher])
 }

@@ -1,22 +1,13 @@
 FROM rust:latest as builder
 
-# Make a fake Rust app to keep a cached layer of compiled crates
-RUN USER=root cargo new app
 WORKDIR /usr/src/app
-COPY Cargo.toml Cargo.lock ./
-# Needs at least a main.rs file with a main function
-RUN mkdir src && echo "fn main(){}" > src/main.rs
-# Will build all dependent crates in release mode
-RUN --mount=type=cache,target=/usr/local/cargo/registry \
-    --mount=type=cache,target=/usr/src/app/target \
-    cargo build --release
-
-# Copy the rest
 COPY . .
-# Build (install) the actual binaries
-RUN --mount=type=cache,target=/usr/local/cargo/registry \
-    --mount=type=cache,target=/usr/src/app/target \
-    cargo install --path .
+# Build Frontend
+RUN bash ./build.sh
+# Will build and cache the binary and dependent crates in release mode
+RUN --mount=type=cache,target=/usr/local/cargo,from=rust:latest,source=/usr/local/cargo \
+    --mount=type=cache,target=target \
+    cargo build --release && mv ./target/release/devfolio_be ./server
 
 # Runtime image
 FROM debian:bullseye-slim
@@ -28,5 +19,9 @@ USER app
 WORKDIR /app
 
 # Get compiled binaries from builder's cargo install directory
-COPY --from=builder /usr/local/cargo/bin/devfolio_be /app/devfolio_be
-# No CMD or ENTRYPOINT, see fly.toml with `cmd` override.
+COPY --from=builder /usr/src/app/server /app/server
+# Copy frontend
+COPY --from=builder /usr/src/app/static /app/static
+
+# Run the app
+CMD ./server
