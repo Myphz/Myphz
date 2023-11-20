@@ -1,13 +1,6 @@
 <template>
   <PageWrapper class="flex flex-col justify-center" id="skills" v-bind="props">
-    <Header>Skills</Header>
-
-    <!-- <header class="mb-8 flex gap-4 text-primary text-responsive-h2 lg:gap-8">
-      <span>
-        <SortText text="Skills" />
-      </span>
-      <span class="font-subheader text-secondary">{{ "{" }}</span>
-    </header> -->
+    <Header>SKILLS</Header>
 
     <div class="flex flex-col gap-8 pl-4 lg:w-[90%] lg:flex-row lg:gap-60 lg:pl-8">
       <p>
@@ -39,14 +32,14 @@
       </div>
     </div>
 
-    <span class="mt-8 font-subheader text-secondary text-responsive-h2">{{ "}" }}</span>
+    <CloseBracket />
   </PageWrapper>
 </template>
 
 <script setup lang="ts">
 import Header from "@/components/Header.vue";
-// import SortText from "@/components/SortText.vue";
 import PageWrapper from "@/components/PageWrapper.vue";
+import CloseBracket from "@/components/CloseBracket.vue";
 import type { PageProps } from "@/utils/pages";
 
 const props = defineProps<PageProps>();

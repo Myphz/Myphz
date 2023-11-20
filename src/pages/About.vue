@@ -1,6 +1,6 @@
 <template>
   <PageWrapper class="flex flex-col justify-center" id="about" v-bind="props">
-    <Header>About</Header>
+    <Header>ABOUT</Header>
 
     <div class="flex flex-col gap-8 pl-4 lg:w-[90%] lg:flex-row lg:gap-60 lg:pl-8 [&>*]:flex-1">
       <div class="flex flex-col gap-8">
@@ -32,13 +32,14 @@
       <span>I use Arch btw</span>
     </div>
 
-    <span class="mt-8 font-subheader text-secondary text-responsive-h2">{{ "}" }}</span>
+    <CloseBracket />
   </PageWrapper>
 </template>
 
 <script setup lang="ts">
 import Header from "@/components/Header.vue";
 import PageWrapper from "@/components/PageWrapper.vue";
+import CloseBracket from "@/components/CloseBracket.vue";
 import type { PageProps } from "@/utils/pages";
 
 const props = defineProps<PageProps>();

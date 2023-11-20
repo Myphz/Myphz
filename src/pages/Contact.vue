@@ -1,6 +1,6 @@
 <template>
   <PageWrapper class="flex flex-col justify-center" id="contact" v-bind="props">
-    <Header>Contact</Header>
+    <Header>CONTACT</Header>
     <section class="flex flex-col gap-6 pl-4 lg:flex-row lg:gap-20 lg:pl-8 [&>*]:flex-1">
       <div>
         <header class="text-secondary text-responsive-h3">Have a project in mind?</header>
@@ -60,7 +60,7 @@
         </a>
       </div>
     </section>
-    <span class="mt-2 font-subheader text-secondary text-responsive-h2 lg:mt-8">{{ "}" }}</span>
+    <CloseBracket />
   </PageWrapper>
 </template>
 
@@ -70,6 +70,7 @@ import Header from "@/components/Header.vue";
 import Input from "@/components/Input.vue";
 import Textarea from "@/components/Textarea.vue";
 import Button from "@/components/Button.vue";
+import CloseBracket from "@/components/CloseBracket.vue";
 import type { PageProps } from "@/utils/pages";
 
 const props = defineProps<PageProps>();

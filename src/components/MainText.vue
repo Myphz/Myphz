@@ -13,9 +13,7 @@ const { animated } = withDefaults(defineProps<{ animated?: boolean }>(), { anima
 
 <style scoped>
 .text-animation {
-  animation:
-    glow 1s 1.5s forwards,
-    shadow-move 3s 3s infinite alternate;
+  animation: glow 1s 1.5s forwards;
 }
 .text-animation::after {
   content: "";
@@ -36,16 +34,7 @@ const { animated } = withDefaults(defineProps<{ animated?: boolean }>(), { anima
 
 @keyframes glow {
   to {
-    text-shadow: -0.1em 0.03em 0.2em currentColor;
-  }
-}
-
-@keyframes shadow-move {
-  from {
-    text-shadow: -0.1em 0.03em 0.2em currentColor;
-  }
-  to {
-    text-shadow: 0.1em 0.03em 0.2em currentColor;
+    text-shadow: 0.05em 0 0.2em currentColor;
   }
 }
 </style>

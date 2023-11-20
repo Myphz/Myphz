@@ -16,7 +16,7 @@ const text: string = (slots.default?.()?.[0].children?.[0]?.children || "").toSt
 const element = ref<HTMLElement | null>(null);
 const animationStarted = ref(false);
 
-const ALPHABET = "abcdefghijklmnopqrstuvwxyz0123456789/&$%£€ÈÒLÀ+.";
+const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890/&$%£€ÈÒLÀ";
 const RANDOMIZE_TIME = 30;
 
 const displayText = ref(text);

@@ -5,11 +5,11 @@
     ref="page"
     v-bind="props"
   >
-    <Header>Projects</Header>
+    <Header>PROJECTS</Header>
 
     <Projects class="flex-1" ref="projects" />
 
-    <span class="mt-8 font-subheader text-secondary text-responsive-h2">{{ "}" }}</span>
+    <CloseBracket />
   </PageWrapper>
 </template>
 
@@ -19,6 +19,7 @@ import Header from "@/components/Header.vue";
 import Projects from "@/components/Projects.vue";
 import { onMounted, ref } from "vue";
 import { useScrollHijacking } from "@/utils/scroll";
+import CloseBracket from "@/components/CloseBracket.vue";
 import type { PageProps } from "@/utils/pages";
 
 const page = ref(null);
