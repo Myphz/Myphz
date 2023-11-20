@@ -6,12 +6,13 @@
       <VariableFontTypingText text="“TALK IS CHEAP." />
       <VariableFontTypingText text="SHOW ME THE CODE”" :delay="2000" />
     </header>
-    <div class="ml-[40vw] mt-4 text-center">- Linus Torvalds</div>
+    <Typing text="- Linus Torvalds" class="ml-[40vw] mt-4 text-center" :delay="4800" />
   </PageWrapper>
 </template>
 
 <script setup lang="ts">
 import PageWrapper from "@/components/PageWrapper.vue";
+import Typing from "@/components/Typing.vue";
 import VariableFontTypingText from "@/components/VariableFontTypingText.vue";
 import type { PageProps } from "@/utils/pages";
 

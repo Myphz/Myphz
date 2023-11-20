@@ -1,6 +1,12 @@
 <template>
   <div ref="headerRef" class="h-[1em] w-fit pr-px font-subheader" :class="{ caret: showCaret }">
-    <span v-for="(letter, i) in content" :key="i">{{ letter }}</span>
+    <span
+      v-for="(letter, i) in content"
+      :key="i"
+      :class="(letter === '“' || letter === '”') && 'text-secondary'"
+    >
+      {{ letter }}
+    </span>
   </div>
 </template>
 

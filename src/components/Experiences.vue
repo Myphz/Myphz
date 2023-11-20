@@ -51,7 +51,8 @@
         <header class="text-primary text-responsive-h3">
           {{ experience.title }}
         </header>
-        <div class="mt-4 w-full text-text">{{ experience.text }}</div>
+        <div class="mt-4 w-full text-text text-responsive-h5">{{ experience.text }}</div>
+        <footer>{{ experience.note }}</footer>
       </article>
     </div>
   </section>
@@ -100,7 +101,7 @@ const activeExperience = ref("");
 <style scoped>
 div,
 article {
-  @apply transition-all duration-[.5s];
+  @apply transition-all;
 }
 .line {
   box-shadow: 0 0 1em 0.1em var(--secondary);
@@ -146,6 +147,6 @@ article {
 .dot-description {
   @apply absolute flex w-[30vw] flex-col gap-2 rounded-xl bg-background p-8;
   left: calc(100% / (var(--experiences) + 2) * var(--order) + 1.5rem * var(--order) * 2);
-  translate: -50% -12.5rem;
+  translate: -50% -15rem;
 }
 </style>

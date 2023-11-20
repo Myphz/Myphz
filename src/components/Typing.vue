@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative w-fit h-fit after:bg-background"
+    class="relative h-fit w-fit after:bg-background"
     :style="`--text-length: ${text.length}; --caret-color: ${secondaryColor}; --delay: ${
       delay || 0
     };`"
@@ -32,9 +32,9 @@ div::after {
   /* 10 character per second typing speed */
   --animation-duration: calc(var(--text-length) / 10 * 1s);
   animation:
-    typing var(--animation-duration) steps(var(--text-length)) calc(var(--delay) * 1s) forwards,
-    blink 500ms calc(var(--delay) * 1s - 1s) infinite,
-    disable-caret 1ms linear calc(var(--animation-duration) + 0.5s + var(--delay) * 1s) forwards;
+    typing var(--animation-duration) steps(var(--text-length)) calc(var(--delay) * 1ms) forwards,
+    blink 500ms calc(var(--delay) * 1ms - 1s) infinite,
+    disable-caret 1ms linear calc(var(--animation-duration) + 0.5s + var(--delay) * 1ms) forwards;
 }
 
 @keyframes typing {
@@ -52,11 +52,11 @@ div::after {
 @keyframes blink {
   0%,
   45% {
-    border-left: 2px solid transparent;
+    border-left: 0.05em solid transparent;
   }
   50%,
   100% {
-    border-left: 2px solid var(--caret-color);
+    border-left: 0.05em solid var(--caret-color);
   }
 }
 </style>
