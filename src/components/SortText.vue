@@ -1,54 +1,52 @@
 <template>
-  <div ref="element">
+  <div ref="element" @mouseover="startAnimation">
     {{ displayText }}
   </div>
 </template>
 
 <script setup lang="ts">
 import { isVisible } from "@/utils/dom";
-import { onMounted, ref } from "vue";
+import { onMounted, ref, useSlots } from "vue";
 
-const { text } = defineProps<{ text: string }>();
+const slots = useSlots();
+
+// @ts-ignore
+const text: string = (slots.default?.()?.[0].children?.[0]?.children || "").toString();
+
 const element = ref<HTMLElement | null>(null);
 const animationStarted = ref(false);
 
 const ALPHABET = "abcdefghijklmnopqrstuvwxyz0123456789/&$%£€ÈÒLÀ+.";
-const ALPHABET_LENGTH = ALPHABET.length;
-
-const ANIMATION_DURATION_MIN = 400;
-const ANIMATION_DURATION_MAX = 1000;
-
-const RANDOMIZE_TIME = 70;
+const RANDOMIZE_TIME = 30;
 
 const displayText = ref(text);
 
 function randomChar() {
-  const random = Math.round(Math.random() * ALPHABET_LENGTH) % ALPHABET_LENGTH;
+  const random = Math.round(Math.random() * ALPHABET.length) % ALPHABET.length;
   return ALPHABET[random];
 }
 
-function startLetterAnimation(letter: string, i: number) {
-  const duration =
-    ANIMATION_DURATION_MIN +
-    ((ANIMATION_DURATION_MAX - ANIMATION_DURATION_MIN) / text.length) * (i + 1);
+function startAnimation() {
+  if (animationStarted.value) return;
+  animationStarted.value = true;
+  let iterations = 0;
 
   const interval = setInterval(() => {
-    displayText.value =
-      displayText.value.slice(0, i) + randomChar() + displayText.value.slice(i + 1);
+    displayText.value = displayText.value
+      .split("")
+      .map((_, i) => {
+        if (i < iterations) return text[i];
+        return randomChar();
+      })
+      .join("");
+
+    if (iterations >= text.length) {
+      clearInterval(interval);
+      animationStarted.value = false;
+    }
+
+    iterations += 1 / 4;
   }, RANDOMIZE_TIME);
-
-  setTimeout(() => {
-    clearInterval(interval);
-    displayText.value = displayText.value.slice(0, i) + letter + displayText.value.slice(i + 1);
-  }, duration);
-}
-
-function startAnimation() {
-  animationStarted.value = true;
-  Array.from(text).forEach((letter, i) => {
-    if (letter === " ") return;
-    startLetterAnimation(letter, i);
-  });
 }
 
 onMounted(() => {
@@ -56,8 +54,7 @@ onMounted(() => {
     "scroll",
     () => {
       const visible = isVisible(element.value!);
-      if (!animationStarted.value && visible) startAnimation();
-      else if (!visible) animationStarted.value = false;
+      if (visible) startAnimation();
     },
     { passive: true }
   );
