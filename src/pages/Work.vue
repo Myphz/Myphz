@@ -2,7 +2,9 @@
   <PageWrapper class="flex flex-col justify-center" id="work" ref="pageRef" v-bind="props">
     <Header>WORK</Header>
 
-    <div class="flex flex-1 flex-col gap-20 pl-4 lg:w-[90%] lg:pl-8">
+    <div
+      class="flex h-[70%] flex-col gap-8 pl-4 lg:h-auto lg:w-[90%] lg:flex-1 lg:gap-20 lg:overflow-hidden lg:pl-8"
+    >
       <p>
         I had the opportunity to work for many companies with many different technologies, from
         small startups to bigger companies.
@@ -10,7 +12,9 @@
         Each experience taught me something and I continously improved in my learning journey.
       </p>
 
-      <Experiences class="flex-1" />
+      <div class="relative flex flex-1 flex-col overflow-auto">
+        <Experiences class="flex-1" />
+      </div>
     </div>
 
     <CloseBracket />

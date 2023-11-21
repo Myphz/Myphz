@@ -1,6 +1,6 @@
 <template>
   <section
-    class="relative flex items-center gap-4 text-primary"
+    class="relative flex w-[200vh] items-center gap-4 overflow-y-hidden overflow-x-scroll text-primary lg:w-full lg:overflow-hidden"
     :style="`
     --experiences: ${EXPERIENCES.length};
     --primary: ${primaryColor};
@@ -10,7 +10,7 @@
     <hr class="line h-1 w-full rounded-md bg-secondary text-secondary" />
     <div>{{ new Date().getFullYear() }}</div>
 
-    <div class="absolute inset-0 z-20 flex w-full items-center justify-evenly">
+    <div class="absolute inset-0 z-20 flex w-full items-center justify-around lg:justify-evenly">
       <div
         v-for="experience in EXPERIENCES"
         class="dot"
@@ -21,7 +21,7 @@
       />
     </div>
 
-    <div class="absolute inset-0 flex w-full items-center justify-evenly">
+    <div class="absolute inset-0 flex w-full items-center justify-around lg:justify-evenly">
       <div
         v-for="experience in EXPERIENCES"
         class="dot-border"
@@ -30,9 +30,11 @@
       />
     </div>
 
-    <div class="absolute inset-0 flex w-full items-center justify-evenly text-responsive-h3">
+    <div
+      class="absolute inset-0 flex w-full items-center justify-around text-responsive-h3 lg:justify-evenly"
+    >
       <div
-        v-for="(experience, i) in EXPERIENCES"
+        v-for="experience in EXPERIENCES"
         :key="experience.title"
         :style="`--text: '${experience.title}'`"
         class="dot-title"
