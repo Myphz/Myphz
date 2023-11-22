@@ -1,6 +1,6 @@
 <template>
   <section
-    class="relative flex w-[200vh] items-center gap-4 overflow-y-hidden overflow-x-scroll text-primary lg:w-full lg:overflow-hidden"
+    class="relative flex w-[200vh] items-center gap-4 overflow-y-visible text-primary lg:w-full"
     :style="`
     --experiences: ${EXPERIENCES.length};
     --primary: ${primaryColor};
@@ -18,6 +18,7 @@
         :key="experience.title"
         @mouseover="activeExperience = experience.title"
         @mouseleave="activeExperience = ''"
+        @click="() => toggleExperience(experience.title)"
       />
     </div>
 
@@ -47,7 +48,7 @@
         v-for="(experience, i) in EXPERIENCES"
         :key="experience.title"
         :style="`--order: ${i + 1}`"
-        class="dot-description"
+        class="lg:work-description-desktop work-description-mobile"
         :class="(!activeExperience || experience.title !== activeExperience) && 'hidden-dot'"
       >
         <header class="text-primary text-responsive-h3">
@@ -98,6 +99,11 @@ const primaryColor = config.theme.colors.primary;
 const secondaryColor = config.theme.colors.secondary;
 
 const activeExperience = ref("");
+
+function toggleExperience(experience: string) {
+  if (activeExperience.value === experience) return (activeExperience.value = "");
+  activeExperience.value = experience;
+}
 </script>
 
 <style scoped>
@@ -144,11 +150,5 @@ article {
 .hidden-dot {
   opacity: 0;
   visibility: hidden;
-}
-
-.dot-description {
-  @apply absolute flex w-[30vw] flex-col gap-2 rounded-xl bg-background p-8;
-  left: calc(100% / (var(--experiences) + 2) * var(--order) + 1.5rem * var(--order) * 2);
-  translate: -50% -15rem;
 }
 </style>
