@@ -34,7 +34,7 @@
         :key="experience.title"
         :style="`--text: '${experience.title}'`"
         :class="{
-          'hidden-dot': activeExperience && experience.title === activeExperience,
+          'hidden-dot-important': activeExperience && experience.title === activeExperience,
           'top-title': i % 2 !== 0
         }"
         class="dot-title"

@@ -42,4 +42,8 @@ textarea {
     opacity: 0;
     visibility: hidden;
   }
+  .hidden-dot-important {
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
 }
