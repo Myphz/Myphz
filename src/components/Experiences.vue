@@ -44,8 +44,6 @@
         :key="experience.title"
         @mouseover="() => setActiveExperience(experience.title)"
         @mouseleave="() => setActiveExperience('')"
-        @click="() => toggleExperience(experience.title)"
-        v-click-outside="() => disableExperience(experience.title)"
       >
         <article
           class="dot-article"
@@ -113,20 +111,6 @@ const lineAnimationRunning = ref(false);
 
 function setActiveExperience(title: string) {
   activeExperience.value = title;
-}
-
-function toggleExperience(experience: string) {
-  if (activeExperience.value === experience) {
-    activeExperience.value = "";
-  } else {
-    activeExperience.value = experience;
-  }
-}
-
-function disableExperience(experience: string) {
-  if (activeExperience.value === experience) {
-    activeExperience.value = "";
-  }
 }
 </script>
 
