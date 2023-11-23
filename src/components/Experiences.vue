@@ -1,6 +1,6 @@
 <template>
   <section
-    class="timeline-container relative flex w-[200vh] flex-1 items-center gap-4 text-primary lg:w-full"
+    class="timeline-container relative flex w-[250vh] flex-1 items-center gap-4 text-primary lg:w-full"
     :style="`
     --experiences: ${EXPERIENCES.length};
     --primary: ${primaryColor};
