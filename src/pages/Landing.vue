@@ -35,6 +35,7 @@ const props = defineProps<PageProps>();
 const HEADLINES = [
   "SOFTWARE ENGINEER",
   "WEB DEVELOPER",
+  "FULL STACK DEVELOPER",
   "EXPERT GOOGLE SEARCHER",
   "BUG DEVELOPER",
   "CODE WIZARD",
