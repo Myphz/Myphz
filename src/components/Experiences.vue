@@ -11,7 +11,7 @@
     <div>{{ new Date().getFullYear() }}</div>
 
     <div class="absolute inset-0 z-20 flex w-full items-center justify-around lg:justify-evenly">
-      <div
+      <button
         v-for="(experience, i) in EXPERIENCES"
         class="dot"
         :class="activeExperience && experience.title !== activeExperience && 'hidden-dot'"
@@ -32,10 +32,10 @@
           <header class="text-primary text-responsive-h3">
             {{ experience.title }}
           </header>
-          <div class="mt-4 w-full text-text text-responsive-h5">{{ experience.text }}</div>
+          <div class="w-full text-text text-responsive-h5">{{ experience.text }}</div>
           <footer>{{ experience.note }}</footer>
         </article>
-      </div>
+      </button>
     </div>
 
     <div class="absolute inset-0 flex w-full items-center justify-around lg:justify-evenly">
@@ -55,7 +55,7 @@
         :key="experience.title"
         :style="`--text: '${experience.title}'`"
         class="dot-title"
-        :class="activeExperience && experience.title !== activeExperience && 'hidden-dot'"
+        :class="activeExperience && 'hidden-dot'"
       />
     </div>
   </section>
@@ -74,7 +74,7 @@ const EXPERIENCES = [
   {
     start: 2023,
     title: "ContinuumLab",
-    text: "As a senior front-end developer, I designed a social-media platform interface, connecting to Strapi CMS with GraphQL, implementing real-time data display, and integrating authentication providers like Keycloak.",
+    text: "As a senior front-end developer, I designed a social-media platform interface, connecting to Strapi CMS with GraphQL, implementing real-time data display, and integrating authentication providers",
     note: "USA | Nov 2022 - Current"
   },
   {
@@ -164,7 +164,7 @@ article {
   content: var(--text);
   top: 50%;
   left: 50%;
-  translate: -50% calc(-50% + 4rem);
+  translate: -50% calc(-50% + 3rem);
 
   @apply w-max;
 }
@@ -175,14 +175,14 @@ article {
 }
 
 .dot-article {
-  @apply absolute flex w-[90vw] -translate-x-1/2 flex-col gap-2 rounded-xl bg-background lg:w-[30vw] lg:p-8;
+  @apply absolute left-1/2 flex w-[90vw] -translate-x-1/2 flex-col gap-1 rounded-xl border border-secondary bg-background lg:w-[30vw] lg:gap-2;
 }
 
 .article-top {
-  @apply -top-[15rem] lg:-top-[25rem];
+  @apply -top-[10rem] lg:-top-[14rem];
 }
 
 .article-bottom {
-  @apply top-[2rem];
+  @apply top-[5rem];
 }
 </style>
