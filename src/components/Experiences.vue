@@ -7,7 +7,17 @@
     --secondary: ${secondaryColor}`"
   >
     <div>{{ Math.min(...EXPERIENCES.map((exp) => exp.start)) }}</div>
-    <hr class="line h-1 w-full rounded-md bg-secondary text-secondary" />
+    <div class="relative w-full">
+      <hr class="line absolute h-1 w-full rounded-md bg-secondary text-secondary" />
+      <Transition @enter="lineAnimationRunning = true" @leave="lineAnimationRunning = false">
+        <hr
+          v-show="activeExperienceIdx !== -1"
+          class="line-secondary absolute left-0 h-1 rounded-md bg-primary text-primary"
+          :class="{ 'line-animation': lineAnimationRunning }"
+          :style="`--experience-idx: ${activeExperienceIdx}`"
+        />
+      </Transition>
+    </div>
     <div class="pr-4 lg:p-0">{{ new Date().getFullYear() }}</div>
 
     <div class="absolute left-0 flex w-full items-center justify-evenly">
@@ -60,7 +70,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import tailwindConfig from "../../tailwind.config";
 import resolveConfig from "tailwindcss/resolveConfig";
 
@@ -101,6 +111,10 @@ const primaryColor = config.theme.colors.primary;
 const secondaryColor = config.theme.colors.secondary;
 
 const activeExperience = ref("");
+const activeExperienceIdx = computed(() =>
+  EXPERIENCES.findIndex((exp) => exp.title === activeExperience.value)
+);
+const lineAnimationRunning = ref(false);
 
 function setActiveExperience(title: string) {
   activeExperience.value = title;
@@ -132,6 +146,10 @@ article {
   @apply transition-all;
 }
 .line {
+  box-shadow: 0 0 1em 0.05em var(--secondary);
+}
+
+.line-secondary {
   box-shadow: 0 0 1em 0.05em var(--secondary);
 }
 .dot {
@@ -182,5 +200,31 @@ article {
 
 .article-bottom {
   @apply top-[3rem];
+}
+
+.line-animation {
+  --padding: calc((var(--experience-idx) - 1) * 4.5rem);
+  --left-pos: calc(
+    calc(var(--experience-idx) * (100% / (var(--experiences) + 2))) + var(--padding)
+  );
+
+  --width: calc((100% / var(--experiences) - 1.5rem) + var(--left-pos));
+
+  animation: line-anim 0.75s ease-in forwards;
+}
+
+@keyframes line-anim {
+  0% {
+    left: 0;
+    width: 0;
+  }
+  50% {
+    width: var(--width);
+    left: 0;
+  }
+  100% {
+    width: 0;
+    left: var(--width);
+  }
 }
 </style>
