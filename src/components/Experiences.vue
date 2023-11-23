@@ -30,9 +30,13 @@
 
     <div class="absolute left-0 flex w-full items-center justify-evenly text-responsive-h3">
       <div
-        v-for="experience in EXPERIENCES"
+        v-for="(experience, i) in EXPERIENCES"
         :key="experience.title"
         :style="`--text: '${experience.title}'`"
+        :class="{
+          'hidden-dot': activeExperience && experience.title === activeExperience,
+          'top-title': i % 2 !== 0
+        }"
         class="dot-title"
       />
     </div>
@@ -69,7 +73,7 @@ import { computed, ref } from "vue";
 import tailwindConfig from "../../tailwind.config";
 import resolveConfig from "tailwindcss/resolveConfig";
 
-import { clickOutside as vClickOutside } from "@/utils/clickoutside";
+const emit = defineEmits(["experienceFocus", "experienceUnfocus"]);
 
 const EXPERIENCES = [
   {
@@ -111,6 +115,8 @@ const lineAnimationRunning = ref(false);
 
 function setActiveExperience(title: string) {
   activeExperience.value = title;
+  if (!title) emit("experienceUnfocus");
+  else emit("experienceFocus");
 }
 </script>
 
@@ -162,7 +168,7 @@ article {
 }
 
 .dot-article {
-  @apply absolute left-1/2 flex w-[90vw] -translate-x-1/2 flex-col gap-1 rounded-xl bg-background p-2 lg:w-[30vw] lg:gap-2 lg:border lg:border-secondary;
+  @apply absolute left-1/2 flex w-[90vw] -translate-x-1/2 flex-col gap-1 rounded-xl bg-background p-2 lg:w-[30vw] lg:gap-2;
 }
 
 .article-top {
@@ -171,6 +177,10 @@ article {
 
 .article-bottom {
   @apply top-[2rem] lg:top-[3rem];
+}
+
+.top-title {
+  @apply hidden-dot lg:visible lg:opacity-100;
 }
 
 .line-animation {

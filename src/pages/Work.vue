@@ -5,7 +5,7 @@
     <div
       class="relative flex h-[70%] flex-col gap-8 pl-4 lg:h-auto lg:w-[90%] lg:flex-1 lg:gap-20 lg:pl-8"
     >
-      <p class="hidden lg:block">
+      <p class="hidden transition-all" :class="textVisible ? 'lg:block' : 'lg:hidden-dot lg:block'">
         I had the opportunity to work for many companies with many different technologies, from
         small startups to bigger companies.
         <br />
@@ -15,7 +15,11 @@
       <div
         class="timeline-container absolute top-1/2 flex h-full w-full flex-1 -translate-y-1/2 flex-col overflow-auto lg:overflow-visible"
       >
-        <Experiences class="flex-1" />
+        <Experiences
+          class="flex-1"
+          @experience-focus="textVisible = false"
+          @experience-unfocus="textVisible = true"
+        />
       </div>
     </div>
 
@@ -29,8 +33,10 @@ import PageWrapper from "@/components/PageWrapper.vue";
 import Experiences from "@/components/Experiences.vue";
 import CloseBracket from "@/components/CloseBracket.vue";
 import type { PageProps } from "@/utils/pages";
+import { ref } from "vue";
 
 const props = defineProps<PageProps>();
+const textVisible = ref(true);
 </script>
 
 <style scoped>
