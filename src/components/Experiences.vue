@@ -1,6 +1,6 @@
 <template>
   <section
-    class="timeline-container relative flex w-[180vh] flex-1 items-center gap-4 text-primary lg:w-full"
+    class="timeline-container relative flex w-[200vh] flex-1 items-center gap-4 text-primary lg:w-full"
     :style="`
     --experiences: ${EXPERIENCES.length};
     --primary: ${primaryColor};
@@ -50,7 +50,7 @@
         <article
           class="dot-article"
           :class="{
-            'hidden-dot': !activeExperience || experience.title !== activeExperience,
+            'lg:hidden-dot': !activeExperience || experience.title !== activeExperience,
             'article-top': i % 2 !== 0,
             'article-bottom': i % 2 === 0
           }"
@@ -73,8 +73,6 @@ import resolveConfig from "tailwindcss/resolveConfig";
 
 import { clickOutside as vClickOutside } from "@/utils/clickoutside";
 
-const emit = defineEmits(["experienceFocus", "experienceUnfocus"]);
-
 const EXPERIENCES = [
   {
     start: 2023,
@@ -85,14 +83,14 @@ const EXPERIENCES = [
   {
     start: 2022,
     title: "Way AS",
-    text: "Implemented real-time GraphQL, designed booking/payment infrastructure, and created a mobile app for automated bookings at a simulator-based driving school.",
+    text: "Designed booking & payment infrastructure and created a mobile app for automated bookings at a simulator-based driving school.",
     note: "Norway | Aug 2022 - Jun 2023"
   },
 
   {
     start: 2020,
     title: "pianobit s.r.l",
-    text: "Led NodeJS full-stack web app development for a SaaS firm, with robust microservices and real-time trading features. Developed secure solutions and a seamless Vue.js interface for file sharing.",
+    text: "Led NodeJS full-stack development for a SaaS firm, with robust microservices and real-time trading features. Developed secure solutions and a seamless Vue.js interface for file sharing.",
     note: "Italy | Jun 2020 - Jul 2022"
   },
   {
@@ -115,24 +113,19 @@ const lineAnimationRunning = ref(false);
 
 function setActiveExperience(title: string) {
   activeExperience.value = title;
-  if (!title) emit("experienceUnfocus");
-  else emit("experienceFocus");
 }
 
 function toggleExperience(experience: string) {
   if (activeExperience.value === experience) {
     activeExperience.value = "";
-    emit("experienceUnfocus");
   } else {
     activeExperience.value = experience;
-    emit("experienceFocus");
   }
 }
 
 function disableExperience(experience: string) {
   if (activeExperience.value === experience) {
     activeExperience.value = "";
-    emit("experienceUnfocus");
   }
 }
 </script>
@@ -184,21 +177,16 @@ article {
   @apply w-max;
 }
 
-.hidden-dot {
-  opacity: 0;
-  visibility: hidden;
-}
-
 .dot-article {
-  @apply absolute left-1/2 flex w-[80vw] -translate-x-1/2 flex-col gap-1 rounded-xl border border-secondary bg-background p-2 lg:w-[30vw] lg:gap-2;
+  @apply absolute left-1/2 flex w-[90vw] -translate-x-1/2 flex-col gap-1 rounded-xl bg-background p-2 lg:w-[30vw] lg:gap-2 lg:border lg:border-secondary;
 }
 
 .article-top {
-  @apply -top-[15rem] lg:-top-[18rem];
+  @apply -top-[13.5rem] lg:-top-[18rem];
 }
 
 .article-bottom {
-  @apply top-[3rem];
+  @apply top-[2rem] lg:top-[3rem];
 }
 
 .line-animation {

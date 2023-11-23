@@ -36,3 +36,10 @@ textarea {
 *::-webkit-scrollbar {
   display: none !important;
 }
+
+@layer utilities {
+  .hidden-dot {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
