@@ -10,7 +10,26 @@
     <hr class="line h-1 w-full rounded-md bg-secondary text-secondary" />
     <div class="pr-4 lg:p-0">{{ new Date().getFullYear() }}</div>
 
-    <div class="absolute left-0 z-20 flex w-full items-center justify-evenly">
+    <div class="absolute left-0 flex w-full items-center justify-evenly">
+      <div
+        v-for="experience in EXPERIENCES"
+        class="dot-border"
+        :class="activeExperience && experience.title !== activeExperience && 'hidden-dot'"
+        :key="experience.title"
+      />
+    </div>
+
+    <div class="absolute left-0 flex w-full items-center justify-evenly text-responsive-h3">
+      <div
+        v-for="experience in EXPERIENCES"
+        :key="experience.title"
+        :style="`--text: '${experience.title}'`"
+        class="dot-title"
+        :class="activeExperience && 'hidden-dot'"
+      />
+    </div>
+
+    <div class="absolute left-0 flex w-full items-center justify-evenly">
       <button
         v-for="(experience, i) in EXPERIENCES"
         class="dot"
@@ -36,25 +55,6 @@
           <footer>{{ experience.note }}</footer>
         </article>
       </button>
-    </div>
-
-    <div class="absolute left-0 flex w-full items-center justify-evenly">
-      <div
-        v-for="experience in EXPERIENCES"
-        class="dot-border"
-        :class="activeExperience && experience.title !== activeExperience && 'hidden-dot'"
-        :key="experience.title"
-      />
-    </div>
-
-    <div class="absolute left-0 flex w-full items-center justify-evenly text-responsive-h3">
-      <div
-        v-for="experience in EXPERIENCES"
-        :key="experience.title"
-        :style="`--text: '${experience.title}'`"
-        class="dot-title"
-        :class="activeExperience && 'hidden-dot'"
-      />
     </div>
   </section>
 </template>
