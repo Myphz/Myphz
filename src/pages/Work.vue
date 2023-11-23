@@ -11,11 +11,7 @@
       </p>
 
       <div class="relative flex flex-1 flex-col overflow-auto lg:overflow-visible">
-        <Experiences
-          class="flex-1"
-          @experienceFocus="textVisible = false"
-          @experienceUnfocus="textVisible = true"
-        />
+        <Experiences class="flex-1" />
       </div>
     </div>
 

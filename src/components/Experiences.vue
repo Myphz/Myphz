@@ -12,7 +12,7 @@
 
     <div class="absolute inset-0 z-20 flex w-full items-center justify-around lg:justify-evenly">
       <div
-        v-for="experience in EXPERIENCES"
+        v-for="(experience, i) in EXPERIENCES"
         class="dot"
         :class="activeExperience && experience.title !== activeExperience && 'hidden-dot'"
         :key="experience.title"
@@ -20,7 +20,22 @@
         @mouseleave="() => setActiveExperience('')"
         @click="() => toggleExperience(experience.title)"
         v-click-outside="() => disableExperience(experience.title)"
-      />
+      >
+        <article
+          class="dot-article"
+          :class="{
+            'hidden-dot': !activeExperience || experience.title !== activeExperience,
+            'article-top': i % 2 !== 0,
+            'article-bottom': i % 2 === 0
+          }"
+        >
+          <header class="text-primary text-responsive-h3">
+            {{ experience.title }}
+          </header>
+          <div class="mt-4 w-full text-text text-responsive-h5">{{ experience.text }}</div>
+          <footer>{{ experience.note }}</footer>
+        </article>
+      </div>
     </div>
 
     <div class="absolute inset-0 flex w-full items-center justify-around lg:justify-evenly">
@@ -42,22 +57,6 @@
         class="dot-title"
         :class="activeExperience && experience.title !== activeExperience && 'hidden-dot'"
       />
-    </div>
-
-    <div class="absolute inset-0 w-full">
-      <article
-        v-for="(experience, i) in EXPERIENCES"
-        :key="experience.title"
-        :style="`--order: ${i + 1}`"
-        class="lg:work-description-desktop work-description-mobile"
-        :class="(!activeExperience || experience.title !== activeExperience) && 'hidden-dot'"
-      >
-        <header class="text-primary text-responsive-h3">
-          {{ experience.title }}
-        </header>
-        <div class="mt-4 w-full text-text text-responsive-h5">{{ experience.text }}</div>
-        <footer>{{ experience.note }}</footer>
-      </article>
     </div>
   </section>
 </template>
@@ -139,7 +138,7 @@ article {
 }
 .dot {
   box-shadow: 0 0 1em 0.3em var(--primary);
-  @apply aspect-square h-6 rounded-full bg-primary;
+  @apply relative aspect-square h-6 rounded-full bg-primary;
 }
 
 .dot-border {
@@ -173,5 +172,17 @@ article {
 .hidden-dot {
   opacity: 0;
   visibility: hidden;
+}
+
+.dot-article {
+  @apply absolute flex w-[90vw] -translate-x-1/2 flex-col gap-2 rounded-xl bg-background lg:w-[30vw] lg:p-8;
+}
+
+.article-top {
+  @apply -top-[15rem] lg:-top-[25rem];
+}
+
+.article-bottom {
+  @apply top-[2rem];
 }
 </style>

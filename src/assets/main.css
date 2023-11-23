@@ -36,16 +36,3 @@ textarea {
 *::-webkit-scrollbar {
   display: none !important;
 }
-
-@layer utilities {
-  .work-description-desktop {
-    @apply absolute flex w-[30vw] -translate-x-1/2 -translate-y-[15rem] flex-col gap-2 rounded-xl bg-background p-8;
-    left: calc(100% / (var(--experiences) + 2) * var(--order) + 1.5rem * var(--order) * 2);
-  }
-
-  .work-description-mobile {
-    @apply absolute flex w-[90vw] -translate-y-[10vh] flex-col gap-2 rounded-xl
-    bg-background p-4;
-    left: 25vw;
-  }
-}
