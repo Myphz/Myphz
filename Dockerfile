@@ -15,6 +15,8 @@ FROM node:18 as builder-fe
 WORKDIR /usr/src/appfe
 
 RUN git clone -b redesign https://github.com/Myphz/Myphz.git .
+# Invalidate Docker cache
+ADD https://www.random.org/cgi-bin/randbyte?nbytes=10&format=h /tmp/bustcache
 RUN git pull origin redesign
 RUN npm i
 RUN npm run build
