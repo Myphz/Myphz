@@ -1,6 +1,6 @@
 <template>
   <section
-    class="relative flex w-[150vh] flex-1 items-center gap-4 text-primary lg:w-full"
+    class="timeline-container relative flex w-[180vh] flex-1 items-center gap-4 text-primary lg:w-full"
     :style="`
     --experiences: ${EXPERIENCES.length};
     --primary: ${primaryColor};
@@ -9,7 +9,11 @@
     <div>{{ Math.min(...EXPERIENCES.map((exp) => exp.start)) }}</div>
     <div class="relative w-full">
       <hr class="line absolute h-1 w-full rounded-md bg-secondary text-secondary" />
-      <Transition @enter="lineAnimationRunning = true" @leave="lineAnimationRunning = false">
+      <Transition
+        @enter="lineAnimationRunning = true"
+        @leave="lineAnimationRunning = false"
+        :css="false"
+      >
         <hr
           v-show="activeExperienceIdx !== -1"
           class="line-secondary absolute left-0 h-1 rounded-md bg-primary text-primary"
@@ -21,12 +25,7 @@
     <div class="pr-4 lg:p-0">{{ new Date().getFullYear() }}</div>
 
     <div class="absolute left-0 flex w-full items-center justify-evenly">
-      <div
-        v-for="experience in EXPERIENCES"
-        class="dot-border"
-        :class="activeExperience && experience.title !== activeExperience && 'hidden-dot'"
-        :key="experience.title"
-      />
+      <div v-for="experience in EXPERIENCES" class="dot-border" :key="experience.title" />
     </div>
 
     <div class="absolute left-0 flex w-full items-center justify-evenly text-responsive-h3">
@@ -35,15 +34,13 @@
         :key="experience.title"
         :style="`--text: '${experience.title}'`"
         class="dot-title"
-        :class="activeExperience && 'hidden-dot'"
       />
     </div>
 
-    <div class="absolute left-0 flex w-full items-center justify-evenly">
+    <div class="dot-container absolute left-0 flex w-full items-center justify-evenly">
       <button
         v-for="(experience, i) in EXPERIENCES"
         class="dot"
-        :class="activeExperience && experience.title !== activeExperience && 'hidden-dot'"
         :key="experience.title"
         @mouseover="() => setActiveExperience(experience.title)"
         @mouseleave="() => setActiveExperience('')"
@@ -145,6 +142,7 @@ div,
 article {
   @apply transition-all;
 }
+
 .line {
   box-shadow: 0 0 1em 0.05em var(--secondary);
 }
@@ -153,6 +151,7 @@ article {
   box-shadow: 0 0 1em 0.05em var(--secondary);
 }
 .dot {
+  scroll-snap-align: center;
   box-shadow: 0 0 1em 0.3em var(--primary);
   @apply relative aspect-square h-6 rounded-full bg-primary;
 }

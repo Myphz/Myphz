@@ -13,7 +13,7 @@
       </p>
 
       <div
-        class="absolute top-1/2 flex h-full w-full flex-1 -translate-y-1/2 flex-col overflow-auto lg:overflow-visible"
+        class="timeline-container absolute top-1/2 flex h-full w-full flex-1 -translate-y-1/2 flex-col overflow-auto lg:overflow-visible"
       >
         <Experiences class="flex-1" />
       </div>
@@ -34,3 +34,10 @@ import { ref } from "vue";
 const props = defineProps<PageProps>();
 const textVisible = ref(true);
 </script>
+
+<style scoped>
+.timeline-container {
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+</style>
