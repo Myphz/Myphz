@@ -3,7 +3,7 @@
     <Header>WORK</Header>
 
     <div class="flex h-[70%] flex-col gap-8 pl-4 lg:h-auto lg:w-[90%] lg:flex-1 lg:gap-20 lg:pl-8">
-      <p>
+      <p :class="textVisible ? 'visible' : 'invisible opacity-0'" class="transition-all">
         I had the opportunity to work for many companies with many different technologies, from
         small startups to bigger companies.
         <br />
@@ -11,7 +11,11 @@
       </p>
 
       <div class="relative flex flex-1 flex-col overflow-auto lg:overflow-visible">
-        <Experiences class="flex-1" />
+        <Experiences
+          class="flex-1"
+          @experienceFocus="textVisible = false"
+          @experienceUnfocus="textVisible = true"
+        />
       </div>
     </div>
 
@@ -25,6 +29,8 @@ import PageWrapper from "@/components/PageWrapper.vue";
 import Experiences from "@/components/Experiences.vue";
 import CloseBracket from "@/components/CloseBracket.vue";
 import type { PageProps } from "@/utils/pages";
+import { ref } from "vue";
 
 const props = defineProps<PageProps>();
+const textVisible = ref(true);
 </script>

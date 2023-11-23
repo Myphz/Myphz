@@ -16,9 +16,10 @@
         class="dot"
         :class="activeExperience && experience.title !== activeExperience && 'hidden-dot'"
         :key="experience.title"
-        @mouseover="activeExperience = experience.title"
-        @mouseleave="activeExperience = ''"
+        @mouseover="() => setActiveExperience(experience.title)"
+        @mouseleave="() => setActiveExperience('')"
         @click="() => toggleExperience(experience.title)"
+        v-click-outside="() => disableExperience(experience.title)"
       />
     </div>
 
@@ -66,6 +67,10 @@ import { ref } from "vue";
 import tailwindConfig from "../../tailwind.config";
 import resolveConfig from "tailwindcss/resolveConfig";
 
+import { clickOutside as vClickOutside } from "@/utils/clickoutside";
+
+const emit = defineEmits(["experienceFocus", "experienceUnfocus"]);
+
 const EXPERIENCES = [
   {
     start: 2023,
@@ -100,9 +105,27 @@ const secondaryColor = config.theme.colors.secondary;
 
 const activeExperience = ref("");
 
+function setActiveExperience(title: string) {
+  activeExperience.value = title;
+  if (!title) emit("experienceUnfocus");
+  else emit("experienceFocus");
+}
+
 function toggleExperience(experience: string) {
-  if (activeExperience.value === experience) return (activeExperience.value = "");
-  activeExperience.value = experience;
+  if (activeExperience.value === experience) {
+    activeExperience.value = "";
+    emit("experienceUnfocus");
+  } else {
+    activeExperience.value = experience;
+    emit("experienceFocus");
+  }
+}
+
+function disableExperience(experience: string) {
+  if (activeExperience.value === experience) {
+    activeExperience.value = "";
+    emit("experienceUnfocus");
+  }
 }
 </script>
 
