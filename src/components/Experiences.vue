@@ -1,6 +1,6 @@
 <template>
   <section
-    class="relative flex w-[200vh] items-center gap-4 overflow-y-visible text-primary lg:w-full"
+    class="relative flex w-[150vh] flex-1 items-center gap-4 text-primary lg:w-full"
     :style="`
     --experiences: ${EXPERIENCES.length};
     --primary: ${primaryColor};
@@ -8,9 +8,9 @@
   >
     <div>{{ Math.min(...EXPERIENCES.map((exp) => exp.start)) }}</div>
     <hr class="line h-1 w-full rounded-md bg-secondary text-secondary" />
-    <div>{{ new Date().getFullYear() }}</div>
+    <div class="pr-4 lg:p-0">{{ new Date().getFullYear() }}</div>
 
-    <div class="absolute inset-0 z-20 flex w-full items-center justify-around lg:justify-evenly">
+    <div class="absolute left-0 z-20 flex w-full items-center justify-evenly">
       <button
         v-for="(experience, i) in EXPERIENCES"
         class="dot"
@@ -38,7 +38,7 @@
       </button>
     </div>
 
-    <div class="absolute inset-0 flex w-full items-center justify-around lg:justify-evenly">
+    <div class="absolute left-0 flex w-full items-center justify-evenly">
       <div
         v-for="experience in EXPERIENCES"
         class="dot-border"
@@ -47,9 +47,7 @@
       />
     </div>
 
-    <div
-      class="absolute inset-0 flex w-full items-center justify-around text-responsive-h3 lg:justify-evenly"
-    >
+    <div class="absolute left-0 flex w-full items-center justify-evenly text-responsive-h3">
       <div
         v-for="experience in EXPERIENCES"
         :key="experience.title"
@@ -74,7 +72,7 @@ const EXPERIENCES = [
   {
     start: 2023,
     title: "ContinuumLab",
-    text: "As a senior front-end developer, I designed a social-media platform interface, connecting to Strapi CMS with GraphQL, implementing real-time data display, and integrating authentication providers",
+    text: "As a senior front-end developer, I designed a social-media platform interface, connecting to Strapi CMS with GraphQL & real-time capabilities, and integrating authentication providers",
     note: "USA | Nov 2022 - Current"
   },
   {
@@ -134,7 +132,7 @@ article {
   @apply transition-all;
 }
 .line {
-  box-shadow: 0 0 1em 0.1em var(--secondary);
+  box-shadow: 0 0 1em 0.05em var(--secondary);
 }
 .dot {
   box-shadow: 0 0 1em 0.3em var(--primary);
@@ -175,14 +173,14 @@ article {
 }
 
 .dot-article {
-  @apply absolute left-1/2 flex w-[90vw] -translate-x-1/2 flex-col gap-1 rounded-xl border border-secondary bg-background lg:w-[30vw] lg:gap-2;
+  @apply absolute left-1/2 flex w-[80vw] -translate-x-1/2 flex-col gap-1 rounded-xl border border-secondary bg-background p-2 lg:w-[30vw] lg:gap-2;
 }
 
 .article-top {
-  @apply -top-[10rem] lg:-top-[14rem];
+  @apply -top-[15rem] lg:-top-[18rem];
 }
 
 .article-bottom {
-  @apply top-[5rem];
+  @apply top-[3rem];
 }
 </style>
