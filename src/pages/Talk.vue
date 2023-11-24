@@ -6,7 +6,7 @@
       <VariableFontTypingText text="“TALK IS CHEAP." />
       <VariableFontTypingText text="SHOW ME THE CODE”" :delay="2000" />
     </header>
-    <Typing text="- Linus Torvalds" class="ml-[40vw] mt-4 text-center" :delay="4800" />
+    <Typing class="ml-[40vw] mt-4 text-center" :delay="4800">- Linus Torvalds</Typing>
   </PageWrapper>
 </template>
 

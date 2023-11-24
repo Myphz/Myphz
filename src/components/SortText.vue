@@ -5,7 +5,6 @@
 </template>
 
 <script setup lang="ts">
-import { isVisible } from "@/utils/dom";
 import { onMounted, ref, useSlots } from "vue";
 
 const slots = useSlots();
@@ -50,13 +49,13 @@ function startAnimation() {
 }
 
 onMounted(() => {
-  window.addEventListener(
-    "scroll",
-    () => {
-      const visible = isVisible(element.value!);
-      if (visible) startAnimation();
+  new IntersectionObserver(
+    async ([entry]) => {
+      if (entry.isIntersecting) {
+        startAnimation();
+      }
     },
-    { passive: true }
-  );
+    { threshold: 1 }
+  ).observe(element.value!);
 });
 </script>

@@ -14,14 +14,27 @@
 <script setup lang="ts">
 import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfig from "../../tailwind.config";
-import { onMounted, ref } from "vue";
+import { onMounted, ref, useSlots } from "vue";
 
 const config = resolveConfig(tailwindConfig);
 const secondaryColor = config.theme.colors.secondary;
 const animationStarted = ref(false);
 const divRef = ref(null);
 
-const { text, delay } = defineProps<{ text: string; delay?: number }>();
+const { delay } = defineProps<{ delay?: number }>();
+const slots = useSlots();
+
+function getSlotText() {
+  let tree = slots.default?.()?.[0] ?? {};
+  while (typeof tree === "object" && "children" in tree) {
+    // @ts-ignore
+    tree = tree.children;
+    if (Array.isArray(tree)) tree = tree[0];
+  }
+  return tree.toString();
+}
+
+const text: string = getSlotText();
 
 onMounted(() => {
   new IntersectionObserver(
