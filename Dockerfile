@@ -6,7 +6,7 @@ COPY . .
 # Will build and cache the binary and dependent crates in release mode
 RUN --mount=type=cache,target=/usr/local/cargo,from=rust:latest,source=/usr/local/cargo \
     --mount=type=cache,target=target \
-    cargo build --release && mv ./target/release/devfolio_be ./server
+    cargo build --release && mv ./target/release/server ./server
 
 
 
