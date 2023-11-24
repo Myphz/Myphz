@@ -1,25 +1,36 @@
 <template>
-  <div class="h-[60vh]">
-    <Carousel :items-to-show="2" :items-to-scroll="2" :snapAlign="'end'" class="mx-10 h-full">
-      <Slide v-for="project in PROJECTS" :key="project.name">
-        <Project :img="project.image" :redirect="project.redirect">
-          <template #name>{{ project.name }}</template>
-          {{ project.description }}
-        </Project>
-      </Slide>
+  <Carousel
+    :items-to-show="1"
+    :items-to-scroll="1"
+    :snapAlign="'end'"
+    :breakpoints="breakpoints"
+    class="h-[40vh] lg:mx-10"
+  >
+    <Slide v-for="project in PROJECTS" :key="project.name">
+      <Project :img="project.image" :redirect="project.redirect">
+        <template #name>{{ project.name }}</template>
+        {{ project.description }}
+      </Project>
+    </Slide>
 
-      <template #addons>
-        <Navigation />
-        <Pagination />
-      </template>
-    </Carousel>
-  </div>
+    <template #addons>
+      <Navigation />
+      <Pagination />
+    </template>
+  </Carousel>
 </template>
 
 <script setup lang="ts">
 import Project from "./Project.vue";
 import { Carousel, Navigation, Pagination, Slide } from "vue3-carousel";
 import "vue3-carousel/dist/carousel.css";
+
+const breakpoints = {
+  1024: {
+    itemsToShow: 2,
+    itemsToScroll: 2
+  }
+};
 
 const PROJECTS = [
   {
@@ -48,10 +59,8 @@ const PROJECTS = [
 
 <style>
 .carousel__item {
-  height: 100%;
-  width: 100%;
   background-color: green;
-  margin: 0 2rem;
+  @apply h-full w-full lg:mx-8;
 }
 
 .carousel__slide {
@@ -60,8 +69,7 @@ const PROJECTS = [
 
 .carousel__prev,
 .carousel__next {
-  scale: 2.5;
-  @apply text-primary transition-all hover:text-primary;
+  @apply scale-[1.5] text-primary transition-all hover:text-primary lg:scale-[2.5];
 }
 
 .carousel__prev--disabled,

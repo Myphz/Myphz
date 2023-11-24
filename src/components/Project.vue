@@ -1,5 +1,5 @@
 <template>
-  <article class="flex h-full flex-col text-left lg:gap-2">
+  <article class="flex h-full flex-col justify-center text-left lg:gap-2">
     <img class="mb-2 max-h-[80%] rounded-lg" :src="img" />
     <a :href="redirect" class="flex gap-2 text-primary">
       <h2>
