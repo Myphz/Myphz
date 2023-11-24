@@ -17,8 +17,7 @@
 import PageWrapper from "@/components/PageWrapper.vue";
 import Header from "@/components/Header.vue";
 import Projects from "@/components/Projects.vue";
-import { onMounted, ref } from "vue";
-import { useScrollHijacking } from "@/utils/scroll";
+import { ref } from "vue";
 import CloseBracket from "@/components/CloseBracket.vue";
 import type { PageProps } from "@/utils/pages";
 
@@ -26,9 +25,4 @@ const page = ref(null);
 const projects = ref(null);
 
 const props = defineProps<PageProps>();
-
-onMounted(() => {
-  // @ts-ignore
-  useScrollHijacking(page.value!.pageRef, projects.value.scrollProjects);
-});
 </script>
