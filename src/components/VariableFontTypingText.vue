@@ -76,7 +76,7 @@ onMounted(async () => {
         showCaret.value = false;
       }
     },
-    { threshold: 1 }
+    { threshold: 0.5 }
   ).observe(headerRef.value!);
 });
 </script>

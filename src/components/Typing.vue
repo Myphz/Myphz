@@ -43,7 +43,7 @@ onMounted(() => {
         animationStarted.value = true;
       }
     },
-    { threshold: 1 }
+    { threshold: 0.5 }
   ).observe(divRef.value!);
 });
 </script>

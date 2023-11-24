@@ -55,7 +55,7 @@ onMounted(() => {
         startAnimation();
       }
     },
-    { threshold: 1 }
+    { threshold: 0.5 }
   ).observe(element.value!);
 });
 </script>
