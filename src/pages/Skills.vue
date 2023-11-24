@@ -7,7 +7,7 @@
         I excel in dissecting complex problems into manageable tasks, essential for crafting robust,
         maintainable code in large-scale projects. I'm driven by challenges, always seeking
         opportunities to enhance my skills. My self-directed learning approach empowers me to
-        quickly grasp and adapt to new technologies with autonomy.
+        quickly grasp and adapt to new technologies autonomously.
       </p>
 
       <div class="flex justify-between lg:gap-40">

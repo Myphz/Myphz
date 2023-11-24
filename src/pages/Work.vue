@@ -9,7 +9,7 @@
         I had the opportunity to work for many companies with many different technologies, from
         small startups to bigger companies.
         <br />
-        Each experience taught me something and I continously improved in my learning journey.
+        Each experience taught me something and I continuously improved in my learning journey.
       </p>
 
       <div
