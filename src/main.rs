@@ -61,13 +61,6 @@ fn default_catcher(status: Status, _req: &Request) -> status::Custom<Json<Respon
 fn rocket() -> _ {
     dotenv().ok();
     rocket::build()
-    .attach(AdHoc::on_response("CORS", |_req, res| {
-        Box::pin(async move {
-            res.set_header(Header::new("Access-Control-Allow-Origin", "https://myphz.github.io"));
-            res.set_header(Header::new("Access-Control-Allow-Methods", "POST, GET, PATCH, OPTIONS"));
-            res.set_header(Header::new("Access-Control-Allow-Headers", "*"));
-        })
-    }))
     .mount("/", routes![index])
     .mount("/", FileServer::from("./static"))
     .register("/", catchers![default_catcher])
