@@ -9,18 +9,12 @@
     <div>{{ Math.min(...EXPERIENCES.map((exp) => exp.start)) }}</div>
     <div class="relative w-full">
       <hr class="line absolute h-1 w-full rounded-md bg-secondary text-secondary" />
-      <Transition
-        @enter="lineAnimationRunning = true"
-        @leave="lineAnimationRunning = false"
-        :css="false"
-      >
-        <hr
-          v-show="activeExperienceIdx !== -1"
-          class="line-secondary absolute left-0 h-1 rounded-md bg-primary text-primary"
-          :class="{ 'line-animation': lineAnimationRunning }"
-          :style="`--experience-idx: ${activeExperienceIdx}`"
-        />
-      </Transition>
+
+      <hr
+        class="line-secondary absolute left-0 h-1 rounded-md bg-primary text-primary"
+        :class="activeExperience ? 'line-animation' : 'line-still'"
+        :style="`--experience-idx: ${activeExperienceIdx}`"
+      />
     </div>
     <div class="pr-4 lg:p-0">{{ new Date().getFullYear() }}</div>
 
@@ -69,7 +63,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { ref, watch } from "vue";
 import tailwindConfig from "../../tailwind.config";
 import resolveConfig from "tailwindcss/resolveConfig";
 
@@ -108,16 +102,26 @@ const primaryColor = config.theme.colors.primary;
 const secondaryColor = config.theme.colors.secondary;
 
 const activeExperience = ref("");
-const activeExperienceIdx = computed(() =>
-  EXPERIENCES.findIndex((exp) => exp.title === activeExperience.value)
-);
-const lineAnimationRunning = ref(false);
+const activeExperienceIdx = ref(-1);
+
+let timeout: number;
 
 function setActiveExperience(title: string) {
   activeExperience.value = title;
   if (!title) emit("experienceUnfocus");
   else emit("experienceFocus");
 }
+
+watch(
+  () => activeExperience.value,
+  (val) => {
+    const idx = EXPERIENCES.findIndex((exp) => exp.title === val);
+
+    if (idx === -1) return (timeout = setTimeout(() => (activeExperienceIdx.value = -1), 500));
+    clearTimeout(timeout);
+    activeExperienceIdx.value = idx;
+  }
+);
 </script>
 
 <style scoped>
@@ -131,6 +135,15 @@ article {
 }
 
 .line-secondary {
+  --experience-idx: 1;
+  --padding: calc((var(--experience-idx) - 1) * 4.5rem);
+  --left-pos: calc(
+    calc(var(--experience-idx) * (100% / (var(--experiences) + 2))) + var(--padding)
+  );
+
+  --width: calc((100% / var(--experiences) - 1.5rem) + var(--left-pos));
+
+  --animation-duration: 0.375s;
   box-shadow: 0 0 1em 0.05em var(--secondary);
 }
 .dot {
@@ -184,14 +197,7 @@ article {
 }
 
 .line-animation {
-  --padding: calc((var(--experience-idx) - 1) * 4.5rem);
-  --left-pos: calc(
-    calc(var(--experience-idx) * (100% / (var(--experiences) + 2))) + var(--padding)
-  );
-
-  --width: calc((100% / var(--experiences) - 1.5rem) + var(--left-pos));
-
-  animation: line-anim 0.75s ease-in forwards;
+  animation: line-anim var(--animation-duration) ease-in forwards;
 }
 
 @keyframes line-anim {
@@ -199,13 +205,24 @@ article {
     left: 0;
     width: 0;
   }
-  50% {
+  100% {
     width: var(--width);
     left: 0;
   }
+}
+
+@keyframes line-anim-reverse {
   100% {
+    left: 0;
     width: 0;
-    left: var(--width);
   }
+  0% {
+    width: var(--width);
+    left: 0;
+  }
+}
+
+.line-still {
+  animation: line-anim-reverse var(--animation-duration) ease-in forwards;
 }
 </style>
