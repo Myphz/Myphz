@@ -33,7 +33,7 @@
       <form class="flex max-w-[40rem] flex-col gap-2 lg:gap-8 lg:pr-16" @submit.prevent="onSubmit">
         <Input label="Email" type="email" name="email" />
         <Input label="Subject" name="subject" />
-        <Textarea label="Message" name="message" />
+        <Textarea label="Message" name="body" />
         <Button
           variant="primary"
           class="flex items-center justify-center gap-4"
