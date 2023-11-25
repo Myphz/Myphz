@@ -8,7 +8,15 @@
       <div
         class="img-container relative mb-2 rounded-lg text-secondary after:rounded-lg after:transition-all lg:max-h-[75%]"
       >
-        <img class="h-full w-full rounded-lg" :src="img" />
+        <picture>
+          <source
+            media="(max-width: 1023px)"
+            :srcset="`/images/mobile/${img}`"
+            class="h-full w-full rounded-lg"
+          />
+
+          <img :src="`images/desktop/${img}`" alt="Project" class="h-full w-full rounded-lg" />
+        </picture>
       </div>
       <h3 class="text-primary text-responsive-h3">
         <SortText><slot name="name" /></SortText>
