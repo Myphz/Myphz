@@ -1,11 +1,15 @@
 <template>
-  <article class="h-full rounded-lg text-left">
+  <article class="mt-2 h-full rounded-lg text-left">
     <a
       :href="redirect"
       target="_blank"
       class="flex h-full flex-col justify-center rounded-lg lg:gap-2"
     >
-      <img class="mb-2 max-h-[80%] rounded-lg" :src="img" />
+      <div
+        class="img-container relative mb-2 rounded-lg text-secondary after:rounded-lg after:transition-all lg:max-h-[75%]"
+      >
+        <img class="h-full w-full rounded-lg" :src="img" />
+      </div>
       <h3 class="text-primary text-responsive-h3">
         <SortText><slot name="name" /></SortText>
       </h3>
@@ -20,3 +24,14 @@ import SortText from "./SortText.vue";
 
 const { img, redirect } = defineProps<{ img: string; redirect: string }>();
 </script>
+
+<style scoped>
+.img-container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.img-container:hover::after {
+  box-shadow: 0 0 0.1em 0.1em currentColor inset;
+}
+</style>

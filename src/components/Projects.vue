@@ -16,7 +16,6 @@
 
     <template #addons>
       <Navigation />
-      <!-- <Pagination /> -->
     </template>
   </Carousel>
 </template>
@@ -37,19 +36,19 @@ const PROJECTS = [
   {
     name: "Trips!",
     redirect: "/",
-    description: "Trips is good",
+    description: "Mobile app to plan & organize trips and photos",
     image: "/trips.webp"
   },
   {
-    name: "Trips!",
+    name: "Sort Visualizer",
     redirect: "/",
-    description: "Trips is good",
+    description: "Web application to display and animate 15+ sorting algorithms",
     image: "/sortvisualizer.webp"
   },
   {
-    name: "Trips!",
+    name: "wwwallet",
     redirect: "/",
-    description: "Trips is good",
+    description: "Real-time crypto tracking web & mobile app",
     image: "/wwwallet.webp"
   }
 ] as const;
@@ -67,7 +66,7 @@ const PROJECTS = [
 
 .carousel__prev,
 .carousel__next {
-  @apply scale-[1.5] text-primary transition-all hover:text-primary lg:scale-[2.5];
+  @apply -translate-y-8 scale-[1.5] text-primary transition-all hover:text-primary lg:scale-[2.5];
 }
 
 .carousel__prev--disabled,
