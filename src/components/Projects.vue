@@ -35,19 +35,19 @@ const breakpoints = {
 const PROJECTS = [
   {
     name: "Trips!",
-    redirect: "/",
+    redirect: "https://play.google.com/store/apps/details?id=com.tripsphoexa.app",
     description: "Mobile app to plan & organize trips and photos",
     image: "/trips.webp"
   },
   {
     name: "Sort Visualizer",
-    redirect: "/",
+    redirect: "https://sortvisualizer.com",
     description: "Web application to display and animate 15+ sorting algorithms",
     image: "/sortvisualizer.webp"
   },
   {
     name: "wwwallet",
-    redirect: "/",
+    redirect: "https://wwwallet.app/",
     description: "Real-time crypto tracking web & mobile app",
     image: "/wwwallet.webp"
   }
