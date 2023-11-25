@@ -24,7 +24,16 @@
       <div class="pr-4 lg:p-0">{{ new Date().getFullYear() }}</div>
 
       <div class="absolute left-0 flex w-full items-center justify-evenly">
-        <div v-for="experience in EXPERIENCES" class="dot-border" :key="experience.title" />
+        <div
+          v-for="(experience, i) in EXPERIENCES"
+          class="dot-border after:transition-all"
+          :class="{
+            'lg:after:!border-primary': activeExperienceIdx === i,
+            'lg:after:!border-secondary': activeExperienceIdx !== i,
+            'after:border-primary': mobileExperience - 1 === i
+          }"
+          :key="experience.title"
+        />
       </div>
 
       <div class="absolute left-0 flex w-full items-center justify-evenly text-responsive-h3">
@@ -183,7 +192,7 @@ article {
   left: 50%;
   translate: -50% -50%;
 
-  @apply aspect-square h-10 rounded-full border-4 border-secondary;
+  @apply aspect-square h-10 rounded-full border-4;
 }
 
 .dot-title {
@@ -250,7 +259,6 @@ article {
 @keyframes line-anim-mobile {
   100% {
     width: 20% !important;
-    /* left: 0 !important; */
   }
 }
 
@@ -258,7 +266,7 @@ article {
   .line-secondary-mobile {
     --base-pct: calc(100% / (var(--experiences) + 2));
     --mobile-width: calc(
-      (var(--base-pct) + 1.5rem) * var(--mobile-experience) + 4.5rem *
+      (var(--base-pct) + 1.5rem) * var(--mobile-experience) + 3.5rem *
         (var(--mobile-experience) - 1)
     );
 
