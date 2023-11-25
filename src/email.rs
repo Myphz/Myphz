@@ -16,7 +16,7 @@ pub fn send_email(Params { email, subject, body}: Params) -> bool {
     let message = Message::builder()
         .from(get_env_var("CRED_EMAIL").parse().unwrap())
         .to(get_env_var("TO").parse().unwrap())
-        .subject(format!("Devfolio - {} (from {})", subject, email))
+        .subject(format!("Portfolio - {} (from {})", subject, email))
         .body(body);
 
     let message = match message {
