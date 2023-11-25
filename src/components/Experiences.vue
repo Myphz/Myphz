@@ -212,13 +212,14 @@ article {
 }
 
 @keyframes line-anim-reverse {
-  100% {
-    left: 0;
-    width: 0;
-  }
   0% {
     width: var(--width);
     left: 0;
+  }
+
+  100% {
+    left: var(--width);
+    width: 0;
   }
 }
 
