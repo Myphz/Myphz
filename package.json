@@ -15,6 +15,7 @@
     "ogl": "^1.0.3",
     "vite-svg-loader": "^4.0.0",
     "vue": "^3.3.4",
+    "vue-toast-notification": "^3.1.2",
     "vue3-carousel": "^0.3.1"
   },
   "devDependencies": {

@@ -30,11 +30,18 @@
         </div>
       </div>
 
-      <form class="flex max-w-[40rem] flex-col gap-2 lg:gap-8 lg:pr-16" @submit.prevent>
-        <Input label="Email" type="email" />
-        <Input label="Subject" />
-        <Textarea label="Message" />
-        <Button variant="primary" type="submit">Submit</Button>
+      <form class="flex max-w-[40rem] flex-col gap-2 lg:gap-8 lg:pr-16" @submit.prevent="onSubmit">
+        <Input label="Email" type="email" name="email" />
+        <Input label="Subject" name="subject" />
+        <Textarea label="Message" name="message" />
+        <Button
+          variant="primary"
+          class="flex items-center justify-center gap-4"
+          :isLoading="isLoading"
+          type="submit"
+        >
+          Submit
+        </Button>
       </form>
 
       <div class="flex flex-col gap-2 lg:hidden">
@@ -71,9 +78,27 @@ import Input from "@/components/Input.vue";
 import Textarea from "@/components/Textarea.vue";
 import Button from "@/components/Button.vue";
 import CloseBracket from "@/components/CloseBracket.vue";
+import { useToast } from "vue-toast-notification";
 import type { PageProps } from "@/utils/pages";
+import { ref } from "vue";
 
 const props = defineProps<PageProps>();
+const $toast = useToast();
+const isLoading = ref(false);
+
+const onSubmit = async (e: Event) => {
+  if (isLoading.value) return;
+  isLoading.value = true;
+  const formData = Object.fromEntries(new FormData(e.target as HTMLFormElement));
+  const res = await fetch("/email", { method: "POST", body: JSON.stringify(formData) });
+  if (res.ok) {
+    $toast.success("I will reply soon!");
+  } else {
+    $toast.error("Unknown error. Please send the email manually");
+  }
+
+  isLoading.value = false;
+};
 </script>
 
 <style scoped>
