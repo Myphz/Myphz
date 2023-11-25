@@ -1,65 +1,71 @@
 <template>
-  <section
-    class="timeline-container relative flex w-[250vh] flex-1 items-center gap-4 text-primary lg:w-full"
-    :style="`
-    --experiences: ${EXPERIENCES.length};
-    --primary: ${primaryColor};
-    --secondary: ${secondaryColor}`"
+  <div
+    class="timeline-container absolute top-1/2 flex h-full w-full flex-1 -translate-y-1/2 flex-col overflow-auto lg:overflow-visible"
+    @scroll="onMobileScroll"
   >
-    <div>{{ Math.min(...EXPERIENCES.map((exp) => exp.start)) }}</div>
-    <div class="relative w-full">
-      <hr class="line absolute h-1 w-full rounded-md bg-secondary text-secondary" />
+    <section
+      class="relative flex w-[250vh] flex-1 items-center gap-4 text-primary lg:w-full"
+      :style="`
+      --experiences: ${EXPERIENCES.length};
+      --primary: ${primaryColor};
+      --secondary: ${secondaryColor};
+      --mobile-experience: ${mobileExperience}`"
+    >
+      <div>{{ Math.min(...EXPERIENCES.map((exp) => exp.start)) }}</div>
+      <div class="relative w-full">
+        <hr class="line absolute h-1 w-full rounded-md bg-secondary text-secondary" />
 
-      <hr
-        class="line-secondary absolute left-0 h-1 rounded-md bg-primary text-primary"
-        :class="activeExperience ? 'line-animation' : 'line-still'"
-        :style="`--experience-idx: ${activeExperienceIdx}`"
-      />
-    </div>
-    <div class="pr-4 lg:p-0">{{ new Date().getFullYear() }}</div>
+        <hr
+          class="line-secondary line-secondary-mobile line-secondary-width-mobile absolute left-0 h-1 rounded-md bg-primary text-primary transition-all duration-[0.35s]"
+          :class="activeExperience ? 'line-animation' : 'line-still'"
+          :style="`--experience-idx: ${activeExperienceIdx}`"
+        />
+      </div>
+      <div class="pr-4 lg:p-0">{{ new Date().getFullYear() }}</div>
 
-    <div class="absolute left-0 flex w-full items-center justify-evenly">
-      <div v-for="experience in EXPERIENCES" class="dot-border" :key="experience.title" />
-    </div>
+      <div class="absolute left-0 flex w-full items-center justify-evenly">
+        <div v-for="experience in EXPERIENCES" class="dot-border" :key="experience.title" />
+      </div>
 
-    <div class="absolute left-0 flex w-full items-center justify-evenly text-responsive-h3">
-      <div
-        v-for="(experience, i) in EXPERIENCES"
-        :key="experience.title"
-        :style="`--text: '${experience.title}'`"
-        :class="{
-          'hidden-dot-important': activeExperience && experience.title === activeExperience,
-          'top-title': i % 2 !== 0
-        }"
-        class="dot-title"
-      />
-    </div>
-
-    <div class="dot-container absolute left-0 flex w-full items-center justify-evenly">
-      <button
-        v-for="(experience, i) in EXPERIENCES"
-        class="dot"
-        :key="experience.title"
-        @mouseover="() => setActiveExperience(experience.title)"
-        @mouseleave="() => setActiveExperience('')"
-      >
-        <article
-          class="dot-article"
+      <div class="absolute left-0 flex w-full items-center justify-evenly text-responsive-h3">
+        <div
+          v-for="(experience, i) in EXPERIENCES"
+          :key="experience.title"
+          :style="`--text: '${experience.title}'`"
           :class="{
-            'lg:hidden-dot': !activeExperience || experience.title !== activeExperience,
-            'article-top': i % 2 !== 0,
-            'article-bottom': i % 2 === 0
+            'hidden-dot-important': activeExperience && experience.title === activeExperience,
+            'top-title': i % 2 !== 0
           }"
+          class="dot-title"
+        />
+      </div>
+
+      <div class="dot-container absolute left-0 flex w-full items-center justify-evenly">
+        <button
+          v-for="(experience, i) in EXPERIENCES"
+          class="dot"
+          :key="experience.title"
+          @mouseover="() => setActiveExperience(experience.title)"
+          @mouseleave="() => setActiveExperience('')"
         >
-          <header class="text-primary text-responsive-h3">
-            {{ experience.title }}
-          </header>
-          <div class="w-full text-text text-responsive-h5">{{ experience.text }}</div>
-          <footer>{{ experience.note }}</footer>
-        </article>
-      </button>
-    </div>
-  </section>
+          <article
+            class="dot-article"
+            :class="{
+              'lg:hidden-dot': !activeExperience || experience.title !== activeExperience,
+              'article-top': i % 2 !== 0,
+              'article-bottom': i % 2 === 0
+            }"
+          >
+            <header class="text-primary text-responsive-h3">
+              {{ experience.title }}
+            </header>
+            <div class="w-full text-text text-responsive-h5">{{ experience.text }}</div>
+            <footer>{{ experience.note }}</footer>
+          </article>
+        </button>
+      </div>
+    </section>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -101,6 +107,8 @@ const config = resolveConfig(tailwindConfig);
 const primaryColor = config.theme.colors.primary;
 const secondaryColor = config.theme.colors.secondary;
 
+const mobileExperience = ref(1);
+
 const activeExperience = ref("");
 const activeExperienceIdx = ref(-1);
 
@@ -122,9 +130,22 @@ watch(
     activeExperienceIdx.value = idx;
   }
 );
+
+function onMobileScroll(e: Event) {
+  const factor = (EXPERIENCES.length + 2) * EXPERIENCES.length;
+  const element = e.target as HTMLElement;
+  const scrollPercentage = (100 * element.scrollLeft) / (element.scrollWidth - element.clientWidth);
+
+  mobileExperience.value = Math.min(Math.floor(scrollPercentage / factor) + 1, EXPERIENCES.length);
+}
 </script>
 
 <style scoped>
+.timeline-container {
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
 div,
 article {
   @apply transition-all;
@@ -135,7 +156,6 @@ article {
 }
 
 .line-secondary {
-  --experience-idx: 1;
   --padding: calc((var(--experience-idx) - 1) * 4.5rem);
   --left-pos: calc(
     calc(var(--experience-idx) * (100% / (var(--experiences) + 2))) + var(--padding)
@@ -225,5 +245,36 @@ article {
 
 .line-still {
   animation: line-anim-reverse var(--animation-duration) ease-in forwards;
+}
+
+@keyframes line-anim-mobile {
+  100% {
+    width: 20% !important;
+    /* left: 0 !important; */
+  }
+}
+
+@media (max-width: 1024px) {
+  .line-secondary-mobile {
+    --base-pct: calc(100% / (var(--experiences) + 2));
+    --mobile-width: calc(
+      (var(--base-pct) + 1.5rem) * var(--mobile-experience) + 4.5rem *
+        (var(--mobile-experience) - 1)
+    );
+
+    width: 0 !important;
+  }
+
+  .line-secondary-width-mobile {
+    width: var(--mobile-width) !important;
+  }
+
+  .line-animation {
+    animation: none;
+  }
+
+  .line-still {
+    animation: none;
+  }
 }
 </style>

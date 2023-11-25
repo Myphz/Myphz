@@ -12,15 +12,10 @@
         Each experience taught me something and I continuously improved in my learning journey.
       </p>
 
-      <div
-        class="timeline-container absolute top-1/2 flex h-full w-full flex-1 -translate-y-1/2 flex-col overflow-auto lg:overflow-visible"
-      >
-        <Experiences
-          class="flex-1"
-          @experience-focus="textVisible = false"
-          @experience-unfocus="textVisible = true"
-        />
-      </div>
+      <Experiences
+        @experience-focus="textVisible = false"
+        @experience-unfocus="textVisible = true"
+      />
     </div>
 
     <CloseBracket />
@@ -38,10 +33,3 @@ import { ref } from "vue";
 const props = defineProps<PageProps>();
 const textVisible = ref(true);
 </script>
-
-<style scoped>
-.timeline-container {
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-}
-</style>
