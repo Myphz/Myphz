@@ -78,13 +78,12 @@ import Input from "@/components/Input.vue";
 import Textarea from "@/components/Textarea.vue";
 import Button from "@/components/Button.vue";
 import CloseBracket from "@/components/CloseBracket.vue";
-import toast from "vue-toast-notification";
 import type { PageProps } from "@/utils/pages";
-import { ref } from "vue";
+import { ref, getCurrentInstance } from "vue";
 
 const props = defineProps<PageProps>();
-// @ts-ignore
-const $toast = toast.useToast();
+
+const $toast = getCurrentInstance()?.appContext.config.globalProperties.$toast!;
 const isLoading = ref(false);
 
 const onSubmit = async (e: Event) => {
