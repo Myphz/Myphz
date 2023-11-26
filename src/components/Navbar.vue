@@ -2,20 +2,23 @@
   <header
     class="fixed left-0 top-0 z-30 hidden w-full items-center justify-between px-4 py-4 text-responsive-h6 lg:flex lg:px-40 lg:py-12"
   >
-    <div>DRAG ANYWHERE</div>
+    <FromAbove>DRAG ANYWHERE</FromAbove>
     <nav>
       <ul class="flex gap-6 uppercase">
-        <li
+        <FromAbove
           v-for="(tab, i) in PAGES.filter((p) => p.name)"
           :key="tab.name"
           class="border-r border-text pr-6 transition-all last:border-0 hover:text-secondary"
           :class="{ 'text-secondary': activePage === tab.id }"
+          :style="`--order: ${i + 3}`"
         >
-          <a :href="tab.href" class="flex gap-2">
-            <span class="text-secondary">{{ i }}.</span>
-            <span>{{ tab.name }}</span>
-          </a>
-        </li>
+          <li>
+            <a :href="tab.href" class="flex gap-2">
+              <span class="text-secondary">{{ i }}.</span>
+              <span>{{ tab.name }}</span>
+            </a>
+          </li>
+        </FromAbove>
       </ul>
     </nav>
   </header>
@@ -34,6 +37,7 @@
 import { ref } from "vue";
 import Hamburger from "./Hamburger.vue";
 import Menu from "./Menu.vue";
+import FromAbove from "./FromAbove.vue";
 import { PAGES } from "@/utils/pages";
 import { activePage } from "@/utils/store";
 
