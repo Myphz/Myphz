@@ -28,7 +28,7 @@ RUN npm run build
 FROM debian:bookworm
 ARG DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update && apt-get install --no-install-recommends -y openssl
+RUN apt-get update && apt-get install --no-install-recommends -y openssl ca-certificates
 
 
 # Run as "app" user

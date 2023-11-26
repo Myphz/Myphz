@@ -26,7 +26,7 @@ pub fn send_email(Params { email, subject, body}: Params) -> bool {
 
     let creds = Credentials::new(get_env_var("CRED_EMAIL"), get_env_var("CRED_PASSWORD"));
 
-    let mailer = match SmtpTransport::starttls_relay("smtp-mail.outlook.com") {
+    let mailer = match SmtpTransport::starttls_relay("smtp.zoho.eu") {
         Ok(mail) => mail.credentials(creds).build(),
         Err(err) => return log_and_exit(err)
     };
