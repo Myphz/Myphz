@@ -15,6 +15,7 @@
 import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfig from "../../tailwind.config";
 import { onMounted, ref, useSlots } from "vue";
+import { getSlotText } from "@/utils/slots";
 
 const config = resolveConfig(tailwindConfig);
 const secondaryColor = config.theme.colors.secondary;
@@ -24,17 +25,7 @@ const divRef = ref(null);
 const { delay } = defineProps<{ delay?: number }>();
 const slots = useSlots();
 
-function getSlotText() {
-  let tree = slots.default?.()?.[0] ?? {};
-  while (typeof tree === "object" && "children" in tree) {
-    // @ts-ignore
-    tree = tree.children;
-    if (Array.isArray(tree)) tree = tree[0];
-  }
-  return tree.toString();
-}
-
-const text: string = getSlotText();
+const text = getSlotText(slots);
 
 onMounted(() => {
   new IntersectionObserver(

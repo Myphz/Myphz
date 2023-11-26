@@ -5,12 +5,11 @@
 </template>
 
 <script setup lang="ts">
+import { getSlotText } from "@/utils/slots";
 import { onMounted, ref, useSlots } from "vue";
 
 const slots = useSlots();
-
-// @ts-ignore
-const text: string = (slots.default?.()?.[0].children?.[0]?.children || "").toString();
+const text = getSlotText(slots);
 
 const element = ref<HTMLElement | null>(null);
 const animationStarted = ref(false);
