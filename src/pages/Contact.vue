@@ -8,7 +8,7 @@
 
         <div class="mt-16 hidden flex-col gap-4 lg:flex">
           <a href="https://github.com/Myphz" target="_blank" class="flex w-fit items-center gap-2">
-            <img src="/icons/github.png" class="img" />
+            <img src="/icons/github.png" class="img" alt="github" />
             <span>Myphz</span>
           </a>
           <a
@@ -16,7 +16,7 @@
             target="_blank"
             class="flex w-fit items-center gap-2"
           >
-            <img src="/icons/email.svg" class="img scale-[0.8]" />
+            <img src="/icons/email.svg" class="img scale-[0.8]" alt="email" />
             <span>danielscanu45@outlook.it</span>
           </a>
           <a
@@ -24,7 +24,7 @@
             target="_blank"
             class="flex w-fit items-center gap-2"
           >
-            <img src="/icons/linkedin.png" class="img" />
+            <img src="/icons/linkedin.png" class="img" alt="linkedin" />
             <span>Daniel Scanu</span>
           </a>
         </div>
@@ -46,7 +46,7 @@
 
       <div class="flex flex-col gap-2 lg:hidden">
         <a href="https://github.com/Myphz" target="_blank" class="flex w-fit items-center gap-2">
-          <img src="/icons/github.png" class="img" />
+          <img src="/icons/github.png" class="img" alt="github" />
           <span>Myphz</span>
         </a>
         <a
@@ -54,7 +54,7 @@
           target="_blank"
           class="flex w-fit items-center gap-2"
         >
-          <img src="/icons/email.svg" class="img scale-[0.8]" />
+          <img src="/icons/email.svg" class="img scale-[0.8]" alt="email" />
           <span>danielscanu45@outlook.it</span>
         </a>
         <a
@@ -62,7 +62,7 @@
           target="_blank"
           class="flex w-fit items-center gap-2"
         >
-          <img src="/icons/linkedin.png" class="img" />
+          <img src="/icons/linkedin.png" class="img" alt="linkedin" />
           <span>Daniel Scanu</span>
         </a>
       </div>

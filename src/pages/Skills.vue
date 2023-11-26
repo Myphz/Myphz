@@ -13,7 +13,7 @@
       <div class="flex justify-between lg:gap-40">
         <div class="flex flex-col justify-center gap-3 lg:gap-6">
           <div class="flex gap-4" v-for="language in LANGUAGES" :key="language.name">
-            <img :src="`/icons/${language.icon}.svg`" class="w-6 lg:w-8" />
+            <img :src="`/icons/${language.icon}.svg`" class="w-6 lg:w-8" :alt="language.name" />
             <span>{{ language.name }}</span>
           </div>
         </div>
@@ -25,7 +25,7 @@
         </div>
         <div class="flex flex-col justify-center gap-3 lg:gap-6">
           <div class="flex gap-4" v-for="technology in TECHNOLOGIES" :key="technology.name">
-            <img :src="`/icons/${technology.icon}.svg`" class="w-6 lg:w-8" />
+            <img :src="`/icons/${technology.icon}.svg`" class="w-6 lg:w-8" :alt="technology.name" />
             <span>{{ technology.name }}</span>
           </div>
         </div>

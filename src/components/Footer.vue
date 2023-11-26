@@ -9,10 +9,10 @@
       <a class="text-secondary underline">danielscanu45@outlook.it</a>
       <div class="flex gap-4">
         <a href="https://github.com/Myphz" target="_blank">
-          <img src="/icons/github.png" />
+          <img src="/icons/github.png" alt="github" />
         </a>
         <a href="https://www.linkedin.com/in/danielscanu/" target="_blank">
-          <img src="/icons/linkedin.png" />
+          <img src="/icons/linkedin.png" alt="linkedin" />
         </a>
       </div>
     </section>

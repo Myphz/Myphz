@@ -10,7 +10,7 @@
         </div>
 
         <div class="hidden gap-2 text-secondary lg:flex">
-          <img src="/icons/arch.png" />
+          <img src="/icons/arch.png" alt="archlinux" />
           <span>I use Arch btw</span>
         </div>
       </div>
@@ -28,7 +28,7 @@
       </p>
     </div>
     <div class="ml-4 flex gap-2 text-secondary lg:hidden">
-      <img src="/icons/arch.png" />
+      <img src="/icons/arch.png" alt="archlinux" />
       <span>I use Arch btw</span>
     </div>
 
