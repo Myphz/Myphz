@@ -9,8 +9,12 @@
       </div>
 
       <div class="mt-6 flex gap-3 lg:gap-6">
-        <Button variant="primary">Contact Me</Button>
-        <Button variant="secondary" class="flex items-center gap-2 lg:gap-4">
+        <Button variant="primary" @click="redirect('contact')">Contact Me</Button>
+        <Button
+          variant="secondary"
+          class="flex items-center gap-2 lg:gap-4"
+          @click="redirect('about')"
+        >
           <span>Learn More</span>
           <ArrowIcon />
         </Button>
@@ -29,6 +33,10 @@ import TypingAlternate from "@/components/TypingAlternate.vue";
 import Button from "@/components/Button.vue";
 import ArrowIcon from "@/assets/arrow.svg";
 import type { PageProps } from "@/utils/pages";
+
+const redirect = (to: string) => {
+  window.location.hash = to;
+};
 
 const props = defineProps<PageProps>();
 
