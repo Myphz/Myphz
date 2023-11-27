@@ -12,10 +12,7 @@
 
       <div class="flex justify-between lg:gap-40">
         <div class="flex flex-col justify-center gap-3 lg:gap-6">
-          <div class="flex gap-4" v-for="language in LANGUAGES" :key="language.name">
-            <img :src="`/icons/${language.icon}.svg`" class="w-6 lg:w-8" :alt="language.name" />
-            <span>{{ language.name }}</span>
-          </div>
+          <Skill :skill="language" v-for="language in LANGUAGES" :key="language.name" />
         </div>
         <div class="relative">
           <hr class="absolute h-full w-px bg-secondary lg:-top-[20%] lg:h-[140%] lg:w-1" />
@@ -24,10 +21,7 @@
           />
         </div>
         <div class="flex flex-col justify-center gap-3 lg:gap-6">
-          <div class="flex gap-4" v-for="technology in TECHNOLOGIES" :key="technology.name">
-            <img :src="`/icons/${technology.icon}.svg`" class="w-6 lg:w-8" :alt="technology.name" />
-            <span>{{ technology.name }}</span>
-          </div>
+          <Skill :skill="technology" v-for="technology in TECHNOLOGIES" :key="technology.name" />
         </div>
       </div>
     </div>
@@ -38,6 +32,7 @@
 
 <script setup lang="ts">
 import Header from "@/components/Header.vue";
+import Skill from "@/components/Skill.vue";
 import PageWrapper from "@/components/PageWrapper.vue";
 import CloseBracket from "@/components/CloseBracket.vue";
 import type { PageProps } from "@/utils/pages";
