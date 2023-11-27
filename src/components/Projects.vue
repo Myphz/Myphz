@@ -66,7 +66,7 @@ const PROJECTS = [
 
 .carousel__prev,
 .carousel__next {
-  @apply -translate-y-8 scale-[1.5] text-primary transition-all hover:text-primary lg:scale-[2.5];
+  @apply -translate-y-12 scale-[1.5] text-primary transition-all hover:text-primary lg:scale-[2.5];
 }
 
 .carousel__prev--disabled,
