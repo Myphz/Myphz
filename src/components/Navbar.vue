@@ -13,7 +13,11 @@
           :style="`--order: ${i + 3}`"
         >
           <li>
-            <a :href="tab.href" class="flex gap-2">
+            <a
+              :href="tab.href"
+              class="flex gap-2"
+              :target="tab.href?.startsWith('/') ? '_blank' : '_self'"
+            >
               <span class="text-secondary">{{ i }}.</span>
               <span>{{ tab.name }}</span>
             </a>

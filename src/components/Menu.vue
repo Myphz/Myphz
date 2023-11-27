@@ -5,7 +5,12 @@
         <div class="relative w-fit">
           <ul class="flex flex-col gap-4 uppercase text-responsive-h2">
             <li v-for="(tab, i) in PAGES.filter((page) => page.name)" :key="tab.name">
-              <a :href="tab.href" class="flex gap-2" @click="$emit('close')">
+              <a
+                :href="tab.href"
+                class="flex gap-2"
+                @click="$emit('close')"
+                :target="tab.href?.startsWith('/') ? '_blank' : '_self'"
+              >
                 <span class="text-secondary">{{ i }}.</span>
                 <span :class="{ 'text-secondary': activePage === tab.id }">{{ tab.name }}</span>
               </a>
