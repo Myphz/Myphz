@@ -136,6 +136,9 @@ export default {
           "@apply text-h6m lg:text-h6": {}
         }
       });
+    },
+    ({ addVariant }: Parameters<PluginCreator>[0]) => {
+      addVariant("mobile-only", "@media screen and (max-width: theme('screens.lg'))"); // instead of hard-coded 640px use sm breakpoint value from config. Or anything
     }
   ]
 } satisfies Config;

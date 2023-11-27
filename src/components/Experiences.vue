@@ -43,6 +43,7 @@
           :style="`--text: '${experience.title}'`"
           :class="{
             'hidden-dot-important': activeExperience && experience.title === activeExperience,
+            'mobile-only:hidden-dot-important': i % 2 === 0,
             'top-title': i % 2 !== 0
           }"
           class="dot-title"
@@ -210,7 +211,7 @@ article {
 }
 
 .dot-article {
-  @apply absolute left-1/2 flex w-[90vw] -translate-x-1/2 flex-col gap-1 rounded-xl bg-background p-2 lg:w-[30vw] lg:gap-2;
+  @apply absolute left-1/2 flex w-[90vw] -translate-x-1/2 flex-col gap-1 rounded-xl p-2 lg:w-[30vw] lg:gap-2;
 }
 
 .article-top {
@@ -266,8 +267,7 @@ article {
   .line-secondary-mobile {
     --base-pct: calc(100% / (var(--experiences) + 2));
     --mobile-width: calc(
-      (var(--base-pct) + 1.5rem) * var(--mobile-experience) + 3.5rem *
-        (var(--mobile-experience) - 1)
+      (var(--base-pct) + 1.5rem) * var(--mobile-experience) + 4rem * (var(--mobile-experience) - 1)
     );
 
     width: 0 !important;
