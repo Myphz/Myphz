@@ -12,7 +12,7 @@
         <div>
           Designed by
           <a
-            class="text-secondary"
+            class="text-secondary underline"
             href="https://contra.com/falzo_creations_612dk8w7"
             target="_blank"
           >
@@ -21,7 +21,7 @@
         </div>
       </div>
 
-      <div class="flex gap-4 lg:flex-col">
+      <div class="flex gap-4 lg:translate-y-1/2 lg:flex-col">
         <a href="https://github.com/Myphz" target="_blank">
           <img src="/icons/github.png" alt="github" />
         </a>
@@ -30,7 +30,7 @@
         </a>
       </div>
 
-      <a class="text-secondary underline" href="mailto:danielscanu45@outlook.it">
+      <a class="text-secondary underline lg:translate-y-1/2" href="mailto:danielscanu45@outlook.it">
         danielscanu45@outlook.it
       </a>
     </section>
