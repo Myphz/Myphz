@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative h-full w-full lg:absolute lg:right-[5vw] lg:top-1/2 lg:h-[50vh] lg:w-[30vw] lg:-translate-y-1/2 [&>*]:blur-[50px] lg:[&>*]:blur-[70px]"
+    class="blob-container relative h-full w-full lg:absolute lg:right-[5vw] lg:top-1/2 lg:h-[50vh] lg:w-[30vw] lg:-translate-y-1/2 [&>*]:blur-[50px] lg:[&>*]:blur-[70px]"
   >
     <!-- Primary blob -->
     <div class="blob-primary absolute left-0 top-0 hidden h-[70%] w-[70%] rounded-full lg:block" />
@@ -19,6 +19,10 @@
 </template>
 
 <style scoped>
+.blob-container {
+  opacity: 0;
+  animation: fade 0.4s ease-in-out 1.5s forwards;
+}
 .blob-primary {
   background: radial-gradient(circle, rgba(243, 255, 0, 1) 0%, rgba(12, 12, 12, 1) 100%);
   animation: rotate 2s ease-in-out infinite alternate;
@@ -72,6 +76,12 @@
     rotate: 180deg;
     right: 30%;
     bottom: 20%;
+  }
+}
+
+@keyframes fade {
+  to {
+    opacity: 1;
   }
 }
 </style>

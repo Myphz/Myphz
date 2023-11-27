@@ -3,12 +3,12 @@
     <section class="flex h-full flex-col justify-center gap-3 lg:gap-6">
       <MainText />
       <TypingAlternate class="leading-none lg:max-w-[50vw]" :tokens="HEADLINES" />
-      <div class="lg:-mt-3 lg:max-w-[40vw]">
+      <p class="lg:-mt-3 lg:max-w-[40vw]">
         Self-taught programmer motivated by passion and personal projects. Expert of searching bugs
         on Google and quickly scanning the best StackOverflow answers.
-      </div>
+      </p>
 
-      <div class="mt-6 flex gap-3 lg:gap-6">
+      <div class="button-container mt-6 flex gap-3 lg:gap-6">
         <Button variant="primary" @click="redirect('contact')">Contact Me</Button>
         <Button
           variant="secondary"
@@ -50,3 +50,19 @@ const HEADLINES = [
   "RUST ENJOYER"
 ];
 </script>
+
+<style scoped>
+p,
+.button-container {
+  translate: 0 40%;
+  opacity: 0;
+  animation: fadeUp 0.25s ease-in-out 1.5s forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    translate: 0 0;
+    opacity: 1;
+  }
+}
+</style>

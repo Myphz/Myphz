@@ -15,3 +15,18 @@
 import { PAGES } from "@/utils/pages";
 import { activePage } from "@/utils/store";
 </script>
+
+<style scoped>
+nav {
+  translate: 100% 0;
+  opacity: 0;
+  animation: fade 0.25s ease-in-out 1s forwards;
+}
+
+@keyframes fade {
+  to {
+    translate: 0 0;
+    opacity: 1;
+  }
+}
+</style>
