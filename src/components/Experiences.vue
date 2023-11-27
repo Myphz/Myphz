@@ -54,6 +54,7 @@
         <button
           v-for="(experience, i) in EXPERIENCES"
           class="dot scroll-snap"
+          aria-label="Work Experience"
           :key="experience.title"
           @mouseover="() => setActiveExperience(experience.title)"
           @mouseleave="() => setActiveExperience('')"

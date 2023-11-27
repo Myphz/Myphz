@@ -6,7 +6,8 @@
       :href="page.href"
       class="aspect-square h-4 rounded-full transition-all"
       :class="activePage === page.id ? 'bg-primary' : 'bg-text'"
-    ></a>
+      :aria-label="page.name"
+    />
   </nav>
 </template>
 

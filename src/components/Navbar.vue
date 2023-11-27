@@ -2,26 +2,25 @@
   <header
     class="fixed left-0 top-0 z-30 hidden w-full items-center justify-between bg-background px-4 py-4 text-responsive-h6 lg:flex lg:px-40 lg:pt-12"
   >
-    <FromAbove>DRAG ANYWHERE</FromAbove>
+    <FromAbove is="div">DRAG ANYWHERE</FromAbove>
     <nav>
       <ul class="flex gap-6 uppercase">
         <FromAbove
+          is="li"
           v-for="(tab, i) in PAGES.filter((p) => p.name)"
           :key="tab.name"
           class="border-r border-text pr-6 transition-all last:border-0 hover:text-secondary"
           :class="{ 'text-secondary': activePage === tab.id }"
           :style="`--order: ${i + 3}`"
         >
-          <li>
-            <a
-              :href="tab.href"
-              class="flex gap-2"
-              :target="tab.href?.startsWith('/') ? '_blank' : '_self'"
-            >
-              <span class="text-secondary">{{ i }}.</span>
-              <span>{{ tab.name }}</span>
-            </a>
-          </li>
+          <a
+            :href="tab.href"
+            class="flex gap-2"
+            :target="tab.href?.startsWith('/') ? '_blank' : '_self'"
+          >
+            <span class="text-secondary">{{ i }}.</span>
+            <span>{{ tab.name }}</span>
+          </a>
         </FromAbove>
       </ul>
     </nav>
