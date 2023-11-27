@@ -83,8 +83,11 @@ import { ref, watch } from "vue";
 import tailwindConfig from "../../tailwind.config";
 import resolveConfig from "tailwindcss/resolveConfig";
 
-const emit = defineEmits(["experienceFocus", "experienceUnfocus"]);
+const config = resolveConfig(tailwindConfig);
+const primaryColor = config.theme.colors.primary;
+const secondaryColor = config.theme.colors.secondary;
 
+const emit = defineEmits(["experienceFocus", "experienceUnfocus"]);
 const EXPERIENCES = [
   {
     start: 2023,
@@ -112,10 +115,6 @@ const EXPERIENCES = [
     note: "Worldwide | Jan 2018 - Feb 2022"
   }
 ].sort((exp1, exp2) => exp1.start - exp2.start);
-
-const config = resolveConfig(tailwindConfig);
-const primaryColor = config.theme.colors.primary;
-const secondaryColor = config.theme.colors.secondary;
 
 const mobileExperience = ref(1);
 
