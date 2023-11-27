@@ -11,7 +11,7 @@
       --secondary: ${secondaryColor};
       --mobile-experience: ${mobileExperience}`"
     >
-      <div>{{ Math.min(...EXPERIENCES.map((exp) => exp.start)) }}</div>
+      <div class="scroll-snap">{{ Math.min(...EXPERIENCES.map((exp) => exp.start)) }}</div>
       <div class="relative w-full">
         <hr class="line absolute h-1 w-full rounded-md bg-secondary text-secondary" />
 
@@ -21,7 +21,7 @@
           :style="`--experience-idx: ${activeExperienceIdx}`"
         />
       </div>
-      <div class="pr-4 lg:p-0">{{ new Date().getFullYear() }}</div>
+      <div class="scroll-snap pr-4 lg:p-0">{{ new Date().getFullYear() }}</div>
 
       <div class="absolute left-0 flex w-full items-center justify-evenly">
         <div
@@ -53,7 +53,7 @@
       <div class="dot-container absolute left-0 flex w-full items-center justify-evenly">
         <button
           v-for="(experience, i) in EXPERIENCES"
-          class="dot"
+          class="dot scroll-snap"
           :key="experience.title"
           @mouseover="() => setActiveExperience(experience.title)"
           @mouseleave="() => setActiveExperience('')"
@@ -161,6 +161,10 @@ article {
   @apply transition-all;
 }
 
+.scroll-snap {
+  scroll-snap-align: center;
+}
+
 .line {
   box-shadow: 0 0 1em 0.05em var(--secondary);
 }
@@ -177,7 +181,6 @@ article {
   box-shadow: 0 0 1em 0.05em var(--secondary);
 }
 .dot {
-  scroll-snap-align: center;
   box-shadow: 0 0 1em 0.3em var(--primary);
   @apply relative aspect-square h-6 rounded-full bg-primary;
 }

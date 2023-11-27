@@ -12,6 +12,8 @@
         Each experience taught me something and I continuously improved in my learning journey.
       </p>
 
+      <p class="absolute lg:hidden">DRAG TO EXPLORE</p>
+
       <Experiences
         @experience-focus="textVisible = false"
         @experience-unfocus="textVisible = true"
