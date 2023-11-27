@@ -25,7 +25,7 @@
 
       <div class="flex gap-4">
         <div class="font-bold">{{ BASE_PROMPT }}</div>
-        <Typing :delay="500" :speed="10">cleak</Typing>
+        <Typing :delay="500" :speed="10" :disable-caret-after="0">cleak</Typing>
       </div>
 
       <div v-if="timers.typeClear">bash: cleak: command not found</div>
@@ -64,7 +64,7 @@ type ToBoolean<T> = {
 
 // Logic:
 // After 0.5s -> start typing 'cleak'
-// 'cleak' takes 1s.
+// 'cleak' takes 0.7s.
 // After 2s -> start typing 'clear'.
 // 'clear' takes 1s.
 // After 3s -> clear history
@@ -75,7 +75,7 @@ type ToBoolean<T> = {
 // After 8.3s -> disappears.
 
 const TIMES: Record<string, { delay: number; defaultValue?: boolean }> = {
-  typeClear: { delay: 1500 },
+  typeClear: { delay: 1200 },
   history: { delay: 3000, defaultValue: true },
   firstLog: { delay: 5800 },
   secondLog: { delay: 7800 }
