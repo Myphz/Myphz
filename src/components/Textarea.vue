@@ -4,7 +4,7 @@
     <textarea
       required
       :name="name"
-      class="w-full rounded-lg border border-text px-4 py-2 active:outline-none"
+      class="w-full rounded-lg border border-text px-4 py-2 focus-visible:outline-none active:outline-none"
     />
   </label>
 </template>

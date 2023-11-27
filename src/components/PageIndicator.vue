@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed right-40 top-1/2 z-10 hidden -translate-y-1/2 flex-col gap-4 lg:flex">
+  <nav class="fixed right-40 top-1/2 z-10 hidden -translate-y-1/2 flex-col gap-4 lg:flex">
     <a
       v-for="(page, i) in PAGES.filter((p) => p.href?.startsWith('#'))"
       :key="i"
@@ -7,7 +7,7 @@
       class="aspect-square h-4 rounded-full transition-all"
       :class="activePage === page.id ? 'bg-primary' : 'bg-text'"
     ></a>
-  </div>
+  </nav>
 </template>
 
 <script setup lang="ts">

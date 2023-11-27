@@ -4,7 +4,7 @@
     <input
       required
       :name="name"
-      class="w-full resize-y rounded-lg border border-text px-4 py-2 placeholder:text-text-secondary active:outline-none"
+      class="w-full resize-y rounded-lg border border-text px-4 py-2 placeholder:text-text-secondary focus-visible:outline-none active:outline-none"
       :type="type || 'text'"
       :placeholder="placeholder || ''"
     />
