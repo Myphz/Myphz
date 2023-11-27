@@ -1,6 +1,6 @@
 <template>
   <header
-    class="fixed left-0 top-0 z-30 hidden w-full items-center justify-between px-4 py-4 text-responsive-h6 lg:flex lg:px-40 lg:py-12"
+    class="fixed left-0 top-0 z-30 hidden w-full items-center justify-between bg-background px-4 py-4 text-responsive-h6 lg:flex lg:px-40 lg:pt-12"
   >
     <FromAbove>DRAG ANYWHERE</FromAbove>
     <nav>

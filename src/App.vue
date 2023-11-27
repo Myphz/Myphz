@@ -8,6 +8,8 @@
     :pageId="id"
     v-for="({ component, id }, i) in PAGES.filter((p) => p.component)"
   />
+
+  <Footer class="hidden lg:block" />
 </template>
 
 <script setup lang="ts">
@@ -20,6 +22,7 @@ import { onMounted } from "vue";
 import { PAGES } from "./utils/pages";
 
 import Navbar from "./components/Navbar.vue";
+import Footer from "./components/Footer.vue";
 import PageIndicator from "./components/PageIndicator.vue";
 import { activePage } from "./utils/store";
 
