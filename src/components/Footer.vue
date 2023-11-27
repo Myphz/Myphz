@@ -9,7 +9,16 @@
       <div class="flex flex-col gap-4">
         <MainText :animated="false" class="lg:!text-responsive-h2" />
         <div>Powered by Phoexa</div>
-        <div>Designed by Falzo</div>
+        <div>
+          Designed by
+          <a
+            class="text-secondary"
+            href="https://contra.com/falzo_creations_612dk8w7"
+            target="_blank"
+          >
+            Falzo
+          </a>
+        </div>
       </div>
 
       <div class="flex gap-4 lg:flex-col">
