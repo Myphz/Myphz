@@ -3,9 +3,7 @@
     ref="divRef"
     class="relative h-fit w-fit after:bg-background"
     :class="{ 'animation-started': animationStarted }"
-    :style="`--text-length: ${text.length}; --caret-color: ${secondaryColor}; --delay: ${
-      delay || 0
-    };`"
+    :style="`--text-length: ${text.length}; --caret-color: ${secondaryColor}; --delay: ${delay}; --speed: ${speed}`"
   >
     {{ text }}
   </div>
@@ -17,12 +15,17 @@ import tailwindConfig from "../../tailwind.config";
 import { onMounted, ref, useSlots } from "vue";
 import { getSlotText } from "@/utils/slots";
 
+const CPS_DEFUALT = 20;
+
 const config = resolveConfig(tailwindConfig);
 const secondaryColor = config.theme.colors.secondary;
 const animationStarted = ref(false);
 const divRef = ref(null);
 
-const { delay } = defineProps<{ delay?: number }>();
+const { delay, speed } = withDefaults(defineProps<{ delay?: number; speed?: number }>(), {
+  delay: 0,
+  speed: CPS_DEFUALT
+});
 const slots = useSlots();
 
 const text = getSlotText(slots);
@@ -51,8 +54,7 @@ div::after {
 }
 
 .animation-started::after {
-  /* 20 character per second typing speed */
-  --animation-duration: calc(var(--text-length) / 20 * 1s);
+  --animation-duration: calc(var(--text-length) / var(--speed) * 1s);
   animation:
     typing var(--animation-duration) steps(var(--text-length)) calc(var(--delay) * 1ms) forwards,
     blink 500ms calc(var(--delay) * 1ms - 1s) infinite,
