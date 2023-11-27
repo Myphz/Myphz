@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 100;
+}
+
+html,
+body,
+#app {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+.page {
+  scroll-snap-align: start;
+}
+
+input,
+textarea {
+  font: inherit;
+  background: inherit;
+}
+
+/* Hide all scrollbars */
+* {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+*::-webkit-scrollbar {
+  display: none !important;
+}
+
+@layer utilities {
+  .hidden-dot {
+    opacity: 0;
+    visibility: hidden;
+  }
+  .hidden-dot-important {
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+}
+
+/* Toast */
+.v-toast__text {
+  padding: 0.5em;
+}
+
+@media (max-width: 1023px) {
+  .v-toast {
+    right: 5% !important;
+  }
+}

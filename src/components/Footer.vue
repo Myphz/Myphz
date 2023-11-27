@@ -1,0 +1,33 @@
+<template>
+  <footer class="relative overflow-y-clip lg:snap-center lg:pb-8">
+    <div class="pb-8">
+      <hr class="absolute left-[-10%] h-2 w-[200vw] text-secondary" />
+      <hr class="absolute left-[-10%] h-2 w-[200vw] bg-secondary text-secondary blur-[20px]" />
+    </div>
+
+    <section class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-evenly lg:px-40">
+      <div class="flex flex-col gap-4">
+        <MainText :animated="false" class="lg:!text-responsive-h2" />
+        <div>Powered by Phoexa</div>
+        <div>Designed by Falzo</div>
+      </div>
+
+      <div class="flex gap-4 lg:flex-col">
+        <a href="https://github.com/Myphz" target="_blank">
+          <img src="/icons/github.png" alt="github" />
+        </a>
+        <a href="https://www.linkedin.com/in/danielscanu/" target="_blank">
+          <img src="/icons/linkedin.png" alt="linkedin" />
+        </a>
+      </div>
+
+      <a class="text-secondary underline" href="mailto:danielscanu45@outlook.it">
+        danielscanu45@outlook.it
+      </a>
+    </section>
+  </footer>
+</template>
+
+<script setup lang="ts">
+import MainText from "./MainText.vue";
+</script>
