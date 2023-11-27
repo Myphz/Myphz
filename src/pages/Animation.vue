@@ -2,19 +2,19 @@
   <PageWrapper page-id="Animation" class="flex flex-col gap-2 font-terminal text-secondary">
     <div class="flex flex-col gap-2" v-if="timers.history">
       <div class="flex gap-4">
-        <div>myphz@archlinux: ~$</div>
+        <div class="font-bold">{{ BASE_PROMPT }}</div>
         <div>pwd</div>
       </div>
 
       <div>/home/daniel/Documents</div>
 
       <div class="flex gap-4">
-        <div>myphz@archlinux: ~$</div>
+        <div class="font-bold">{{ BASE_PROMPT }}</div>
         <div>cd portfolio</div>
       </div>
 
       <div class="flex gap-4">
-        <div>myphz@archlinux: ~$</div>
+        <div class="font-bold">{{ BASE_PROMPT }}</div>
         <div>ls</div>
       </div>
 
@@ -24,16 +24,21 @@
       </div>
 
       <div class="flex gap-4">
-        <div>myphz@archlinux: ~$</div>
-        <!-- Takes 1.21 seconds (without delay) -->
-        <Typing :delay="1000" :speed="7">clear</Typing>
+        <div class="font-bold">{{ BASE_PROMPT }}</div>
+        <Typing :delay="500" :speed="10">cleak</Typing>
+      </div>
+
+      <div v-if="timers.typeClear">bash: cleak: command not found</div>
+
+      <div class="flex gap-4" v-if="timers.typeClear">
+        <div class="font-bold">{{ BASE_PROMPT }}</div>
+        <Typing :delay="500" :speed="10">clear</Typing>
       </div>
     </div>
 
     <div class="flex gap-4" v-if="!timers.history">
-      <div>myphz@archlinux: ~$</div>
-      <!-- Takes 3.07 seconds (without delay) -->
-      <Typing :delay="1000" :speed="7">exec ./ddaniel.dev</Typing>
+      <div class="font-bold">{{ BASE_PROMPT }}</div>
+      <Typing :delay="500" :speed="10">exec ./ddaniel.dev</Typing>
     </div>
 
     <div v-show="timers.firstLog">Server starting...</div>
@@ -49,16 +54,31 @@ import { onMounted, reactive } from "vue";
 
 const emit = defineEmits(["endAnimation"]);
 
-const TOTAL_TIME = 8881;
+const TOTAL_TIME = 8300;
+
+const BASE_PROMPT = "myphz@archlinux:$";
 
 type ToBoolean<T> = {
   [K in keyof T]: boolean;
 };
 
+// Logic:
+// After 0.5s -> start typing 'cleak'
+// 'cleak' takes 1s.
+// After 2s -> start typing 'clear'.
+// 'clear' takes 1s.
+// After 3s -> clear history
+// After 3.5s -> start typing 'exec ./ddaniel.dev'
+// 'exec ./ddaniel.dev' takes 2.3s.
+// After 5.8s -> logs first log.
+// After 7.8s -> logs second log.
+// After 8.3s -> disappears.
+
 const TIMES: Record<string, { delay: number; defaultValue?: boolean }> = {
-  history: { delay: 2210, defaultValue: true },
-  firstLog: { delay: 6381 },
-  secondLog: { delay: 8581 }
+  typeClear: { delay: 1500 },
+  history: { delay: 3000, defaultValue: true },
+  firstLog: { delay: 5800 },
+  secondLog: { delay: 7800 }
 };
 
 const timers = reactive(
