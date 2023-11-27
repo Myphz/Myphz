@@ -69,6 +69,14 @@ const PROJECTS = [
   @apply -translate-y-12 scale-[1.5] text-primary transition-all hover:text-primary lg:scale-[2.5];
 }
 
+.carousel__prev {
+  @apply -translate-x-3 lg:-translate-x-6;
+}
+
+.carousel__next {
+  @apply translate-x-3 lg:translate-x-6;
+}
+
 .carousel__prev--disabled,
 .carousel__next--disabled {
   opacity: 0;
