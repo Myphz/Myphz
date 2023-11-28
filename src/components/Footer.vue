@@ -5,7 +5,7 @@
       <hr class="absolute left-[-10%] h-2 w-[200vw] bg-secondary text-secondary blur-[20px]" />
     </div>
 
-    <section class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-evenly lg:px-40">
+    <section class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between lg:px-40">
       <div class="flex flex-col gap-4">
         <MainText :animated="false" class="lg:!text-responsive-h2" />
         <div>Powered by Phoexa</div>
