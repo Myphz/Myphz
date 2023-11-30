@@ -239,17 +239,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "devfolio_be"
-version = "0.1.0"
-dependencies = [
- "dotenvy",
- "lettre",
- "rocket",
- "serde",
- "validator",
-]
-
-[[package]]
 name = "devise"
 version = "0.3.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1348,6 +1337,17 @@ dependencies = [
  "itoa",
  "ryu",
  "serde",
+]
+
+[[package]]
+name = "server"
+version = "0.1.0"
+dependencies = [
+ "dotenvy",
+ "lettre",
+ "rocket",
+ "serde",
+ "validator",
 ]
 
 [[package]]

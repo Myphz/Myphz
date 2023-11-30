@@ -61,6 +61,11 @@ fn default_catcher(status: Status, _req: &Request) -> status::Custom<Json<Respon
 fn rocket() -> _ {
     dotenv().ok();
     rocket::build()
+    .attach(AdHoc::on_response("Cache-Control", |_req, res| {
+        Box::pin(async move {
+            res.set_header(Header::new("Cache-Control", "max-age=2592000"));
+        })
+    }))
     .mount("/", routes![index])
     .mount("/", FileServer::from("./static"))
     .register("/", catchers![default_catcher])
