@@ -1,19 +1,19 @@
 <template>
   <div
-    class="blob-container relative h-full w-full lg:absolute lg:right-[5vw] lg:top-1/2 lg:h-[50vh] lg:w-[30vw] lg:-translate-y-1/2 [&>*]:blur-[50px] lg:[&>*]:blur-[70px]"
+    class="blob-container relative h-full w-full 2xl:absolute 2xl:right-[5vw] 2xl:top-1/2 2xl:h-[50vh] 2xl:w-[30vw] 2xl:-translate-y-1/2 [&>*]:blur-[50px] 2xl:[&>*]:blur-[70px]"
   >
     <!-- Primary blob -->
-    <div class="blob-primary absolute left-0 top-0 hidden h-[70%] w-[70%] rounded-full lg:block" />
+    <div class="blob-primary absolute left-0 top-0 hidden h-[70%] w-[70%] rounded-full 2xl:block" />
     <div
-      class="blob-primary-mobile absolute left-1/2 top-1/2 h-[50%] w-[50%] -translate-x-1/2 -translate-y-1/2 rounded-full lg:hidden"
+      class="blob-primary-mobile absolute left-1/2 top-1/2 h-[50%] w-[50%] -translate-x-1/2 -translate-y-1/2 rounded-full 2xl:hidden"
     />
     <!-- Secondary blob -->
     <div
-      class="blob-secondary absolute bottom-0 right-[10%] h-[50%] w-[50%] rounded-full lg:right-0 lg:h-[70%] lg:w-[70%]"
+      class="blob-secondary absolute bottom-0 right-[10%] h-[50%] w-[50%] rounded-full 2xl:right-0 2xl:h-[70%] 2xl:w-[70%]"
     />
     <!-- Shadow -->
     <div
-      class="blob-shadow absolute bottom-[10%] left-0 h-[50%] w-[50%] blur-[80px] lg:bottom-[15%] lg:left-[-10%] lg:h-[50%] lg:w-[60%] lg:!blur-[80px]"
+      class="blob-shadow absolute bottom-[10%] left-0 h-[50%] w-[50%] blur-[80px] 2xl:bottom-[15%] 2xl:left-[-10%] 2xl:h-[50%] 2xl:w-[60%] 2xl:!blur-[80px]"
     ></div>
   </div>
 </template>

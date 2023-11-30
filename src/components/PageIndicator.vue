@@ -1,5 +1,5 @@
 <template>
-  <nav class="fixed right-40 top-1/2 z-10 hidden -translate-y-1/2 flex-col gap-4 lg:flex">
+  <nav class="fixed right-40 top-1/2 z-10 hidden -translate-y-1/2 flex-col gap-4 2xl:flex">
     <a
       v-for="(page, i) in PAGES.filter((p) => p.href?.startsWith('#'))"
       :key="i"

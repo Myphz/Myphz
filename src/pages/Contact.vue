@@ -1,12 +1,12 @@
 <template>
   <PageWrapper class="flex flex-col justify-center" id="contact" v-bind="props">
     <Header>CONTACT</Header>
-    <section class="flex flex-col gap-6 pl-4 lg:flex-row lg:gap-20 lg:pl-8 [&>*]:flex-1">
+    <section class="flex flex-col gap-6 pl-4 2xl:flex-row 2xl:gap-20 2xl:pl-8 [&>*]:flex-1">
       <div>
         <header class="text-secondary text-responsive-h3">Have a project in mind?</header>
         <div>My inbox is always open for new opportunities.</div>
 
-        <div class="mt-16 hidden flex-col gap-4 lg:flex">
+        <div class="mt-16 hidden flex-col gap-4 2xl:flex">
           <a href="https://github.com/Myphz" target="_blank" class="flex w-fit items-center gap-2">
             <img src="/icons/github.png" class="img" alt="github" />
             <span>Myphz</span>
@@ -30,7 +30,10 @@
         </div>
       </div>
 
-      <form class="flex max-w-[40rem] flex-col gap-2 lg:gap-8 lg:pr-16" @submit.prevent="onSubmit">
+      <form
+        class="flex max-w-[40rem] flex-col gap-2 2xl:gap-8 2xl:pr-16"
+        @submit.prevent="onSubmit"
+      >
         <Input label="Email" type="email" name="email" />
         <Input label="Subject" name="subject" />
         <Textarea label="Message" name="body" />
@@ -44,7 +47,7 @@
         </Button>
       </form>
 
-      <div class="flex flex-col gap-2 lg:hidden">
+      <div class="flex flex-col gap-2 2xl:hidden">
         <a href="https://github.com/Myphz" target="_blank" class="flex w-fit items-center gap-2">
           <img src="/icons/github.png" class="img" alt="github" />
           <span>Myphz</span>
@@ -103,6 +106,6 @@ const onSubmit = async (e: Event) => {
 
 <style scoped>
 .img {
-  @apply aspect-square w-8 lg:w-12;
+  @apply aspect-square w-8 2xl:w-12;
 }
 </style>

@@ -1,10 +1,10 @@
 <template>
   <div
-    class="timeline-container absolute top-1/2 flex h-full w-full flex-1 -translate-y-1/2 flex-col overflow-auto lg:overflow-visible"
+    class="timeline-container absolute top-1/2 flex h-full w-full flex-1 -translate-y-1/2 flex-col overflow-auto 2xl:overflow-visible"
     @scroll="onMobileScroll"
   >
     <section
-      class="relative flex w-[250vh] flex-1 items-center gap-4 text-primary lg:w-full"
+      class="relative flex w-[250vh] flex-1 items-center gap-4 text-primary 2xl:w-full"
       :style="`
       --experiences: ${EXPERIENCES.length};
       --primary: ${primaryColor};
@@ -21,15 +21,15 @@
           :style="`--experience-idx: ${activeExperienceIdx}`"
         />
       </div>
-      <div class="scroll-snap pr-4 lg:p-0">{{ new Date().getFullYear() }}</div>
+      <div class="scroll-snap pr-4 2xl:p-0">{{ new Date().getFullYear() }}</div>
 
       <div class="absolute left-0 flex w-full items-center justify-evenly">
         <div
           v-for="(experience, i) in EXPERIENCES"
           class="dot-border after:transition-all"
           :class="{
-            'lg:after:!border-primary': activeExperienceIdx === i,
-            'lg:after:!border-secondary': activeExperienceIdx !== i,
+            '2xl:after:!border-primary': activeExperienceIdx === i,
+            '2xl:after:!border-secondary': activeExperienceIdx !== i,
             'after:border-primary': mobileExperience - 1 === i
           }"
           :key="experience.title"
@@ -62,7 +62,7 @@
           <article
             class="dot-article"
             :class="{
-              'lg:hidden-dot': !activeExperience || experience.title !== activeExperience,
+              '2xl:hidden-dot': !activeExperience || experience.title !== activeExperience,
               'article-top': i % 2 !== 0,
               'article-bottom': i % 2 === 0
             }"
@@ -214,19 +214,19 @@ article {
 }
 
 .dot-article {
-  @apply absolute left-1/2 flex w-[90vw] -translate-x-1/2 flex-col gap-1 rounded-xl p-2 lg:w-[30vw] lg:gap-2;
+  @apply absolute left-1/2 flex w-[90vw] -translate-x-1/2 flex-col gap-1 rounded-xl p-2 2xl:w-[30vw] 2xl:gap-2;
 }
 
 .article-top {
-  @apply -top-[13.5rem] lg:-top-[18rem];
+  @apply -top-[13.5rem] 2xl:-top-[18rem];
 }
 
 .article-bottom {
-  @apply top-[2rem] lg:top-[3rem];
+  @apply top-[2rem] 2xl:top-[3rem];
 }
 
 .top-title {
-  @apply hidden-dot lg:visible lg:opacity-100;
+  @apply hidden-dot 2xl:visible 2xl:opacity-100;
 }
 
 .line-animation {
@@ -266,7 +266,7 @@ article {
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1535px) {
   .line-secondary-mobile {
     --base-pct: calc(100% / (var(--experiences) + 2));
     --mobile-width: calc(

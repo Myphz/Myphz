@@ -1,6 +1,6 @@
 <template>
   <PageWrapper
-    class="flex flex-col justify-center !py-20 lg:py-28"
+    class="flex flex-col justify-center !py-20 2xl:py-28"
     id="projects"
     ref="page"
     v-bind="props"

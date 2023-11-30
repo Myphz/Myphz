@@ -2,7 +2,7 @@
   <PageWrapper class="flex flex-col justify-center" id="skills" v-bind="props">
     <Header>SKILLS</Header>
 
-    <div class="flex flex-col gap-8 pl-4 lg:w-[90%] lg:flex-row lg:gap-60 lg:pl-8">
+    <div class="flex flex-col gap-8 pl-4 2xl:w-[90%] 2xl:flex-row 2xl:gap-60 2xl:pl-8">
       <p>
         I excel in dissecting complex problems into manageable tasks, essential for crafting robust,
         maintainable code in large-scale projects. I'm driven by challenges, always seeking
@@ -10,17 +10,17 @@
         quickly grasp and adapt to new technologies autonomously.
       </p>
 
-      <div class="flex justify-between lg:gap-40">
-        <div class="flex flex-col justify-center gap-3 lg:gap-6">
+      <div class="flex justify-between 2xl:gap-40">
+        <div class="flex flex-col justify-center gap-3 2xl:gap-6">
           <Skill :skill="language" v-for="language in LANGUAGES" :key="language.name" />
         </div>
         <div class="relative">
-          <hr class="absolute h-full w-px bg-secondary lg:-top-[20%] lg:h-[140%] lg:w-1" />
+          <hr class="absolute h-full w-px bg-secondary 2xl:-top-[20%] 2xl:h-[140%] 2xl:w-1" />
           <hr
-            class="absolute h-full w-1 bg-secondary blur-[10px] lg:-top-[20%] lg:h-[140%] lg:w-3 lg:blur-[20px]"
+            class="absolute h-full w-1 bg-secondary blur-[10px] 2xl:-top-[20%] 2xl:h-[140%] 2xl:w-3 2xl:blur-[20px]"
           />
         </div>
-        <div class="flex flex-col justify-center gap-3 lg:gap-6">
+        <div class="flex flex-col justify-center gap-3 2xl:gap-6">
           <Skill :skill="technology" v-for="technology in TECHNOLOGIES" :key="technology.name" />
         </div>
       </div>

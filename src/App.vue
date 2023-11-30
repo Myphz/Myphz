@@ -14,7 +14,7 @@
       v-for="({ component, id }, i) in PAGES.filter((p) => p.component)"
     />
 
-    <Footer class="hidden lg:block" />
+    <Footer class="hidden 2xl:block" />
   </template>
 </template>
 

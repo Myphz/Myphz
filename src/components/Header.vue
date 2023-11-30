@@ -1,5 +1,5 @@
 <template>
-  <header class="mb-2 flex gap-4 font-subheader text-primary text-responsive-h2 lg:mb-8 lg:gap-8">
+  <header class="mb-2 flex gap-4 font-subheader text-primary text-responsive-h2 2xl:mb-8 2xl:gap-8">
     <SortText><slot /></SortText>
     <span class="text-secondary">{{ "{" }}</span>
   </header>

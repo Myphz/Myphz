@@ -1,7 +1,7 @@
 <template>
   <button
     @click="() => $emit('toggle')"
-    class="button-hamburger relative h-9 w-9 rounded-full p-2 text-secondary lg:h-16 lg:w-16 lg:p-4 [&>*]:w-8 lg:[&>*]:w-16"
+    class="button-hamburger relative h-9 w-9 rounded-full p-2 text-secondary 2xl:h-16 2xl:w-16 2xl:p-4 [&>*]:w-8 2xl:[&>*]:w-16"
     aria-controls="primary-navigation"
     ref="button"
   >

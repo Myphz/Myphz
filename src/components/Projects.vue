@@ -5,7 +5,7 @@
     :snapAlign="'end'"
     :breakpoints="breakpoints"
     wrapAround
-    class="lg:mx-10 lg:h-[40vh]"
+    class="2xl:mx-10 2xl:h-[40vh]"
   >
     <Slide v-for="project in PROJECTS" :key="project.name">
       <Project :img="project.image" :redirect="project.redirect">
@@ -57,7 +57,7 @@ const PROJECTS = [
 <style>
 .carousel__item {
   background-color: green;
-  @apply h-full w-full lg:mx-8;
+  @apply h-full w-full 2xl:mx-8;
 }
 
 .carousel__slide {
@@ -66,15 +66,15 @@ const PROJECTS = [
 
 .carousel__prev,
 .carousel__next {
-  @apply -translate-y-12 scale-[1.5] text-primary transition-all hover:text-primary lg:scale-[2.5];
+  @apply -translate-y-12 scale-[1.5] text-primary transition-all hover:text-primary 2xl:scale-[2.5];
 }
 
 .carousel__prev {
-  @apply -translate-x-3 lg:-translate-x-6;
+  @apply -translate-x-3 2xl:-translate-x-6;
 }
 
 .carousel__next {
-  @apply translate-x-3 lg:translate-x-6;
+  @apply translate-x-3 2xl:translate-x-6;
 }
 
 .carousel__prev--disabled,

@@ -3,10 +3,10 @@
     <a
       :href="redirect"
       target="_blank"
-      class="flex h-full flex-col justify-center rounded-lg lg:gap-2"
+      class="flex h-full flex-col justify-center rounded-lg 2xl:gap-2"
     >
       <div
-        class="img-container relative mb-2 rounded-lg text-secondary after:rounded-lg after:transition-all lg:max-h-[75%]"
+        class="img-container relative mb-2 rounded-lg text-secondary after:rounded-lg after:transition-all 2xl:max-h-[75%]"
       >
         <picture>
           <source

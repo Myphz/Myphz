@@ -3,16 +3,19 @@
     <Header>WORK</Header>
 
     <div
-      class="relative flex h-[70%] flex-col gap-8 pl-4 lg:h-auto lg:w-[90%] lg:flex-1 lg:gap-20 lg:pl-8"
+      class="relative flex h-[70%] flex-col gap-8 pl-4 2xl:h-auto 2xl:w-[90%] 2xl:flex-1 2xl:gap-20 2xl:pl-8"
     >
-      <p class="hidden transition-all" :class="textVisible ? 'lg:block' : 'lg:hidden-dot lg:block'">
+      <p
+        class="hidden transition-all"
+        :class="textVisible ? '2xl:block' : '2xl:hidden-dot 2xl:block'"
+      >
         I had the opportunity to work for many companies with many different technologies, from
         small startups to bigger companies.
         <br />
         Each experience taught me something and I continuously improved in my learning journey.
       </p>
 
-      <p class="absolute lg:hidden">DRAG TO EXPLORE</p>
+      <p class="absolute 2xl:hidden">DRAG TO EXPLORE</p>
 
       <Experiences
         @experience-focus="textVisible = false"

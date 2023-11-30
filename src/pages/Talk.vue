@@ -1,7 +1,7 @@
 <template>
   <PageWrapper class="flex flex-col items-center justify-center" v-bind="props">
     <header
-      class="relative flex w-fit flex-col items-center text-[8vw] font-extralight leading-none text-primary before:text-secondary after:text-secondary lg:text-[5vw]"
+      class="relative flex w-fit flex-col items-center text-[8vw] font-extralight leading-none text-primary before:text-secondary after:text-secondary 2xl:text-[5vw]"
     >
       <VariableFontTypingText text="“TALK IS CHEAP." />
       <VariableFontTypingText text="SHOW ME THE CODE”" :delay="2000" />

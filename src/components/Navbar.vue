@@ -1,6 +1,6 @@
 <template>
   <header
-    class="fixed left-0 top-0 z-30 hidden w-full items-center justify-between bg-background px-4 py-4 text-responsive-h6 lg:flex lg:px-40 lg:pt-12"
+    class="fixed left-0 top-0 z-30 hidden w-full items-center justify-between bg-background px-4 py-4 text-responsive-h6 2xl:flex 2xl:px-40 2xl:pt-12"
   >
     <FromAbove is="div">DRAG ANYWHERE</FromAbove>
     <nav>
@@ -27,7 +27,7 @@
   </header>
 
   <header
-    class="fixed left-0 top-0 z-30 flex w-full items-center justify-between px-4 py-4 text-responsive-h6 lg:hidden"
+    class="fixed left-0 top-0 z-30 flex w-full items-center justify-between px-4 py-4 text-responsive-h6 2xl:hidden"
   >
     <span>DRAG ANYWHERE</span>
     <Hamburger :open="navOpen" @toggle="navOpen = !navOpen" />

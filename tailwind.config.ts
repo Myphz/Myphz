@@ -115,30 +115,30 @@ export default {
     ({ addUtilities }: Parameters<PluginCreator>[0]) => {
       addUtilities({
         ".text-responsive-h1": {
-          "@apply text-h1m lg:text-h1": {}
+          "@apply text-h1m 2xl:text-h1": {}
         },
         ".text-responsive-sub-h1": {
-          "@apply text-sub-h1m lg:text-sub-h1": {}
+          "@apply text-sub-h1m 2xl:text-sub-h1": {}
         },
         ".text-responsive-h2": {
-          "@apply text-h2m lg:text-h2": {}
+          "@apply text-h2m 2xl:text-h2": {}
         },
         ".text-responsive-h3": {
-          "@apply text-h3m lg:text-h3": {}
+          "@apply text-h3m 2xl:text-h3": {}
         },
         ".text-responsive-h4": {
-          "@apply text-h4m lg:text-h4": {}
+          "@apply text-h4m 2xl:text-h4": {}
         },
         ".text-responsive-h5": {
-          "@apply text-h5m lg:text-h5": {}
+          "@apply text-h5m 2xl:text-h5": {}
         },
         ".text-responsive-h6": {
-          "@apply text-h6m lg:text-h6": {}
+          "@apply text-h6m 2xl:text-h6": {}
         }
       });
     },
     ({ addVariant }: Parameters<PluginCreator>[0]) => {
-      addVariant("mobile-only", "@media screen and (max-width: theme('screens.lg'))"); // instead of hard-coded 640px use sm breakpoint value from config. Or anything
+      addVariant("mobile-only", "@media screen and (max-width: theme('screens.2xl'))"); // instead of hard-coded 640px use sm breakpoint value from config. Or anything
     }
   ]
 } satisfies Config;
