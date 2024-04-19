@@ -1,5 +1,13 @@
 <template>
   <PageWrapper page-id="Animation" class="flex flex-col gap-2 font-terminal text-secondary">
+    <button
+      class="absolute bottom-12 right-0 flex items-center gap-2 text-responsive-h6 2xl:bottom-auto 2xl:top-20"
+      @click="endAnimation"
+    >
+      <span>Skip Animation</span>
+      <img src="/icons/chevrons-right.svg" class="aspect-square h-[1.25em]" alt="skip" />
+    </button>
+
     <div class="flex flex-col gap-2" v-if="timers.history">
       <div class="flex gap-4">
         <div class="font-bold">{{ BASE_PROMPT }}</div>
@@ -42,7 +50,7 @@
     </div>
 
     <div v-show="timers.firstLog">Server starting...</div>
-    <div v-show="timers.secondLog">Server listening on 127.0.0.1:5173</div>
+    <div v-show="timers.secondLog">Server listening on http://localhost:5173</div>
     <div v-show="timers.firstLog" class="h-[1em] w-px bg-secondary"></div>
   </PageWrapper>
 </template>
@@ -50,6 +58,7 @@
 <script setup lang="ts">
 import PageWrapper from "@/components/PageWrapper.vue";
 import Typing from "@/components/Typing.vue";
+
 import { onMounted, reactive } from "vue";
 
 const emit = defineEmits(["endAnimation"]);
@@ -90,12 +99,15 @@ const timers = reactive(
     {} as ToBoolean<typeof TIMES>
   )
 );
+
+const endAnimation = () => emit("endAnimation");
+
 onMounted(() => {
   for (const [key, value] of Object.entries(TIMES)) {
     const { delay, defaultValue = false } = value;
     setTimeout(() => (timers[key as keyof typeof timers] = !defaultValue), delay);
   }
 
-  setTimeout(() => emit("endAnimation"), TOTAL_TIME);
+  setTimeout(endAnimation, TOTAL_TIME);
 });
 </script>

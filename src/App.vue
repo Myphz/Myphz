@@ -33,18 +33,10 @@ import Footer from "./components/Footer.vue";
 import PageIndicator from "./components/PageIndicator.vue";
 import { activePage } from "./utils/store";
 
-import mixpanel from "mixpanel-browser";
-
 const showContent = ref(false);
 
 onMounted(() => {
   initializeOGLAnimation();
-
-  // Tracking
-  mixpanel.init("e744f4620b9bd5eb8751b963c2171042", {
-    track_pageview: true,
-    persistence: "localStorage"
-  });
 
   const hash = location.hash;
   if (!hash) return;

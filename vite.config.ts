@@ -11,5 +11,9 @@ export default defineConfig({
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url))
     }
+  },
+  ssr: {
+    // Add problematic npm package here:
+    noExternal: ["vue3-carousel"]
   }
 });
