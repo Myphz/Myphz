@@ -12,6 +12,6 @@ const { skill } = defineProps<{ skill: { name: string; icon: string } }>();
 <style scoped>
 div:hover {
   padding-right: 40%;
-  scale: 1.5;
+  scale: 1.25;
 }
 </style>

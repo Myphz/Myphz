@@ -10,7 +10,6 @@
     >
       <div class="flex flex-col gap-4">
         <MainText :animated="false" class="2xl:!text-responsive-h2" />
-        <div>Powered by Phoexa</div>
         <div>
           Designed by
           <a

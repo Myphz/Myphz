@@ -46,7 +46,7 @@
 
     <div class="flex gap-4" v-if="!timers.history">
       <div class="font-bold">{{ BASE_PROMPT }}</div>
-      <Typing :delay="500" :speed="10">exec ./ddaniel.dev</Typing>
+      <Typing :delay="500" :speed="10">npm run start</Typing>
     </div>
 
     <div v-show="timers.firstLog">Server starting...</div>
@@ -77,17 +77,17 @@ type ToBoolean<T> = {
 // After 2s -> start typing 'clear'.
 // 'clear' takes 1s.
 // After 3s -> clear history
-// After 3.5s -> start typing 'exec ./ddaniel.dev'
-// 'exec ./ddaniel.dev' takes 2.3s.
-// After 5.8s -> logs first log.
-// After 7.8s -> logs second log.
-// After 8.3s -> disappears.
+// After 3.5s -> start typing 'npm run start'
+// 'npm run start' takes 1.8s.
+// After 5.3s -> logs first log.
+// After 7.3s -> logs second log.
+// After 7.8s -> disappears.
 
 const TIMES: Record<string, { delay: number; defaultValue?: boolean }> = {
   typeClear: { delay: 1200 },
   history: { delay: 3000, defaultValue: true },
-  firstLog: { delay: 5800 },
-  secondLog: { delay: 7800 }
+  firstLog: { delay: 5300 },
+  secondLog: { delay: 7300 }
 };
 
 const timers = reactive(

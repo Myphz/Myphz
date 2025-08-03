@@ -35,7 +35,7 @@ const breakpoints = {
 const PROJECTS = [
   {
     name: "Trips!",
-    redirect: "https://play.google.com/store/apps/details?id=com.tripsphoexa.app",
+    redirect: "https://play.google.com/store/apps/details?id=com.voyalog.app",
     description: "Mobile app to plan & organize trips and photos",
     image: "/trips.webp"
   },

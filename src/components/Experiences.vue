@@ -93,14 +93,14 @@ const EXPERIENCES = [
   {
     start: 2023,
     title: "ContinuumLab",
-    text: "As a senior front-end developer, I designed a social-media platform interface, connecting to Strapi CMS with GraphQL & real-time capabilities, and integrating authentication providers",
+    text: "As senior front-end lead, I architected a Next.js AI-workflow platform for Fortune 500 R&D teams, live-streaming custom LLM output via Strapi & GraphQL/SSE and securing access with Keycloak SSO.",
     note: "USA | Nov 2022 - Current"
   },
   {
     start: 2022,
     title: "Way AS",
     text: "Designed booking & payment infrastructure and created a mobile app for automated bookings at a simulator-based driving school.",
-    note: "Norway | Aug 2022 - Jun 2023"
+    note: "Norway | Aug 2022 - Dec 2022"
   },
 
   {
